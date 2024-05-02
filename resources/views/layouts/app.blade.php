@@ -24,6 +24,8 @@
       @include('layouts.partials.footer')
     </div>
 
+    @yeld('modal')
+
     @auth
       <script>
         const logoutLink = document.getElementById('logout-link');
