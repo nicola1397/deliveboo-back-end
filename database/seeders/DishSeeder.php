@@ -78,7 +78,7 @@ class DishSeeder extends Seeder
         $dish->save();
 
         $dish = new Dish;
-        $dish->restaurant_id = 3;
+        $dish->restaurant_id = 2;
         $dish->name = "SanPietro al forno";
         $dish->description = "Pesce SanPietro di varie pezzature con contorno a scelta";
         $dish->price = 40;
