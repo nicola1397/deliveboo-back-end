@@ -21,7 +21,7 @@
                 @forelse($dishes as $dish)
                 <tr>
                     <td>{{ $dish['name'] }}</td>
-                    <td>{{ $dish['description'] }}</td>
+                    <td>{{ $dish->getAbstract(25) }}</td>
                     <td>{{ $dish['slug'] }}</td>
                     <td>{{ $dish['price'] }}€</td>
                     <td>
@@ -41,6 +41,8 @@
                 @endforelse
             </tbody>
         </table>
+
+        {{ $dishes->links('pagination::bootstrap-5') }}
     </div>
 </section>
 @endsection
