@@ -14,9 +14,9 @@ return new class extends Migration {
     {
         Schema::create('types', function (Blueprint $table) {
             $table->id();
-            $table->varchar('label', 200)->notnull();
+            $table->string('label', 200)->notnull();
             $table->char('color', 7)->nullable();
-            $table->varchar('image', 250)->nullable();
+            $table->string('image', 250)->nullable();
             $table->timestamps();
         });
     }
