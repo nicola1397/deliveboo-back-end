@@ -27,8 +27,8 @@ class DishSeeder extends Seeder
 
         $dish = new Dish;
         $dish->restaurant_id = 1;
-        $dish->name = "pizza";
-        $dish->description = "Pizza Margherita: pomodoro, mozzarella, basilico, olio, origano";
+        $dish->name = "Pizza Margherita";
+        $dish->description = "Pizza con pomodoro, mozzarella, basilico, olio, origano";
         $dish->price = 5;
         $dish->slug = Str::slug($dish->name);
         $dish->save();
