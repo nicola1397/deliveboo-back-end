@@ -21,13 +21,16 @@ class ResturantSeeder extends Seeder
                 'p_iva' => '01235478901',
                 'image' => 'picsum.photos/200/300',
                 'address' => 'via innominabile, 44',
+                'user_id' => '1'
             ],
             [
                 'name' => "L'asiatico allegro",
                 'p_iva' => '01237898901',
                 'image' => 'picsum.photos/200/300',
                 'address' => 'via della seta, 99',
+                'user_id' => '2'
             ],
+            /*
             [
                 'name' => 'Messicanino',
                 'p_iva' => '01275308901',
@@ -52,6 +55,7 @@ class ResturantSeeder extends Seeder
                 'image' => 'picsum.photos/200/300',
                 'address' => 'via inconsapevole, 23',
             ],
+            */
         ];
 
         foreach ($resturants as $resturant_data) {
@@ -60,6 +64,7 @@ class ResturantSeeder extends Seeder
             $resturant->p_iva = $resturant_data['p_iva'];
             $resturant->image = $resturant_data['image'];
             $resturant->address = $resturant_data['address'];
+            $resturant->user_id = $resturant_data['user_id'];
             $resturant->save();
         }
     }
