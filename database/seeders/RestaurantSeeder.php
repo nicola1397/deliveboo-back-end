@@ -22,15 +22,13 @@ class RestaurantSeeder extends Seeder
                 'p_iva' => '01235478901',
                 'image' => 'picsum.photos/200/300',
                 'address' => 'via innominabile, 44',
-                'user_id' => '1'
             ],
             [
-                'user_id' => 1,
+                'user_id' => 2,
                 'name' => "L'asiatico allegro",
                 'p_iva' => '01237898901',
                 'image' => 'picsum.photos/200/300',
                 'address' => 'via della seta, 99',
-                'user_id' => '2'
             ],
             /*
             [
@@ -64,14 +62,14 @@ class RestaurantSeeder extends Seeder
             */
         ];
 
-        foreach ($restaurants as $resturant_data) {
-            $resturant = new Restaurant;
-            $resturant->user_id = $resturant_data['user_id'];
-            $resturant->name = $resturant_data['name'];
-            $resturant->p_iva = $resturant_data['p_iva'];
-            $resturant->image = $resturant_data['image'];
-            $resturant->address = $resturant_data['address'];
-            $resturant->save();
+        foreach ($restaurants as $restaurant_data) {
+            $restaurant = new Restaurant;
+            $restaurant->user_id = $restaurant_data['user_id'];
+            $restaurant->name = $restaurant_data['name'];
+            $restaurant->p_iva = $restaurant_data['p_iva'];
+            $restaurant->image = $restaurant_data['image'];
+            $restaurant->address = $restaurant_data['address'];
+            $restaurant->save();
         }
     }
 }
