@@ -15,7 +15,7 @@ class ResturantSeeder extends Seeder
      */
     public function run()
     {
-        $resturants = [
+        $restaurants = [
             [
                 'name' => 'Lo sporcaccione',
                 'p_iva' => '01235478901',
@@ -58,14 +58,14 @@ class ResturantSeeder extends Seeder
             */
         ];
 
-        foreach ($resturants as $resturant_data) {
-            $resturant = new Restaurant;
-            $resturant->name = $resturant_data['name'];
-            $resturant->p_iva = $resturant_data['p_iva'];
-            $resturant->image = $resturant_data['image'];
-            $resturant->address = $resturant_data['address'];
-            $resturant->user_id = $resturant_data['user_id'];
-            $resturant->save();
+        foreach ($restaurants as $restaurant_data) {
+            $restaurant = new Restaurant;
+            $restaurant->name = $restaurant_data['name'];
+            $restaurant->p_iva = $restaurant_data['p_iva'];
+            $restaurant->image = $restaurant_data['image'];
+            $restaurant->address = $restaurant_data['address'];
+            $restaurant->user_id = $restaurant_data['user_id'];
+            $restaurant->save();
         }
     }
 }
