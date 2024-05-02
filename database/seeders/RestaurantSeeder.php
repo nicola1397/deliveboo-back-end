@@ -5,6 +5,7 @@ namespace Database\Seeders;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use App\Models\Restaurant;
+use Illuminate\Support\Str;
 
 class RestaurantSeeder extends Seeder
 {
@@ -66,6 +67,7 @@ class RestaurantSeeder extends Seeder
             $restaurant = new Restaurant;
             $restaurant->user_id = $restaurant_data['user_id'];
             $restaurant->name = $restaurant_data['name'];
+            $restaurant->slug = Str::slug($restaurant->name);
             $restaurant->p_iva = $restaurant_data['p_iva'];
             $restaurant->image = $restaurant_data['image'];
             $restaurant->address = $restaurant_data['address'];
