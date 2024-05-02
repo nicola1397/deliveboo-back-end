@@ -6,7 +6,7 @@ use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use App\Models\Restaurant;
 
-class ResturantSeeder extends Seeder
+class RestaurantSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -66,7 +66,7 @@ class ResturantSeeder extends Seeder
 
         foreach ($restaurants as $resturant_data) {
             $resturant = new Restaurant;
-            $resturant->user_id= $resturant_data['user_id'];
+            $resturant->user_id = $resturant_data['user_id'];
             $resturant->name = $resturant_data['name'];
             $resturant->p_iva = $resturant_data['p_iva'];
             $resturant->image = $resturant_data['image'];
