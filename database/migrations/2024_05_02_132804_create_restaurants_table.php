@@ -19,7 +19,7 @@ return new class extends Migration {
             $table->char('p_iva', 11)->notnull()->unique();
             $table->string('image', 250)->nullable();
             $table->string('address', 150)->notnull();
-            $table->foreign('user_id')->references('id')->on('users');
+            $table->foreignId('user_id')->constrained();
             $table->timestamps();
         });
     }
