@@ -3,6 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use App\Models\User;
 
 return new class extends Migration {
     /**
@@ -14,14 +15,12 @@ return new class extends Migration {
     {
         Schema::create('restaurants', function (Blueprint $table) {
             $table->id();
-            $table->integer('user_id')->unsigned();
-            $table->varchar('name', 200)->notnull();
+            $table->string('name', 200)->notnull();
             $table->char('p_iva', 11)->notnull()->unique();
-            $table->varchar('image', 250)->nullable();
-            $table->varchar('address', 150)->notnull();
+            $table->string('image', 250)->nullable();
+            $table->string('address', 150)->notnull();
+            $table->foreign('user_id')->references('id')->on('users');
             $table->timestamps();
-
-            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
         });
     }
 
