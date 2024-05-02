@@ -17,7 +17,8 @@ class DishController extends Controller
      */
     public function index()
     {
-        //
+        $dishes = Dish::paginate(10);
+        return view('admin.dishes.index', compact('dishes'));
     }
 
     /**
