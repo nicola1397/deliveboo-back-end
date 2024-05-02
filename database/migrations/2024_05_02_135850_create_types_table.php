@@ -12,16 +12,12 @@ return new class extends Migration {
      */
     public function up()
     {
-        Schema::create('restaurants', function (Blueprint $table) {
+        Schema::create('types', function (Blueprint $table) {
             $table->id();
-            $table->integer('user_id')->unsigned();
-            $table->varchar('name', 200)->notnull();
-            $table->char('p_iva', 11)->notnull()->unique();
+            $table->varchar('label', 200)->notnull();
+            $table->char('color', 7)->nullable();
             $table->varchar('image', 250)->nullable();
-            $table->varchar('address', 150)->notnull();
             $table->timestamps();
-
-            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
         });
     }
 
@@ -32,6 +28,6 @@ return new class extends Migration {
      */
     public function down()
     {
-        Schema::dropIfExists('restaurant');
+        Schema::dropIfExists('types');
     }
 };
