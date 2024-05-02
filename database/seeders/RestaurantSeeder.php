@@ -64,8 +64,7 @@ class ResturantSeeder extends Seeder
             */
         ];
 
-<<<<<<< HEAD:database/seeders/ResturantSeeder.php
-        foreach ($resturants as $resturant_data) {
+        foreach ($restaurants as $resturant_data) {
             $resturant = new Restaurant;
             $resturant->user_id= $resturant_data['user_id'];
             $resturant->name = $resturant_data['name'];
@@ -73,16 +72,6 @@ class ResturantSeeder extends Seeder
             $resturant->image = $resturant_data['image'];
             $resturant->address = $resturant_data['address'];
             $resturant->save();
-=======
-        foreach ($restaurants as $restaurant_data) {
-            $restaurant = new Restaurant;
-            $restaurant->name = $restaurant_data['name'];
-            $restaurant->p_iva = $restaurant_data['p_iva'];
-            $restaurant->image = $restaurant_data['image'];
-            $restaurant->address = $restaurant_data['address'];
-            $restaurant->user_id = $restaurant_data['user_id'];
-            $restaurant->save();
->>>>>>> b5600a68d1606a63c3c0d2997280675f900e91ef:database/seeders/RestaurantSeeder.php
         }
     }
 }
