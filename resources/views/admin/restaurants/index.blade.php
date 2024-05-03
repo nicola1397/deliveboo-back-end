@@ -53,7 +53,7 @@
 
         </table>
     </div>
-    {{ $restaurants->links('pagination::bootstrap-5') }}
+    {{-- {{ $restaurants->links('pagination::bootstrap-5') }} --}}
 
 </div>
 
