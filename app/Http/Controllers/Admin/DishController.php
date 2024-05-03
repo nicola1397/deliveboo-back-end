@@ -9,6 +9,7 @@ use App\Models\Dish;
 use App\Models\Restaurant;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Str;
 
 class DishController extends Controller
 {
@@ -49,7 +50,14 @@ class DishController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->all();
+
+        $dish = new Dish;
+        $dish->fill($data);
+        $dish->slug = Str::slug($dish->name);
+        $dish->save();
+
+        return redirect()->route('admin.dishes.show', $dish);
     }
 
     /**
@@ -60,7 +68,7 @@ class DishController extends Controller
      */
     public function show(Dish $dish)
     {
-        //
+        return view('admin.dishes.show', compact('dish'));
     }
 
     /**
