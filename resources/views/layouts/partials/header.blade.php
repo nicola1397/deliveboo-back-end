@@ -1,26 +1,28 @@
 <header>
-    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <nav class="navbar navbar-expand-lg headerNav">
         <div class="container">
-            <a class="navbar-brand" href="{{ Auth::check() ? route('admin.dashboard') : route('home') }}">{{ env('APP_NAME') }}</a>
+            <a class="navbar-brand" href="{{ Auth::check() ? route('admin.dashboard') : route('home') }}"><img src="{{ asset('assets/') . "/boolivery_manager.svg" }}"  alt="" height="50px"></a>
             <button aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler" data-bs-target="#navbarSupportedContent" data-bs-toggle="collapse" type="button">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li class="nav-item">
-                        <a @class([ 'nav-link' , 'active'=> Route::currentRouteName() == 'home' || 'dashboard',
-                            ]) aria-current="page"
+                    <li class="nav-item text-white">
+                        <a @class([
+    'nav-link',
+    'active' => Route::currentRouteName() == 'home' || 'dashboard',
+]) aria-current="page"
                             href="{{ Auth::check() ? route('admin.dashboard') : route('home') }}">Home</a>
                     </li>
                     @auth
 
                     <li @class([ 'nav-item' , 'active'=> Route::currentRouteName() == 'restaurants',
                         ])>
-                        <a class='nav-link' href="{{ route('admin.restaurants.index') }}">Restaurants</a>
+                        <a class='nav-link text-white' href="{{ route('admin.restaurants.index') }}">Restaurants</a>
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Types</a>
+                        <a class="nav-link text-white" href="#">Types</a>
                     </li>
 
 
@@ -32,12 +34,12 @@
                 <ul class="navbar-nav ml-auto">
                     @guest
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('login') }}">Login</a>
+                        <a class="nav-link text-white" href="{{ route('login') }}">Login</a>
                     </li>
 
                     @if (Route::has('register'))
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('register') }}">Register</a>
+                        <a class="nav-link text-white" href="{{ route('register') }}">Register</a>
                     </li>
                     @endif
                     @else
