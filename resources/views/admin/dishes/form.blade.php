@@ -43,7 +43,7 @@
 
                 <div class="mt-2">
                     <label for="price" class="form-label">Price</label>
-                    <input type='text' class="form-control @error('price') is-invalid @enderror" id="price" name="price" value="{{old("price")}}" required>
+                    <input type='text' class="form-control @error('price') is-invalid @enderror" id="price" name="price" value="{{empty($dish->id) ? '' : old('price') }}" required>
 
 
                     @error('price')

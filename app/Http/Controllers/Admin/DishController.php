@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 
+use App\Http\Requests\DishStoreRequest;
+use App\Http\Requests\DishUpdateRequest;
 use App\Models\Dish;
 use App\Models\Restaurant;
 use Illuminate\Http\Request;
@@ -50,9 +52,11 @@ class DishController extends Controller
      * @param  \Illuminate\Http\Request  $request
 
      */
-    public function store(Request $request, Restaurant $restaurant)
+    public function store(DishStoreRequest $request, Restaurant $restaurant)
     {
 
+
+        $request->validated();
         $restaurants = Restaurant::where('user_id', Auth::id())->get();
 
 
@@ -114,15 +118,16 @@ class DishController extends Controller
      * @param  \App\Models\Dish  $dish
  
      */
-    public function update(Request $request, Dish $dish)
+    public function update(DishUpdateRequest $request, Dish $dish)
     {
+
         $restaurants = Restaurant::where('user_id', Auth::id())->get();
 
 
         foreach ($restaurants as $restaurant) {
             $restaurant = $restaurant;
         }
-
+        $request->validated();
         $data = $request->all();
 
         $dish->update($data);
@@ -136,7 +141,6 @@ class DishController extends Controller
         }
 
         $dish->save();
-
         return redirect()->route('admin.dishes.show', compact('dish'))->with('message-class', 'alert-success')->with('message', 'Dish Edited.');
 
 
