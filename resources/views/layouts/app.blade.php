@@ -15,6 +15,7 @@
 
 <body>
     <div class="wrapper">
+
         @include('layouts.partials.header')
 
         <main>
@@ -29,12 +30,14 @@
             </section>
             @endif
             @yield('content')
+            @yield('modal')
         </main>
 
         @include('layouts.partials.footer')
+
     </div>
 
-    @yeld('modal')
+    
 
     @auth
     <script>
