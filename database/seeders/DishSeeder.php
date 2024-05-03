@@ -21,6 +21,7 @@ class DishSeeder extends Seeder
         $dish->name = "Tagliere di affettati locali";
         $dish->description = "Selezione di affettati locali di prima qualità";
         $dish->price = 17;
+        $dish->availability = false;
         $dish->slug = Str::slug($dish->name);
         $dish->save();
 
@@ -30,6 +31,7 @@ class DishSeeder extends Seeder
         $dish->name = "Pizza Margherita";
         $dish->description = "Pizza con pomodoro, mozzarella, basilico, olio, origano";
         $dish->price = 5;
+        $dish->availability = true;
         $dish->slug = Str::slug($dish->name);
         $dish->save();
 
@@ -39,6 +41,7 @@ class DishSeeder extends Seeder
         $dish->name = "Spaghetti al pomodoro";
         $dish->description = "Spaghetto trafilato al bronzo saltato con del pomodoro del Piennolo";
         $dish->price = 8;
+        $dish->availability = true;
         $dish->slug = Str::slug($dish->name);
         $dish->save();
 
@@ -47,6 +50,7 @@ class DishSeeder extends Seeder
         $dish->name = "Costata di Manzo Argentino alla brace";
         $dish->description = "Costata di Manzo Argentino cotto su brace di pietra Pomice con contorno a scelta";
         $dish->price = 25;
+        $dish->availability = true;
         $dish->slug = Str::slug($dish->name);
         $dish->save();
 
@@ -56,6 +60,7 @@ class DishSeeder extends Seeder
         $dish->name = "Tiramisù";
         $dish->description = "Nostro Tiramisù della casa con uova pastorizzate  mascarpone no lattosio e biscotti homemade";
         $dish->price = 8;
+        $dish->availability = true;
         $dish->slug = Str::slug($dish->name);
         $dish->save();
 
@@ -66,6 +71,7 @@ class DishSeeder extends Seeder
         $dish->name = "Crudi di pesce";
         $dish->description = "Cruditè di pesce di prima Qualità";
         $dish->price = 40;
+        $dish->availability = true;
         $dish->slug = Str::slug($dish->name);
         $dish->save();
 
@@ -74,6 +80,7 @@ class DishSeeder extends Seeder
         $dish->name = "Risotto alla Pescatora";
         $dish->description = "Risotto ai frutti di mare con battuta di gambero rosso di Mazzara";
         $dish->price = 5;
+        $dish->availability = true;
         $dish->slug = Str::slug($dish->name);
         $dish->save();
 
@@ -82,6 +89,7 @@ class DishSeeder extends Seeder
         $dish->name = "SanPietro al forno";
         $dish->description = "Pesce SanPietro di varie pezzature con contorno a scelta";
         $dish->price = 40;
+        $dish->availability = true;
         $dish->slug = Str::slug($dish->name);
         $dish->save();
 
@@ -90,6 +98,7 @@ class DishSeeder extends Seeder
         $dish->name = "Panna cotta";
         $dish->description = "Panna cotta fatta in casa con topping a scelta";
         $dish->price = 7;
+        $dish->availability = true;
         $dish->slug = Str::slug($dish->name);
         $dish->save();
     }

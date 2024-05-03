@@ -53,9 +53,12 @@ class DishController extends Controller
     public function store(Request $request, Restaurant $restaurant)
     {
         $data = $request->all();
+
+
         $dish = new Dish;
         $dish->fill($data);
-        $dish->slug = Str::slug($data['name']);
+        $dish->slug = Str::slug($dish->name);
+
 
         // $dish->restaurant_id = $restaurant->id;
 
@@ -67,6 +70,7 @@ class DishController extends Controller
         $dish->save();
 
         return redirect()->route('admin.dishes.show', compact('dish'))->with('message-class', 'alert-success')->with('message', 'New Dish Added.');
+
     }
 
     /**
@@ -77,7 +81,7 @@ class DishController extends Controller
      */
     public function show(Dish $dish)
     {
-        //
+        return view('admin.dishes.show', compact('dish'));
     }
 
     /**
