@@ -18,4 +18,15 @@ class RestaurantController extends Controller
         $restaurants = Restaurant::where('user_id', Auth::id())->get();
         return view('admin.restaurants.index', compact('restaurants'));
     }
+
+    /**
+     * Display the specified resource.
+     *
+     * @param  \App\Models\Restaurant  $project
+     * @return \Illuminate\Http\Response
+     */
+    public function show(Restaurant $restaurant)
+    {
+        return view('admin.restaurants.show', compact('restaurant'));
+    }
 }
