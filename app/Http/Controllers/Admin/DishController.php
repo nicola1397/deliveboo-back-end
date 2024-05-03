@@ -8,7 +8,9 @@ use App\Http\Controllers\Controller;
 use App\Models\Dish;
 use App\Models\Restaurant;
 use Illuminate\Http\Request;
+use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 
 class DishController extends Controller
@@ -37,9 +39,9 @@ class DishController extends Controller
      *
 
      */
-    public function create()
+    public function create(Dish $dish)
     {
-        //
+        return view('admin.dishes.form', compact('dish'));
     }
 
     /**
@@ -48,16 +50,27 @@ class DishController extends Controller
      * @param  \Illuminate\Http\Request  $request
 
      */
-    public function store(Request $request)
+    public function store(Request $request, Restaurant $restaurant)
     {
         $data = $request->all();
+
 
         $dish = new Dish;
         $dish->fill($data);
         $dish->slug = Str::slug($dish->name);
+
+
+        // $dish->restaurant_id = $restaurant->id;
+
+        if (Arr::exists($data, 'image')) {
+            $img_path = Storage::put('upload/projects', $data['image']);
+            $dish->image = $img_path;
+        }
+
         $dish->save();
 
-        return redirect()->route('admin.dishes.show', $dish);
+        return redirect()->route('admin.dishes.show', compact('dish'))->with('message-class', 'alert-success')->with('message', 'New Dish Added.');
+
     }
 
     /**
