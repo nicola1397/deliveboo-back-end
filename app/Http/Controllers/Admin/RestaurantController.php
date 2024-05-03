@@ -33,7 +33,7 @@ class RestaurantController extends Controller
      * Remove the specified resource from storage.
      *
      * @param  \App\Models\Restaurant  $project
-     * 
+     *                                                 
      */
     public function destroy(Restaurant $restaurant)
     {
