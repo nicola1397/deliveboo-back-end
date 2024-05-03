@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Restaurant;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Storage;
 
 class RestaurantController extends Controller
@@ -39,15 +40,17 @@ class RestaurantController extends Controller
     {
         $data = $request->all();
 
-        $newRestaurant = new Restaurant;
-        $newRestaurant->name = $data['name'];
-        $newRestaurant->p_iva = $data['p_iva'];
-        $newRestaurant->image = $data['image'];
-        $newRestaurant->address = $data['address'];
+        $restaurant = new Restaurant;
+        $restaurant->name = $data['name'];
+        $restaurant->p_iva = $data['p_iva'];
+        $restaurant->image = $data['image'];
+        $restaurant->address = $data['address'];
+        $restaurant->user_id = Auth::id();
+        $restaurant->slug = Str::slug($restaurant->name);
 
-        $newRestaurant->save();
+        $restaurant->save();
 
-        return redirect()->route('restaurants.show', $newRestaurant->id);
+        return redirect()->route('admin.restaurants.show', $restaurant->id);
     }
     /*
      * Display the specified resource.
