@@ -18,4 +18,13 @@ class RestaurantController extends Controller
         $restaurants = Restaurant::where('user_id', Auth::id())->get();
         return view('admin.restaurants.index', compact('restaurants'));
     }
+
+    /**
+     * Show the form for creating a new resource.
+     */
+    public function create()
+    {
+        $restaurant = new Restaurant;
+        return view('admin.restaurants.form', compact('restaurant'));
+    }
 }
