@@ -15,6 +15,7 @@
 
 <body>
     <div class="wrapper">
+
         @include('layouts.partials.header')
 
         <main>
@@ -34,7 +35,9 @@
         </main>
 
         @include('layouts.partials.footer')
+
     </div>
+
 
 
 
