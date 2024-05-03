@@ -23,11 +23,11 @@
 
 
     <h1 class="my-3">{{empty($dish->id) ? "Add Dish" : "Edit Dish"}}</h1>
-    <form enctype="multipart/form-data" action="{{ empty($dish->id) ? route('admin.dishes.store') : route('admin.dishes.update', $dishes) }}" method="POST">
-        @csrf
-        @if($dish->id)
-        @method('PUT')
+    <form enctype="multipart/form-data" action="{{ empty($dish->id) ? route('admin.dishes.store') : route('admin.dishes.update', $dish) }}" method="POST">
+        @if(!empty($dish->id))
+        @method('PATCH')
         @endif
+        @csrf
         <div class="row">
 
             <div class="col-6">

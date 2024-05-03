@@ -20,7 +20,7 @@ class DishController extends Controller
      *
     
      */
-    public function index()
+    public function index(Request $request, Restaurant $restaurant)
     {
         $restaurants = Restaurant::where('user_id', Auth::id())->get();
 
@@ -52,12 +52,21 @@ class DishController extends Controller
      */
     public function store(Request $request, Restaurant $restaurant)
     {
+
+        $restaurants = Restaurant::where('user_id', Auth::id())->get();
+
+
+        foreach ($restaurants as $restaurant) {
+            $restaurant = $restaurant;
+        }
+
         $data = $request->all();
         $dish = new Dish;
         $dish->fill($data);
         $dish->slug = Str::slug($data['name']);
 
-        // $dish->restaurant_id = $restaurant->id;
+
+        $dish->restaurant_id = $restaurant->id;
 
         if (Arr::exists($data, 'image')) {
             $img_path = Storage::put('upload/projects', $data['image']);
@@ -88,7 +97,10 @@ class DishController extends Controller
      */
     public function edit(Dish $dish)
     {
-        //
+
+        if ($dish->restaurant->user_id != Auth::id())
+            abort(403);
+        return view('admin.dishes.form', compact('dish'));
     }
 
     /**
@@ -100,7 +112,30 @@ class DishController extends Controller
      */
     public function update(Request $request, Dish $dish)
     {
-        //
+        $restaurants = Restaurant::where('user_id', Auth::id())->get();
+
+
+        foreach ($restaurants as $restaurant) {
+            $restaurant = $restaurant;
+        }
+
+        $data = $request->all();
+
+        $dish->update($data);
+        $dish->slug = Str::slug($data['name']);
+
+        $dish->restaurant_id = $restaurant->id;
+
+        if (Arr::exists($data, 'image')) {
+            $img_path = Storage::put('upload/projects', $data['image']);
+            $dish->image = $img_path;
+        }
+
+        $dish->save();
+
+        return redirect()->route('admin.dishes.show', compact('dish'))->with('message-class', 'alert-success')->with('message', 'Dish Edited.');
+
+
     }
 
     /**
