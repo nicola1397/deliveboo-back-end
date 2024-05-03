@@ -5,7 +5,7 @@
     <div class="container mb-4">
         <h1>Dishes List</h1>
 
-        <a href="#" class="btn btn-primary mb-4"><i class="fa-solid fa-plus fa-lg me-2"></i>New Dish</a>
+        <a href="{{route ("admin.dishes.create")}}" class="btn btn-primary mb-4"><i class="fa-solid fa-plus fa-lg me-2"></i>New Dish</a>
 
         <table class="table">
             <thead>
@@ -27,9 +27,10 @@
                     <td>
                         <a href="{{route('admin.dishes.show', $dish)}}"><i class="fa-solid link-primary fa-eye me-2"></i></a>
                         <a href="{{route('admin.dishes.edit', $dish)}}"><i class="fa-solid link-primary fa-pencil me-2"></i></a>
-                        <button type="button" class="btn btn-link text-danger p-0 pb-1" data-bs-toggle="modal" data-bs-target="#project-{{$dish->id}}">
+                        <button type="button" class="btn btn-link text-danger p-0 pb-1" data-bs-toggle="modal" data-bs-target="#dish-{{$dish->id}}">
                             <i class="fa-solid fa-trash"></i>
                         </button>
+
                     </td>
                 </tr>
                 @empty
@@ -47,9 +48,9 @@
 </section>
 @endsection
 
-
-@section('modal')
 <!-- Modal -->
+@section('modal')
+
 @foreach($dishes as $dish)
 
 <div class="modal fade" id="dish-{{$dish->id}}" tabindex="-1" aria-labelledby="dish-{{$dish->id}}" aria-hidden="true">

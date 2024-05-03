@@ -5,10 +5,15 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 
+use App\Http\Requests\DishStoreRequest;
+use App\Http\Requests\DishUpdateRequest;
 use App\Models\Dish;
 use App\Models\Restaurant;
 use Illuminate\Http\Request;
+use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Str;
 
 class DishController extends Controller
 {
@@ -17,7 +22,7 @@ class DishController extends Controller
      *
     
      */
-    public function index()
+    public function index(Request $request, Restaurant $restaurant)
     {
         $restaurants = Restaurant::where('user_id', Auth::id())->get();
 
@@ -36,9 +41,9 @@ class DishController extends Controller
      *
 
      */
-    public function create()
+    public function create(Dish $dish)
     {
-        //
+        return view('admin.dishes.form', compact('dish'));
     }
 
     /**
@@ -47,9 +52,38 @@ class DishController extends Controller
      * @param  \Illuminate\Http\Request  $request
 
      */
-    public function store(Request $request)
+    public function store(DishStoreRequest $request, Restaurant $restaurant)
     {
-        //
+
+
+        $request->validated();
+        $restaurants = Restaurant::where('user_id', Auth::id())->get();
+
+
+        foreach ($restaurants as $restaurant) {
+            $restaurant = $restaurant;
+        }
+
+        $data = $request->all();
+
+
+        $dish = new Dish;
+        $dish->fill($data);
+        $dish->slug = Str::slug($dish->name);
+
+
+
+        $dish->restaurant_id = $restaurant->id;
+
+        if (Arr::exists($data, 'image')) {
+            $img_path = Storage::put('upload/projects', $data['image']);
+            $dish->image = $img_path;
+        }
+
+        $dish->save();
+
+        return redirect()->route('admin.dishes.show', compact('dish'))->with('message-class', 'alert-success')->with('message', 'New Dish Added.');
+
     }
 
     /**
@@ -60,7 +94,7 @@ class DishController extends Controller
      */
     public function show(Dish $dish)
     {
-        //
+        return view('admin.dishes.show', compact('dish'));
     }
 
     /**
@@ -71,7 +105,10 @@ class DishController extends Controller
      */
     public function edit(Dish $dish)
     {
-        //
+
+        if ($dish->restaurant->user_id != Auth::id())
+            abort(403);
+        return view('admin.dishes.form', compact('dish'));
     }
 
     /**
@@ -81,9 +118,32 @@ class DishController extends Controller
      * @param  \App\Models\Dish  $dish
  
      */
-    public function update(Request $request, Dish $dish)
+    public function update(DishUpdateRequest $request, Dish $dish)
     {
-        //
+
+        $restaurants = Restaurant::where('user_id', Auth::id())->get();
+
+
+        foreach ($restaurants as $restaurant) {
+            $restaurant = $restaurant;
+        }
+        $request->validated();
+        $data = $request->all();
+
+        $dish->update($data);
+        $dish->slug = Str::slug($data['name']);
+
+        $dish->restaurant_id = $restaurant->id;
+
+        if (Arr::exists($data, 'image')) {
+            $img_path = Storage::put('img/dishes', $data['image']);
+            $dish->image = $img_path;
+        }
+
+        $dish->save();
+        return redirect()->route('admin.dishes.show', compact('dish'))->with('message-class', 'alert-success')->with('message', 'Dish Edited.');
+
+
     }
 
     /**
@@ -94,6 +154,7 @@ class DishController extends Controller
      */
     public function destroy(Dish $dish)
     {
-        //
+        $dish->delete();
+        return redirect()->route('admin.dishes.index');
     }
 }

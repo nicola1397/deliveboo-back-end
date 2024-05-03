@@ -7,8 +7,12 @@
     <div class="container mb-4">
         <h1 class="my-4">Restaurant List</h1>
 
+<<<<<<< HEAD
         <a href="{{ route('admin.restaurants.create') }}" class="btn btn-primary mb-4"><i
                 class="fa-solid fa-plus fa-lg me-2"></i>New restaurant</a>
+=======
+        <a href="#" class="btn btn-primary mb-4"><i class="fa-solid fa-plus fa-lg me-2"></i>New restaurant</a>
+>>>>>>> 390f13dc8aa0906114291d00d8a566296fcf105e
 
         <div class="row g-4">
             <table class="table">
@@ -41,7 +45,11 @@
                                 <a href="{{ route('admin.restaurants.edit', $restaurant) }}"><i
                                         class="fa-solid link-primary fa-pencil me-2"></i></a>
                                 <button type="button" class="btn btn-link text-danger p-0 pb-1" data-bs-toggle="modal"
+<<<<<<< HEAD
                                     data-bs-target="#project-{{ $restaurant->id }}">
+=======
+                                    data-bs-target="#restaurant-{{ $restaurant->id }}">
+>>>>>>> 390f13dc8aa0906114291d00d8a566296fcf105e
                                     <i class="fa-solid fa-trash"></i>
                                 </button>
 
@@ -72,7 +80,11 @@
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
+<<<<<<< HEAD
                         <h1 class="modal-title fs-5" id="exampleModalLabel">Delete {{ $restaurant->title }}?</h1>
+=======
+                        <h1 class="modal-title fs-5" id="exampleModalLabel">Delete {{ $restaurant->name }}?</h1>
+>>>>>>> 390f13dc8aa0906114291d00d8a566296fcf105e
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">

@@ -21,14 +21,14 @@ class RestaurantSeeder extends Seeder
                 'user_id' => 1,
                 'name' => 'Lo sporcaccione',
                 'p_iva' => '01235478901',
-                'image' => 'picsum.photos/200/300',
+                'image' => 'img/restaurants/losporcaccione.png',
                 'address' => 'via innominabile, 44',
             ],
             [
                 'user_id' => 2,
                 'name' => "L'asiatico allegro",
                 'p_iva' => '01237898901',
-                'image' => 'picsum.photos/200/300',
+                'image' => 'img/restaurants/lasiaticoallegro.png',
                 'address' => 'via della seta, 99',
             ],
             /*
