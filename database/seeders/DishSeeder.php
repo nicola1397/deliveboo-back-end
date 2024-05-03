@@ -23,6 +23,7 @@ class DishSeeder extends Seeder
         $dish->price = 17;
         $dish->availability = false;
         $dish->slug = Str::slug($dish->name);
+        $dish->image = 'img/dishes/tagliere.webp';
         $dish->save();
 
 
@@ -33,6 +34,7 @@ class DishSeeder extends Seeder
         $dish->price = 5;
         $dish->availability = true;
         $dish->slug = Str::slug($dish->name);
+        $dish->image = 'img/dishes/margherita.avif';
         $dish->save();
 
 
@@ -43,6 +45,7 @@ class DishSeeder extends Seeder
         $dish->price = 8;
         $dish->availability = true;
         $dish->slug = Str::slug($dish->name);
+        $dish->image = 'img/dishes/spaghetti.jpg';
         $dish->save();
 
         $dish = new Dish;
@@ -52,6 +55,7 @@ class DishSeeder extends Seeder
         $dish->price = 25;
         $dish->availability = true;
         $dish->slug = Str::slug($dish->name);
+        $dish->image = 'img/dishes/costata.webp';
         $dish->save();
 
 
@@ -62,6 +66,7 @@ class DishSeeder extends Seeder
         $dish->price = 8;
         $dish->availability = true;
         $dish->slug = Str::slug($dish->name);
+        $dish->image = 'img/dishes/tiramisu.jpg';
         $dish->save();
 
 
@@ -73,6 +78,7 @@ class DishSeeder extends Seeder
         $dish->price = 40;
         $dish->availability = true;
         $dish->slug = Str::slug($dish->name);
+        $dish->image = 'img/dishes/crudomare.jpeg';
         $dish->save();
 
         $dish = new Dish;
@@ -82,6 +88,7 @@ class DishSeeder extends Seeder
         $dish->price = 5;
         $dish->availability = true;
         $dish->slug = Str::slug($dish->name);
+        $dish->image = 'img/dishes/pescatora.jpg';
         $dish->save();
 
         $dish = new Dish;
@@ -91,6 +98,7 @@ class DishSeeder extends Seeder
         $dish->price = 40;
         $dish->availability = true;
         $dish->slug = Str::slug($dish->name);
+        $dish->image = 'img/dishes/sanpietro.webp';
         $dish->save();
 
         $dish = new Dish;
@@ -100,6 +108,7 @@ class DishSeeder extends Seeder
         $dish->price = 7;
         $dish->availability = true;
         $dish->slug = Str::slug($dish->name);
+        $dish->image = 'img/dishes/pannacotta.avif';
         $dish->save();
     }
 }
