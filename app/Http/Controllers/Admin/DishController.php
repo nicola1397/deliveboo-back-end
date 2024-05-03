@@ -6,7 +6,9 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 
 use App\Models\Dish;
+use App\Models\Restaurant;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class DishController extends Controller
 {
@@ -17,7 +19,15 @@ class DishController extends Controller
      */
     public function index()
     {
-        $dishes = Dish::paginate(10);
+        $restaurants = Restaurant::where('user_id', Auth::id())->get();
+
+
+        foreach ($restaurants as $restaurant) {
+            $restaurant = $restaurant;
+        }
+
+
+        $dishes = Dish::where('restaurant_id', $restaurant->user_id)->paginate(10);
         return view('admin.dishes.index', compact('dishes'));
     }
 
