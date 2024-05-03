@@ -19,12 +19,13 @@
 
       <main>
         @yield('content')
+        @yield('modal')
       </main>
 
       @include('layouts.partials.footer')
     </div>
 
-    @yeld('modal')
+    
 
     @auth
       <script>
