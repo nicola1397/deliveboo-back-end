@@ -12,7 +12,7 @@
             <i class="fa-solid fa-circle-left fa-beat"></i>
             Back to the List</a>
         <h1 class="mb-4">{{ $restaurant->name }}</h1>
-        <p>{{ $restaurant->image }}</p>
+        <img src="{{asset('storage/' . $restaurant->image)}}" alt="">
         <p>{{ $restaurant->p_iva }}</p>
         <p>{{ $restaurant->address }}</p>
 
