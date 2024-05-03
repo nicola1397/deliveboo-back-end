@@ -21,7 +21,33 @@
             Menu</a>
 
 
+            <!-- <table class="table">
+                    <thead>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th></th>
+                    </thead>
+                    <tbody>
+                        @foreach($restaurant->dishes as $dish)
 
+                        
+                        <tr>
+                            <td>{{ $dish->id }}</td>
+                            <td>{{ $dish->name }}</td>
+                            <td>
+                            <a href="{{ route("admin.dishes.show", $dish) }}" class="btn btn-info my-3">
+                            <i class="fa-solid fa-book"></i></a>
+                            
+                             <a href="{{ route("admin.dishes.edit", $dish) }}" class="btn btn-warning my-3"><i class="fa-solid fa-pen-to-square"></i></a>
+      
+                             <button data-bs-target="#delete-dishes-{{ $dish->id }}-modal"  class="btn btn-danger my-3" type="button" class="btn btn-primary" data-bs-toggle="modal"><i class="fa-solid fa-xmark"></i></button>
+
+
+                            </td>
+                        </tr>
+                        @endforeach
+                    </tbody>
+                  </table> -->
 
     </div>
 </section>
