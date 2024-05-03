@@ -22,7 +22,11 @@ class RestaurantController extends Controller
     /**
      * Display the specified resource.
      *
+<<<<<<< HEAD
      * @param  \App\Models\Restaurant  $project
+=======
+     * @param  \App\Models\Project  $project
+>>>>>>> origin/HEAD
      * @return \Illuminate\Http\Response
      */
     public function show(Restaurant $restaurant)
