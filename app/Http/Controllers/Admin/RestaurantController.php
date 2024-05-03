@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Restaurant;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 
 class RestaurantController extends Controller
 {
@@ -28,4 +29,28 @@ class RestaurantController extends Controller
     {
         return view('admin.restaurants.show', compact('restaurant'));
     }
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  \App\Models\Restaurant  $project
+     * 
+     */
+    public function destroy(Restaurant $restaurant)
+    {
+        // if (!empty($restaurant->image)) {
+        //     Storage::delete($restaurant->image);
+        // }
+        $restaurant->delete();
+        // return redirect()->route('admin.restaurants.index')->with('message-class', 'alert-danger')->with('message', 'Restaurant Deleted');
+        return redirect()->route('admin.restaurants.index');
+    }
+
+
+    // public function destroyImg(Project $project)
+    // {
+    //     Storage::delete($project->image);
+    //     $project->image = null;
+    //     $project->save();
+    //     return redirect()->back();
+    // }
 }
