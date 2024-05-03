@@ -16,6 +16,7 @@
                 <th>Name</th>
                 <th>Owner</th>
                 <th>Slug</th>
+                <th>Vat Number</th>
                 <th>Image</th>
                 <th>Address</th>
                 <th></th>
