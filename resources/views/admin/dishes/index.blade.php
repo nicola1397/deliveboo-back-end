@@ -2,7 +2,7 @@
 
 @section('content')
 <section>
-    <div class="container">
+    <div class="container mb-4">
         <h1>Dishes List</h1>
 
         <a href="#" class="btn btn-primary mb-4"><i class="fa-solid fa-plus fa-lg me-2"></i>New Dish</a>
@@ -35,7 +35,7 @@
                 @empty
                 <tr>
                     <td colspan="100%">
-                        <i>Results non found</i>
+                        <i>Dish not found</i>
                     </td>
                 </tr>
                 @endforelse
@@ -63,7 +63,7 @@
                 You CANNOT revert this action
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Proceed</button>
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Abort</button>
                 <form action="{{route('admin.dishes.destroy', $dish)}}" method="POST">
                     @csrf
                     @method('DELETE')
