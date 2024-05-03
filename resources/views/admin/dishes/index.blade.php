@@ -5,7 +5,7 @@
     <div class="container mb-4">
         <h1>Dishes List</h1>
 
-        <a href="#" class="btn btn-primary mb-4"><i class="fa-solid fa-plus fa-lg me-2"></i>New Dish</a>
+        <a href="{{route ("admin.dishes.create")}}" class="btn btn-primary mb-4"><i class="fa-solid fa-plus fa-lg me-2"></i>New Dish</a>
 
         <table class="table">
             <thead>
