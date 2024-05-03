@@ -16,6 +16,10 @@
                 <h3>{{ $dish['name'] }}</h3>
             </div>
 
+            <div class="card-img">
+                <img src="{{ $dish->image ? asset('storage/' . $dish->image) : ''}}" alt="">
+            </div>
+
             <div class="card-body">
                 <p class="card-text">
                     <strong>Descrizione:</strong>
