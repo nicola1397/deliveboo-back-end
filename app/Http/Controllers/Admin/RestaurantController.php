@@ -21,7 +21,6 @@ class RestaurantController extends Controller
     }
 
     /**
-<<<<<<< HEAD
      * Show the form for creating a new resource.
      */
     public function create()
@@ -50,7 +49,7 @@ class RestaurantController extends Controller
 
         return redirect()->route('restaurants.show', $newRestaurant->id);
     }
-=======
+    /*
      * Display the specified resource.
      *
      * @param  \App\Models\Restaurant  $project
@@ -74,14 +73,4 @@ class RestaurantController extends Controller
         // return redirect()->route('admin.restaurants.index')->with('message-class', 'alert-danger')->with('message', 'Restaurant Deleted');
         return redirect()->route('admin.restaurants.index');
     }
-
-
-    // public function destroyImg(Project $project)
-    // {
-    //     Storage::delete($project->image);
-    //     $project->image = null;
-    //     $project->save();
-    //     return redirect()->back();
-    // }
->>>>>>> 390f13dc8aa0906114291d00d8a566296fcf105e
 }
