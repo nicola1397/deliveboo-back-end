@@ -67,10 +67,9 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <<<<<<< HEAD <h1 class="modal-title fs-5" id="exampleModalLabel">Delete {{ $restaurant->title }}?</h1>
-                    =======
+             
                     <h1 class="modal-title fs-5" id="exampleModalLabel">Delete {{ $restaurant->name }}?</h1>
-                    >>>>>>> 390f13dc8aa0906114291d00d8a566296fcf105e
+               
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
