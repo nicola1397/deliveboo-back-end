@@ -70,7 +70,7 @@
 
                         </select>
 
-                        {{-- todo errore type_id --}}
+                        {{-- todo: errore type_id --}}
                         {{-- <div class="invalid-feedback">{{$message}}</div> --}}
                     </div>
 
@@ -78,10 +78,20 @@
                     <div class="col-12 my-3">
                         <label for="image" class="form-label">Immagine Ristorante:</label>
                         <input type="file" id="image" name="image" class="form-control">
-                        {{-- todo errore image --}}
+                        {{-- todo: errore image --}}
                         {{-- <div class="invalid-feedback">{{$message}}</div> --}}
+
+                        {{-- todo: cancellazione immagine --}}
                     </div>
 
+                    {{-- bottone invio --}}
+                    <div class="col-4">
+                        <button class="btn btn-success">
+                            {{ 'Salva' }}
+                            {{-- todo: salvataggio/modifica --}}
+                            {{-- {{ empty($restaurant->id ? 'Salva' : 'Modifica') }} --}}
+                        </button>
+                    </div>
                 </div>
 
             </form>
