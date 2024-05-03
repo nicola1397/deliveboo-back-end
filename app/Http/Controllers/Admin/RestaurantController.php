@@ -25,6 +25,27 @@ class RestaurantController extends Controller
     public function create()
     {
         $restaurant = new Restaurant;
+        // todo: importare i Types per la selezione nella creazione
         return view('admin.restaurants.form', compact('restaurant'));
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     */
+    public function store(Request $request)
+    {
+        $data = $request->all();
+
+        $newRestaurant = new Restaurant;
+        $newRestaurant->name = $data['name'];
+        $newRestaurant->p_iva = $data['p_iva'];
+        $newRestaurant->image = $data['image'];
+        $newRestaurant->address = $data['address'];
+
+        $newRestaurant->save();
+
+        return redirect()->route('restaurants.show', $newRestaurant->id);
     }
 }
