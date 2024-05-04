@@ -22,13 +22,17 @@
 
 <div class="col-md-6">
         <h5>Nome Ristorante</h5>
-        <h1 class="mb-4">{{ $restaurant->name }}</h1>
+        <h1 class="mb-4" class="detailCap">{{ $restaurant->name }}</h1>
         <h5>Proprietario</h5>
-        <p>{{ $restaurant->user->name }} {{ $restaurant->user->last_name }}</p>
+        <p class="detailCap">{{ $restaurant->user->name }} {{ $restaurant->user->last_name }}</p>
         <h5>Partita Iva</h5>
-        <p>{{ $restaurant->p_iva }}</p>
+        <p class="detailCap">{{ $restaurant->p_iva }}</p>
         <h5>Indirizzo</h5>
-        <p>{{ $restaurant->address }}</p>
+        <p class="detailCap">{{ $restaurant->address }}</p>
+        <h5>Tipologia Ristorante</h5>
+        @foreach($restaurant->types as $type)
+        <p class="detailCap">{{ $type->label }}</p>
+        @endforeach
         
 
         <a href="{{ route('admin.dishes.index', $restaurant) }}" class="my-4 btn btn-primary">
