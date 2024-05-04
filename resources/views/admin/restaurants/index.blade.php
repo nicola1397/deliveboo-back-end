@@ -4,58 +4,30 @@
 
 
 @section('content')
-<div class="container mb-4">
-    <h1 class="my-4">Restaurant List</h1>
+<div class="container mb-4" id="bootstrap-overrides">
+    <h1 class="my-4">I tuoi ristoranti</h1>
 
-    <a href="{{ route('admin.restaurants.create') }}" class="btn btn-primary mb-4"><i class="fa-solid fa-plus fa-lg me-2"></i>New restaurant</a>
+    <!-- <a href="#" class="btn btn-primary mb-4"><i class="fa-solid fa-plus fa-lg me-2"></i>Nuovo ristorante</a> -->
 
     <div class="row g-4">
-        <table class="table">
-            <thead>
-                <th>ID</th>
-                <th>Name</th>
-                <th>Owner</th>
-                <th>Slug</th>
-                <th>Vat Number</th>
-                <th>Image</th>
-                <th>Address</th>
-                <th></th>
-            </thead>
-
-            <tbody>
-                @forelse($restaurants as $restaurant)
-                <tr>
-                    <td>{{ $restaurant->id }}</td>
-                    <td>{{ $restaurant->name }}</td>
-                    <td>{{ $restaurant->user->name . ' ' . $restaurant->user->last_name }}</td>
-                    <td>{{ $restaurant->slug }}</td>
-                    <td>{{ $restaurant->p_iva }}</td>
-                    <td>{{ $restaurant->image }}</td>
-                    <td>{{ $restaurant->address }}</td>
-
-
-                    <td>
-                        <a href="{{ route('admin.restaurants.show', $restaurant) }}"><i class="fa-solid link-primary fa-eye me-2"></i></a>
-                        <a href="{{ route('admin.restaurants.edit', $restaurant) }}"><i class="fa-solid link-primary fa-pencil me-2"></i></a>
-                        <button type="button" class="btn btn-link text-danger p-0 pb-1" data-bs-toggle="modal" data-bs-target="#restaurant-{{ $restaurant->id }}">
-                            <i class="fa-solid fa-trash"></i>
-                        </button>
-
-
-                    </td>
-                </tr>
-
+    @forelse($restaurants as $restaurant)
+    <div class="restaurantCard col-md-3 col-sm-12">
+        <div class="coverImage">
+        <img src="{{ asset('storage/' . $restaurant->image)}}" alt="{{$restaurant->name}}">
+        </div>
+        <h3>{{$restaurant->name}}</h3>
+        <p>{{$restaurant->address}}</p>
+            <div class="d-flex align-items-center">                  
+                <a class="ballButton" href="{{route('admin.restaurants.show', $restaurant)}}"><i class="fa-solid fa-eye"></i></a>
+                <!-- <a class="ballButton" href="{{route('admin.restaurants.edit', $restaurant)}}"><i class="fa-solid fa-pencil"></i></a> -->
+                <button type="button" class="deletebutton" data-bs-toggle="modal" data-bs-target="#project-{{$restaurant->id}}"><span>DELETE</span>
+                <div class="icon"><i class="fa-solid fa-trash"></i></div>
+                </button>
+            </div>                  
+    </div>
                 @empty
                 <h2>No Restaurant Found</h2>
                 @endforelse
-            </tbody>
-
-
-        </table>
-    </div>
-    {{-- {{ $restaurants->links('pagination::bootstrap-5') }} --}}
-
-</div>
 
 @endsection
 
