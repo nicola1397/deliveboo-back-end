@@ -11,16 +11,31 @@
         <a href="{{ route('admin.restaurants.index') }}" class="my-4 btn btn-primary">
             <i class="fa-solid fa-circle-left fa-beat"></i>
             Back to the List</a>
+            <div class="row">
+                <div class="col-md-6">
+        
+        <div class="coverImage">
+        <img src="{{ asset('storage/' . $restaurant->image)}}" alt="{{$restaurant->name}}">
+        </div>
+      
+</div>
+
+<div class="col-md-6">
+        <h5>Nome Ristorante</h5>
         <h1 class="mb-4">{{ $restaurant->name }}</h1>
-        <p>{{ $restaurant->image }}</p>
+        <h5>Proprietario</h5>
+        <p>{{ $restaurant->user->name }} {{ $restaurant->user->last_name }}</p>
+        <h5>Partita Iva</h5>
         <p>{{ $restaurant->p_iva }}</p>
+        <h5>Indirizzo</h5>
         <p>{{ $restaurant->address }}</p>
+        
 
         <a href="{{ route('admin.dishes.index', $restaurant) }}" class="my-4 btn btn-primary">
             <i class="fa-solid fa-bars fa-beat"></i>
             Menu</a>
-
-
+</div>
+            </div>
 
 
     </div>
