@@ -7,23 +7,19 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li class="nav-item text-white">
-                        <a @class([
-    'nav-link',
-    'active' => Route::currentRouteName() == 'home' || 'dashboard',
-]) aria-current="page"
+                    <li class="nav-item ">
+                        <a class="nav-link text-white" @class(['active' => Route::currentRouteName() == 'home' || 'dashboard']) aria-current="page"
                             href="{{ Auth::check() ? route('admin.dashboard') : route('home') }}">Home</a>
                     </li>
                     @auth
 
-                    <li @class([ 'nav-item' , 'active'=> Route::currentRouteName() == 'restaurants',
-                        ])>
+                    <li   class="nav-item" @class(['active'=> Route::currentRouteName() == 'restaurants',])>
                         <a class='nav-link text-white' href="{{ route('admin.restaurants.index') }}">Restaurants</a>
                     </li>
 
-                    <li class="nav-item">
+                    <!-- <li class="nav-item">
                         <a class="nav-link text-white" href="#">Types</a>
-                    </li>
+                    </li> -->
 
 
 
@@ -43,8 +39,8 @@
                     </li>
                     @endif
                     @else
-                    <li class="nav-item dropdown">
-                        <a aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" id="navbarDropdown" role="button" v-pre>
+                    <li class="nav-item dropdown ">
+                        <a aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle text-white" data-bs-toggle="dropdown" href="#" id="navbarDropdown" role="button" v-pre>
                             {{ Auth::user()->name }}
                         </a>
 
