@@ -14,12 +14,12 @@
                     @auth
 
                     <li   class="nav-item">
-                        <a class='nav-link {{ str_contains(Route::currentRouteName(), 'admin.restaurants') ? 'active' : '' }}' href="{{ route('admin.restaurants.index') }}">Restaurants</a>
+                        <a class='nav-link text-white {{ str_contains(Route::currentRouteName(), 'admin.restaurants') ? 'active' : '' }}' href="{{ route('admin.restaurants.index') }}">Restaurants</a>
                     </li>
 
 
                     <li class="nav-item">
-                    <a class="nav-link {{ str_contains(Route::currentRouteName(), 'admin.dishes') ? 'active' : '' }}" href="{{ route('admin.dishes.index') }}">Dishes</a>
+                    <a class="nav-link text-white {{ str_contains(Route::currentRouteName(), 'admin.dishes') ? 'active' : '' }}" href="{{ route('admin.dishes.index') }}">Dishes</a>
 
                         <!-- <a class="nav-link" @class(['active' => Route::currentRouteName() == 'dishes',]) href="{{route("admin.dishes.index")}}">Dishes</a> -->
                     </li>
@@ -27,7 +27,6 @@
                         <a class="nav-link" href="#">Types</a>
                     </li> -->
 
-<li>{{Route::currentRouteName()}}</li>
 
 
                     @endauth
