@@ -30,7 +30,7 @@ Route::middleware('auth')
     Route::get('/dashboard', [AdminDashboardController::class, 'index'])
       ->name('dashboard');
 
-      /* ROUTES RESTAURANTS */
+    /* ROUTES RESTAURANTS */
     Route::resource('/restaurants', RestaurantController::class);
 
     /* ROUTES DISHES */
@@ -38,3 +38,4 @@ Route::middleware('auth')
   });
 
 require __DIR__ . '/auth.php';
+

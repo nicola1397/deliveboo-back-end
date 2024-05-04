@@ -3,46 +3,44 @@
 @section('content')
 <section>
     <div class="container mb-4">
-        <h1>Dishes List</h1>
+        <h1 class="text-center mb-5">I tuoi piatti</h1>
 
-        <a href="{{route ("admin.dishes.create")}}" class="btn btn-primary mb-4"><i class="fa-solid fa-plus fa-lg me-2"></i>New Dish</a>
 
-        <table class="table">
-            <thead>
-                <tr>
-                    <th>Dish Name</th>
-                    <th>Description</th>
-                    <th>Slug</th>
-                    <th>Price</th>
-                    <th>Options</th>
-                </tr>
-            </thead>
-            <tbody>
-                @forelse($dishes as $dish)
-                <tr>
-                    <td>{{ $dish['name'] }}</td>
-                    <td>{{ $dish->getAbstract(25) }}</td>
-                    <td>{{ $dish['slug'] }}</td>
-                    <td>{{ $dish['price'] }}€</td>
-                    <td>
-                        <a href="{{route('admin.dishes.show', $dish)}}"><i class="fa-solid link-primary fa-eye me-2"></i></a>
-                        <a href="{{route('admin.dishes.edit', $dish)}}"><i class="fa-solid link-primary fa-pencil me-2"></i></a>
-                        <button type="button" class="btn btn-link text-danger p-0 pb-1" data-bs-toggle="modal" data-bs-target="#dish-{{$dish->id}}">
-                            <i class="fa-solid fa-trash"></i>
-                        </button>
 
-                    </td>
-                </tr>
+        <div class="row gap-3 justify-content-center">
+    @forelse($dishes as $dish)
+    <div class="myCard col-md-3 col-sm-12">
+        <!-- IMAGE -->
+        <div class="coverImage" id="dishCover">
+        <img src="{{ asset('storage/' . $dish->image)}}" alt="{{$dish->name}}">
+        </div>
+        <div class="d-flex flex-column justify-content-between flex-grow-1">
+            <!-- DETAILS -->
+            <div class="mb-4 d-flex flex-column justify-content-between flex-grow-1">
+                <div>
+                <h3 class="detailCap">{{$dish->name}}</h3>
+                <p>{{$dish->getAbstract()}}</p>
+                </div>
+                <h3>€{{$dish->price}}</h3>
+            </div>
+            <!-- BUTTONS -->
+            <div class="d-flex align-items-center justify-content-between">                  
+                <a class="ballButton" href="{{route('admin.dishes.show', $dish)}}"><i class="fa-solid fa-eye"></i></a>
+                <a class="ballButton" href="{{route('admin.dishes.edit', $dish)}}"><i class="fa-solid fa-pencil"></i></a>
+                <button type="button" class="deletebutton" data-bs-toggle="modal" data-bs-target="#project-{{$dish->id}}"><span>DELETE</span>
+                <div class="icon"><i class="fa-solid fa-trash"></i></div>
+                </button>
+            </div>                  
+        </div>
+    </div>
                 @empty
-                <tr>
-                    <td colspan="100%">
-                        <i>Dish not found</i>
-                    </td>
-                </tr>
+                <h2>No Dishes Found</h2>
                 @endforelse
-            </tbody>
-        </table>
 
+
+<div class="col-md-3 col-sm-12" id="addDish">
+                <a href="{{route("admin.dishes.create")}}" class="ballButton"><i class="fa-solid fa-plus fa-lg me-2"></i>New Dish</a>
+                </div>
         {{ $dishes->links('pagination::bootstrap-5') }}
     </div>
 </section>

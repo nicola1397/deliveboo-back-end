@@ -11,13 +11,13 @@
 
     <div class="row g-4">
     @forelse($restaurants as $restaurant)
-    <div class="restaurantCard col-md-3 col-sm-12">
+    <div class="myCard col-md-3 col-sm-12">
         <div class="coverImage">
         <img src="{{ asset('storage/' . $restaurant->image)}}" alt="{{$restaurant->name}}">
         </div>
         <h3 class="detailCap">{{$restaurant->name}}</h3>
         <p class="detailCap">{{$restaurant->address}}</p>
-            <div class="d-flex align-items-center">                  
+            <div class="d-flex align-items-center justify-content-between">                  
                 <a class="ballButton" href="{{route('admin.restaurants.show', $restaurant)}}"><i class="fa-solid fa-eye"></i></a>
                 <!-- <a class="ballButton" href="{{route('admin.restaurants.edit', $restaurant)}}"><i class="fa-solid fa-pencil"></i></a> -->
                 <button type="button" class="deletebutton" data-bs-toggle="modal" data-bs-target="#project-{{$restaurant->id}}"><span>DELETE</span>

@@ -8,24 +8,26 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item ">
-                        <a class="nav-link text-white" @class(['active' => Route::currentRouteName() == 'home' || 'dashboard']) aria-current="page"
+                        <a class="nav-link text-white {{ str_contains(Route::currentRouteName(), 'admin.dashboard') ? 'active' : '' }} {{ str_contains(Route::currentRouteName(), 'home') ? 'active' : '' }}" aria-current="page"
                             href="{{ Auth::check() ? route('admin.dashboard') : route('home') }}">Home</a>
                     </li>
                     @auth
 
-                    <li   class="nav-item" @class(['active'=> Route::currentRouteName() == 'restaurants',])>
-                        <a class='nav-link text-white' href="{{ route('admin.restaurants.index') }}">Restaurants</a>
+                    <li   class="nav-item">
+                        <a class='nav-link {{ str_contains(Route::currentRouteName(), 'admin.restaurants') ? 'active' : '' }}' href="{{ route('admin.restaurants.index') }}">Restaurants</a>
                     </li>
 
 
                     <li class="nav-item">
-                        <a class="nav-link" @class(['active' => Route::currentRouteName() == 'restaurants',]) href="{{route("admin.dishes.index")}}">Dishes</a>
+                    <a class="nav-link {{ str_contains(Route::currentRouteName(), 'admin.dishes') ? 'active' : '' }}" href="{{ route('admin.dishes.index') }}">Dishes</a>
+
+                        <!-- <a class="nav-link" @class(['active' => Route::currentRouteName() == 'dishes',]) href="{{route("admin.dishes.index")}}">Dishes</a> -->
                     </li>
                     <!-- <li class="nav-item">
                         <a class="nav-link" href="#">Types</a>
                     </li> -->
 
-
+<li>{{Route::currentRouteName()}}</li>
 
 
                     @endauth

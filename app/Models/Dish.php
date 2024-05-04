@@ -22,7 +22,7 @@ class Dish extends Model
         return $this->belongsTo(Restaurant::class);
     }
 
-    public function getAbstract($n_chars = 25)
+    public function getAbstract($n_chars = 100)
     {
         return (strlen($this->description) > $n_chars) ? substr($this->description, 0, $n_chars) . "..." : $this->description;
     }

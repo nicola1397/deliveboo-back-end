@@ -13,9 +13,9 @@ a:hover {
   text-decoration: none;
 }
 
-a:visited {
-  color: white;
-}
+// a:visited {
+//   color: white;
+// }
 
 button {
   background-color: transparent;
@@ -112,12 +112,15 @@ body {
         transform: translateY(5px);
       }
 
-// RESTAURANT CARDS
- .restaurantCard {
+// CARDS
+ .myCard {
 background-color: #2929b9;
 padding-top: 10px;
 padding: 20px;
 border-radius: 10px;
+display: flex;
+flex-direction: column;
+justify-content: space-between;
 
 &:hover {
   box-shadow: 0 0 7px black ;
@@ -128,17 +131,44 @@ border-radius: 10px;
 
 }
 
+#addDish {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+ 
+  .ballButton {
+    height: 150px;
+    width: 150px;
+position: relative;
+
+    &:hover{
+      box-shadow: 0 0 7px #18186c;
+    }
+  }
+}
+
+
+
+#dishCover.coverImage {
+  height: 200px;
+  display: flex;
+  justify-content: center;
+  img {
+object-fit: cover;      }
+}
 .coverImage {
-  width: 100%;
+   width: 100%;
   overflow: hidden;
   border-radius: 10px;
   margin-bottom: 15px;
 
   img {
-    width: 100%;
-  
+width: 100%;  
   }
  }
+
+
  
 // BUTTONS
 
@@ -157,7 +187,6 @@ $transition: all #{$speed} cubic-bezier(0.310, -0.105, 0.430, 1.400);
   width: 150px;
   height: 50px;
   line-height: 50px;
-  margin: auto;
   color: #fff;
   position: relative;
   cursor: pointer;
@@ -295,3 +324,4 @@ $transition: all #{$speed} cubic-bezier(0.310, -0.105, 0.430, 1.400);
 .detailCap {
   text-transform: capitalize;
 }
+
