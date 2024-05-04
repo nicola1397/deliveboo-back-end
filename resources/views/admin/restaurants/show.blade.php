@@ -34,8 +34,8 @@
         <a href="{{ route('admin.dishes.index', $restaurant) }}" class="my-4 btn btn-primary">
             <i class="fa-solid fa-bars fa-beat"></i>
             Menu</a>
-</div>
-            </div>
+          </div>
+      </div>
 
 
     </div>

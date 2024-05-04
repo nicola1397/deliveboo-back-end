@@ -17,9 +17,14 @@
                         <a class='nav-link text-white' href="{{ route('admin.restaurants.index') }}">Restaurants</a>
                     </li>
 
-                    <!-- <li class="nav-item">
-                        <a class="nav-link text-white" href="#">Types</a>
-                    </li> -->
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{route("admin.dishes.index")}}">Dishes</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Types</a>
+                    </li>
+
 
 
 

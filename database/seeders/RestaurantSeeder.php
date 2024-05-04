@@ -21,46 +21,46 @@ class RestaurantSeeder extends Seeder
                 'user_id' => 1,
                 'name' => 'Lo sporcaccione',
                 'p_iva' => '01235478901',
-                'image' => 'picsum.photos/200/300',
+                'image' => 'img/restaurants/losporcaccione.png',
                 'address' => 'via innominabile, 44',
             ],
-            [
-                'user_id' => 2,
+/*             [
+                'user_id' => 1,
                 'name' => "L'asiatico allegro",
                 'p_iva' => '01237898901',
-                'image' => 'picsum.photos/200/300',
+                'image' => 'img/restaurants/lasiaticoallegro.png',
                 'address' => 'via della seta, 99',
             ],
-            /*
+            
             [
                 'user_id' => 1,
                 'name' => 'Messicanino',
                 'p_iva' => '01275308901',
                 'image' => 'picsum.photos/200/300',
-                'address' => 'via dello scappato, 22',
-            ],
+                'address' => 'via del sombrero, 22',
+            ], */
             [
                 'user_id' => 2,
-                'name' => 'Chernobyl',
+                'name' => 'Nonno Bismarck',
                 'p_iva' => '55555478901',
                 'image' => 'picsum.photos/200/300',
-                'address' => 'via radioattiva, XX',
+                'address' => 'via bellicosa, XX',
             ],
-            [
+/*             [
                 'user_id' => 2,
-                'name' => 'DA Padre DEMETRIO',
+                'name' => 'Da Padre Demetrio',
                 'p_iva' => '01235998901',
                 'image' => 'picsum.photos/200/300',
                 'address' => 'via arrabbiata, 69',
             ],
             [
                 'user_id' => 2,
-                'name' => 'Da quei 6mascalzoni',
+                'name' => 'Da quei mascalzoni',
                 'p_iva' => '03215478901',
                 'image' => 'picsum.photos/200/300',
                 'address' => 'via inconsapevole, 23',
-            ],
-            */
+            ], */
+           
         ];
 
         foreach ($restaurants as $restaurant_data) {

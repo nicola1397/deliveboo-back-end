@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 
+use App\Http\Requests\DishStoreRequest;
+use App\Http\Requests\DishUpdateRequest;
 use App\Models\Dish;
 use App\Models\Restaurant;
 use Illuminate\Http\Request;
@@ -22,15 +24,10 @@ class DishController extends Controller
      */
     public function index(Request $request, Restaurant $restaurant)
     {
-        $restaurants = Restaurant::where('user_id', Auth::id())->get();
+        $restaurant = Restaurant::where('user_id', Auth::id())->get()->toArray();
+        $id_restaurant = $restaurant[0]['id'];
 
-
-        foreach ($restaurants as $restaurant) {
-            $restaurant = $restaurant;
-        }
-
-
-        $dishes = Dish::where('restaurant_id', $restaurant->user_id)->paginate(10);
+        $dishes = Dish::where('restaurant_id', $id_restaurant)->paginate(10);
         return view('admin.dishes.index', compact('dishes'));
     }
 
@@ -50,26 +47,19 @@ class DishController extends Controller
      * @param  \Illuminate\Http\Request  $request
 
      */
-    public function store(Request $request, Restaurant $restaurant)
+    public function store(DishStoreRequest $request, Restaurant $restaurant)
     {
 
-        $restaurants = Restaurant::where('user_id', Auth::id())->get();
+        $restaurant = Restaurant::where('user_id', Auth::id())->get()->toArray();
+        $id_restaurant = $restaurant[0]['id'];
 
-
-        foreach ($restaurants as $restaurant) {
-            $restaurant = $restaurant;
-        }
-
+        $request->validated();
         $data = $request->all();
-
-
         $dish = new Dish;
         $dish->fill($data);
         $dish->slug = Str::slug($dish->name);
 
-
-
-        $dish->restaurant_id = $restaurant->id;
+        $dish->restaurant_id = $id_restaurant;
 
         if (Arr::exists($data, 'image')) {
             $img_path = Storage::put('upload/projects', $data['image']);
@@ -114,29 +104,26 @@ class DishController extends Controller
      * @param  \App\Models\Dish  $dish
  
      */
-    public function update(Request $request, Dish $dish)
+    public function update(DishUpdateRequest $request, Dish $dish)
     {
-        $restaurants = Restaurant::where('user_id', Auth::id())->get();
 
+        $restaurant = Restaurant::where('user_id', Auth::id())->get()->toArray();
+        $id_restaurant = $restaurant[0]['id'];
 
-        foreach ($restaurants as $restaurant) {
-            $restaurant = $restaurant;
-        }
-
+        $request->validated();
         $data = $request->all();
 
         $dish->update($data);
         $dish->slug = Str::slug($data['name']);
 
-        $dish->restaurant_id = $restaurant->id;
+        $dish->restaurant_id = $id_restaurant;
 
         if (Arr::exists($data, 'image')) {
-            $img_path = Storage::put('upload/projects', $data['image']);
+            $img_path = Storage::put('img/dishes', $data['image']);
             $dish->image = $img_path;
         }
 
         $dish->save();
-
         return redirect()->route('admin.dishes.show', compact('dish'))->with('message-class', 'alert-success')->with('message', 'Dish Edited.');
 
 
