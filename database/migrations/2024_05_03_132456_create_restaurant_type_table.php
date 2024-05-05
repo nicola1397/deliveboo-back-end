@@ -13,10 +13,13 @@ return new class extends Migration {
     public function up()
     {
         Schema::create('restaurant_type', function (Blueprint $table) {
-            $table->id();
-            $table->integer('restaurant_id')->constrained()->onDelete('NO ACTION');
-            $table->integer('type_id')->constrained()->onDelete('NO ACTION');
-            $table->timestamps();
+            //creo una colonna restaurant_id che prende come riferimento l'id della tabella restaurants
+            $table->unsignedBigInteger("restaurant_id")->nullable();
+            $table->foreign("restaurant_id")->references("id")->on("restaurants");
+
+            //creo una colonna type_id che prende come riferimento l'id della tabella types
+            $table->unsignedBigInteger("type_id")->nullable();
+            $table->foreign("type_id")->references("id")->on("types");
         });
     }
 

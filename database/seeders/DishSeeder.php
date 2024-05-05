@@ -122,7 +122,7 @@ class DishSeeder extends Seeder
 
         /* RESTAURANT 3 DISHES */
 
-        /* $dish = new Dish;
+        $dish = new Dish;
         $dish->restaurant_id = 3;
         $dish->name = "Nachos";
         $dish->description = "Tortillias con formaggio fuso, avocado e pomodorini";
@@ -131,7 +131,7 @@ class DishSeeder extends Seeder
         $dish->slug = Str::slug($dish->name);
         $dish->image = 'img/dishes/spaghetti.jpg';
         $dish->save();
-        
+
         $dish = new Dish;
         $dish->restaurant_id = 3;
         $dish->name = "Empanadas";
@@ -170,65 +170,65 @@ class DishSeeder extends Seeder
         $dish->availability = true;
         $dish->slug = Str::slug($dish->name);
         $dish->image = 'img/dishes/costata.webp';
-        $dish->save(); */
+        $dish->save();
 
 
         /* RESTAURANT 4 DISHES */
 
-        // $dish = new Dish;
-        // $dish->restaurant_id = 4;
-        // $dish->name = "Ueberbackene Zwiebelsuppe";
-        // $dish->description = "Zuppa di cipolle e patate cotta a fuoco lento in un tegame di terracotta";
-        // $dish->price = 9;
-        // $dish->availability = true;
-        // $dish->slug = Str::slug($dish->name);
-        // $dish->image = 'img/dishes/costata.webp';
-        // $dish->save();
+        $dish = new Dish;
+        $dish->restaurant_id = 4;
+        $dish->name = "Ueberbackene Zwiebelsuppe";
+        $dish->description = "Zuppa di cipolle e patate cotta a fuoco lento in un tegame di terracotta";
+        $dish->price = 9;
+        $dish->availability = true;
+        $dish->slug = Str::slug($dish->name);
+        $dish->image = 'img/dishes/costata.webp';
+        $dish->save();
 
-        // $dish = new Dish;
-        // $dish->restaurant_id = 4;
-        // $dish->name = "Crauti";
-        // $dish->description = "Crauti di verza fermentata con aceto e sale cotti con pezzi di wuster e accompagnati con senape";
-        // $dish->price = 12;
-        // $dish->availability = true;
-        // $dish->slug = Str::slug($dish->name);
-        // $dish->image = 'img/dishes/costata.webp';
-        // $dish->save();
+        $dish = new Dish;
+        $dish->restaurant_id = 4;
+        $dish->name = "Crauti";
+        $dish->description = "Crauti di verza fermentata con aceto e sale cotti con pezzi di wuster e accompagnati con senape";
+        $dish->price = 12;
+        $dish->availability = true;
+        $dish->slug = Str::slug($dish->name);
+        $dish->image = 'img/dishes/costata.webp';
+        $dish->save();
 
-        // $dish = new Dish;
-        // $dish->restaurant_id = 4;
-        // $dish->name = "Knodel";
-        // $dish->description = "Canederli con speck e formaggio cotti in brodo ";
-        // $dish->price = 13;
-        // $dish->availability = true;
-        // $dish->slug = Str::slug($dish->name);
-        // $dish->image = 'img/dishes/costata.webp';
-        // $dish->save();
+        $dish = new Dish;
+        $dish->restaurant_id = 4;
+        $dish->name = "Knodel";
+        $dish->description = "Canederli con speck e formaggio cotti in brodo ";
+        $dish->price = 13;
+        $dish->availability = true;
+        $dish->slug = Str::slug($dish->name);
+        $dish->image = 'img/dishes/costata.webp';
+        $dish->save();
 
-        // $dish = new Dish;
-        // $dish->restaurant_id = 4;
-        // $dish->name = "Gulash";
-        // $dish->description = "Spezzatino di cinghiale, cotto 3 ore con sugo di cipolla, carota, pomodoro e spezie";
-        // $dish->price = 17;
-        // $dish->availability = true;
-        // $dish->slug = Str::slug($dish->name);
-        // $dish->image = 'img/dishes/costata.webp';
-        // $dish->save();
+        $dish = new Dish;
+        $dish->restaurant_id = 4;
+        $dish->name = "Gulash";
+        $dish->description = "Spezzatino di cinghiale, cotto 3 ore con sugo di cipolla, carota, pomodoro e spezie";
+        $dish->price = 17;
+        $dish->availability = true;
+        $dish->slug = Str::slug($dish->name);
+        $dish->image = 'img/dishes/costata.webp';
+        $dish->save();
 
-        // $dish = new Dish;
-        // $dish->restaurant_id = 4;
-        // $dish->name = "Sacher";
-        // $dish->description = "Torta sacher tipica con farina, cioccolato, burro e marmellata di albiccocche";
-        // $dish->price = 7;
-        // $dish->availability = true;
-        // $dish->slug = Str::slug($dish->name);
-        // $dish->image = 'img/dishes/costata.webp';
-        // $dish->save();
+        $dish = new Dish;
+        $dish->restaurant_id = 4;
+        $dish->name = "Sacher";
+        $dish->description = "Torta sacher tipica con farina, cioccolato, burro e marmellata di albiccocche";
+        $dish->price = 7;
+        $dish->availability = true;
+        $dish->slug = Str::slug($dish->name);
+        $dish->image = 'img/dishes/costata.webp';
+        $dish->save();
 
 
         /* RESTAURANT 5 DISHES */
 
-        /* $dish = new Dish;
+        $dish = new Dish;
         $dish->restaurant_id = 5;
         $dish->name = "Tagliere di formaggi";
         $dish->description = "Selezione di pecorini sardi e casumarzu con carasau di accompagnamento";
@@ -247,7 +247,7 @@ class DishSeeder extends Seeder
         $dish->slug = Str::slug($dish->name);
         $dish->image = 'img/dishes/spaghetti.jpg';
         $dish->save();
-        
+
         $dish = new Dish;
         $dish->restaurant_id = 5;
         $dish->name = "Porceddu";
@@ -276,11 +276,11 @@ class DishSeeder extends Seeder
         $dish->availability = true;
         $dish->slug = Str::slug($dish->name);
         $dish->image = 'img/dishes/spaghetti.jpg';
-        $dish->save(); */
+        $dish->save();
 
         /* RESTAURANT 6 DISHES */
 
-        /* $dish = new Dish;
+        $dish = new Dish;
         $dish->restaurant_id = 6;
         $dish->name = "Crudi di pesce";
         $dish->description = "Cruditè di pesce di prima Qualità";
@@ -309,7 +309,7 @@ class DishSeeder extends Seeder
         $dish->slug = Str::slug($dish->name);
         $dish->image = 'img/dishes/margherita.avif';
         $dish->save();
-        
+
         $dish = new Dish;
         $dish->restaurant_id = 6;
         $dish->name = "SanPietro al forno";
@@ -328,6 +328,6 @@ class DishSeeder extends Seeder
         $dish->availability = true;
         $dish->slug = Str::slug($dish->name);
         $dish->image = 'img/dishes/pannacotta.avif';
-        $dish->save(); */
+        $dish->save();
     }
 }
