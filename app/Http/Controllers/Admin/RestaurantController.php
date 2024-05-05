@@ -10,6 +10,7 @@ use App\Models\Type;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Arr;
 
 class RestaurantController extends Controller
 {
@@ -28,9 +29,8 @@ class RestaurantController extends Controller
      */
     public function create()
     {
-        $restaurant = new Restaurant;
-        // todo: importare i Types per la selezione nella creazione
-        return view('admin.restaurants.form', compact('restaurant'));
+        $types = Type::all();
+        return view('admin.restaurants.form', compact('types'));
     }
 
     /**
@@ -41,16 +41,24 @@ class RestaurantController extends Controller
     public function store(Request $request)
     {
         $data = $request->all();
-
         $restaurant = new Restaurant;
         $restaurant->name = $data['name'];
+        $restaurant->phone = $data['phone'];
         $restaurant->p_iva = $data['p_iva'];
         $restaurant->image = $data['image'];
         $restaurant->address = $data['address'];
+        // $restaurant->types = $data['types'];
         $restaurant->user_id = Auth::id();
         $restaurant->slug = Str::slug($restaurant->name);
 
+
         $restaurant->save();
+
+
+
+        if (Arr::exists($data, 'types')) {
+            $restaurant->types()->attach($data['types']);
+        }
 
         return redirect()->route('admin.restaurants.show', $restaurant->id);
     }
@@ -61,6 +69,7 @@ class RestaurantController extends Controller
      */
     public function show(Restaurant $restaurant)
     {
+
         $user = User::where('user_id', $restaurant->user_id);
         $types = Type::all();
         return view('admin.restaurants.show', compact('restaurant', 'user', 'types'));

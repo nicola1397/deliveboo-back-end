@@ -22,12 +22,12 @@ class DishController extends Controller
      *
     
      */
-    public function index(Request $request, Restaurant $restaurant)
+    public function index(Request $request)
     {
-        $restaurant = Restaurant::where('user_id', Auth::id())->get()->toArray();
-        $id_restaurant = $restaurant[0]['id'];
+        $restaurantId = Auth::user()->restaurant->id;
 
-        $dishes = Dish::where('restaurant_id', $id_restaurant)->paginate(10);
+
+        $dishes = Dish::where('restaurant_id', $restaurantId)->orderBy('name')->paginate(10);
         return view('admin.dishes.index', compact('dishes'));
     }
 
@@ -47,24 +47,23 @@ class DishController extends Controller
      * @param  \Illuminate\Http\Request  $request
 
      */
-    public function store(DishStoreRequest $request, Restaurant $restaurant)
+    public function store(DishStoreRequest $request)
     {
-
-        $restaurant = Restaurant::where('user_id', Auth::id())->get()->toArray();
-        $id_restaurant = $restaurant[0]['id'];
+        $restaurantId = Auth::user()->restaurant->id;
 
         $request->validated();
         $data = $request->all();
+        $data['restaurant_id'] = $restaurantId;
         $dish = new Dish;
         $dish->fill($data);
         $dish->slug = Str::slug($dish->name);
 
-        $dish->restaurant_id = $id_restaurant;
 
         if (Arr::exists($data, 'image')) {
             $img_path = Storage::put('upload/projects', $data['image']);
             $dish->image = $img_path;
         }
+
 
         $dish->save();
 
@@ -107,16 +106,15 @@ class DishController extends Controller
     public function update(DishUpdateRequest $request, Dish $dish)
     {
 
-        $restaurant = Restaurant::where('user_id', Auth::id())->get()->toArray();
-        $id_restaurant = $restaurant[0]['id'];
+        $restaurantId = Auth::user()->restaurant->id;
 
         $request->validated();
         $data = $request->all();
-
+        $data['restaurant_id'] = $restaurantId;
         $dish->update($data);
         $dish->slug = Str::slug($data['name']);
 
-        $dish->restaurant_id = $id_restaurant;
+
 
         if (Arr::exists($data, 'image')) {
             $img_path = Storage::put('img/dishes', $data['image']);

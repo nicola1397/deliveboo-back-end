@@ -17,27 +17,47 @@ class TypeSeeder extends Seeder
     public function run(Faker $faker)
     {
         $type = new Type;
-        $type->label = 'italiana';
+        $type->label = 'Italiana';
         $type->color = $faker->hexColor();
         $type->save();
 
         $type = new Type;
-        $type->label = 'asiatica';
+        $type->label = 'Asiatica';
         $type->color = $faker->hexColor();
         $type->save();
 
         $type = new Type;
-        $type->label = 'messicana';
+        $type->label = 'Messicana';
         $type->color = $faker->hexColor();
         $type->save();
 
         $type = new Type;
-        $type->label = 'tedesca';
+        $type->label = 'Tedesca';
         $type->color = $faker->hexColor();
         $type->save();
 
         $type = new Type;
-        $type->label = 'sarda';
+        $type->label = 'Sarda';
+        $type->color = $faker->hexColor();
+        $type->save();
+
+        $type = new Type;
+        $type->label = 'BBQ';
+        $type->color = $faker->hexColor();
+        $type->save();
+
+        $type = new Type;
+        $type->label = 'Pizza';
+        $type->color = $faker->hexColor();
+        $type->save();
+
+        $type = new Type;
+        $type->label = 'Dolci';
+        $type->color = $faker->hexColor();
+        $type->save();
+
+        $type = new Type;
+        $type->label = 'Pesce';
         $type->color = $faker->hexColor();
         $type->save();
 
