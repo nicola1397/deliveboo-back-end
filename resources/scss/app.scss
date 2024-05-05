@@ -169,8 +169,49 @@ body {
 
 // RESTAURANT PAGE
 
+.menuPreview {
+    max-height: 70vh;
+    position: relative;
+    // overflow: auto;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    justify-content: center;
+}
+
 .restaurantLayout {
-    // max-height: 80vh;
+    max-height: 50vh;
+    position: relative;
+    display: flex;
+    justify-content: center;
+
+    .detailsCard {
+        position: absolute;
+        top: 70%;
+        background-color: white;
+        border-radius: 15px;
+        color: black;
+        width: 95%;
+        padding: 30px 20px;
+    }
+}
+
+.roundDish:hover .dishPrev {
+    box-shadow: 0 0 15px black;
+    transform: scale(1.05);
+    transition: all 0.2s ease 0.1s;
+}
+
+.dishPrev {
+    height: 150px;
+    width: 150px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 5px solid white;
+
+    img {
+        height: 100%;
+    }
 }
 
 // TYPE BADGES

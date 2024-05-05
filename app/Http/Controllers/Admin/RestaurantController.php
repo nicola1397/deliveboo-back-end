@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\Restaurant;
 use App\Models\User;
 use App\Models\Type;
+use App\Models\Dish;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Storage;
@@ -67,13 +68,17 @@ class RestaurantController extends Controller
      *
      * @param  \App\Models\Restaurant  $project
      */
-    public function show(Restaurant $restaurant)
+    public function show(Restaurant $restaurant, Dish $dish)
     {
 
         $user = User::where('user_id', $restaurant->user_id);
+        $dishes = Dish::where("restaurant_id", $restaurant->id)->get();
+                    
         $types = Type::all();
-        return view('admin.restaurants.show', compact('restaurant', 'user', 'types'));
+        return view('admin.restaurants.show', compact('restaurant', 'user', 'types', 'dishes'));
     }
+
+
     /**
      * Remove the specified resource from storage.
      *
