@@ -16,6 +16,7 @@ return new class extends Migration {
             $table->id();
             $table->string('name', 200);
             $table->string('slug', 200);
+            $table->string("phone");
             $table->char('p_iva', 11)->unique();
             $table->string('image', 250)->nullable();
             $table->string('address', 150);
