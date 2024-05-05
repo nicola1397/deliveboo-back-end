@@ -5,7 +5,7 @@
 
 @section('content')
 <div class="container mb-4" id="bootstrap-overrides">
-    <h1 class="my-4">I tuoi ristoranti</h1>
+    <h1 class="my-4 text-center">I tuoi ristoranti</h1>
 
     <a href="{{route('admin.restaurants.create')}}" class="btn btn-primary mb-4"><i class="fa-solid fa-plus fa-lg me-2"></i>Nuovo ristorante</a>
 

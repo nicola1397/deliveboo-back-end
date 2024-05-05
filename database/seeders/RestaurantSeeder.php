@@ -49,7 +49,7 @@ class RestaurantSeeder extends Seeder
                 'name' => 'Messicanino',
                 'phone' => '3247526003',
                 'p_iva' => '01275308905',
-                'image' => 'picsum.photos/200/300',
+                'image' => 'img/restaurants/messicanino.jpg',
                 'address' => 'via del sombrero, 22, 20100, Milano',
                 'types' => [
                     "Messicana",
@@ -61,7 +61,7 @@ class RestaurantSeeder extends Seeder
                 'name' => 'Nonno Bismarck',
                 'phone' => '3247526004',
                 'p_iva' => '55555478904',
-                'image' => 'picsum.photos/200/300',
+                'image' => 'img/restaurants/nonno-bismarck.jpg',
                 'address' => 'via bellicosa, XX, 40100, Bologna',
                 'types' => [
                     "Tedesca",
@@ -73,7 +73,7 @@ class RestaurantSeeder extends Seeder
                 'name' => 'Da Padre Demetrio',
                 'phone' => '3247526005',
                 'p_iva' => '01235998902',
-                'image' => 'picsum.photos/200/300',
+                'image' => 'img/restaurants/da-demetrio.jpg',
                 'address' => 'via arrabbiata, 69, 07100, Sassari',
                 'types' => [
                     "Italiana",
@@ -85,7 +85,7 @@ class RestaurantSeeder extends Seeder
                 'name' => 'Il buco',
                 'phone' => '3247526006',
                 'p_iva' => '55555478934',
-                'image' => 'picsum.photos/200/300',
+                'image' => 'img/restaurants/il-buco.jpg',
                 'address' => 'via giocosa, XX, 41100, Modena',
                 'types' => [
                     "Pesce",
