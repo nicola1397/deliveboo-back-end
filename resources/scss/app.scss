@@ -136,11 +136,12 @@ justify-content: space-between;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  min-height: 500px;
  
   .ballButton {
     height: 150px;
     width: 150px;
-position: relative;
+    position: relative;
 
     &:hover{
       box-shadow: 0 0 7px #18186c;
