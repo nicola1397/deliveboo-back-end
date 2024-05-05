@@ -251,7 +251,7 @@ class DishSeeder extends Seeder
         $dish = new Dish;
         $dish->restaurant_id = 5;
         $dish->name = "Porceddu";
-        $dish->description = "Giovanissimo esemplare di maialino, strappato alla madre e grigliato a fuoco lento sulla brace";
+        $dish->description = "Giovanissimo esemplare di maialino, grigliato a fuoco lento sulla brace";
         $dish->price = 22;
         $dish->availability = true;
         $dish->slug = Str::slug($dish->name);
@@ -302,7 +302,7 @@ class DishSeeder extends Seeder
 
         $dish = new Dish;
         $dish->restaurant_id = 6;
-        $dish->name = "Pizza mMargherita";
+        $dish->name = "Pizza Margherita";
         $dish->description = "Pizza con pomodoro, mozzarella, basilico, olio, origano";
         $dish->price = 7;
         $dish->availability = true;
