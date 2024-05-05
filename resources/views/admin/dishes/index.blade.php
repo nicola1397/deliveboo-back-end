@@ -27,7 +27,7 @@
             <div class="d-flex align-items-center justify-content-between">                  
                 <a class="ballButton" href="{{route('admin.dishes.show', $dish)}}"><i class="fa-solid fa-eye"></i></a>
                 <a class="ballButton" href="{{route('admin.dishes.edit', $dish)}}"><i class="fa-solid fa-pencil"></i></a>
-                <button type="button" class="deletebutton" data-bs-toggle="modal" data-bs-target="#project-{{$dish->id}}"><span>DELETE</span>
+                <button type="button" class="deletebutton" data-bs-toggle="modal" data-bs-target="#dish-{{$dish->id}}"><span>DELETE</span>
                 <div class="icon"><i class="fa-solid fa-trash"></i></div>
                 </button>
             </div>                  
@@ -55,10 +55,10 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h1 class="modal-title fs-5" id="exampleModalLabel">Delete {{$dish->name}}?</h1>
+                <h1 class="modal-title fs-5 text-danger" id="exampleModalLabel">Delete {{$dish->name}}?</h1>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <div class="modal-body">
+            <div class="modal-body text-black">
                 You CANNOT revert this action
             </div>
             <div class="modal-footer">
