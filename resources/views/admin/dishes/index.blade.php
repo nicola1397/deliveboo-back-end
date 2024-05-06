@@ -6,15 +6,12 @@
 {{-- !! Main-Content --}}
 @section('content')
     <section>
-<<<<<<< HEAD
         <div class="container mt-4 mb-4">
-=======
-        <div class="container mb-4">
+
 
             {{-- * Main title page --}}
->>>>>>> 9da9bafbca0300a145b5140639348c065deb7551
             <h1 class="text-center mb-5">I tuoi piatti</h1>
-            
+
             {{-- * Dishes list/grill --}}
             <div class="row gy-3 gx-3">
                 @forelse($dishes as $dish)
@@ -38,13 +35,13 @@
                                 <div class="d-flex align-items-center justify-content-between">
                                     {{-- ? Details button --}}
                                     <a class="ballButton" href="{{ route('admin.dishes.show', $dish) }}">
-                                    <i class="fa-solid fa-eye"></i></a>
+                                        <i class="fa-solid fa-eye"></i></a>
                                     {{-- ? Edit button --}}
                                     <a class="ballButton" href="{{ route('admin.dishes.edit', $dish) }}">
-                                    <i class="fa-solid fa-pencil"></i></a>
+                                        <i class="fa-solid fa-pencil"></i></a>
                                     {{-- ? Destroy/delete button --}}
                                     <button type="button" class="deletebutton" data-bs-toggle="modal"
-                                    data-bs-target="#dish-{{ $dish->id }}">
+                                        data-bs-target="#dish-{{ $dish->id }}">
                                         <span>DELETE</span>
                                         <div class="icon"><i class="fa-solid fa-trash"></i></div>
                                     </button>
@@ -61,7 +58,7 @@
                 {{-- * Add dish button --}}
                 <div class="col-lg-3 col-md-6 col-sm-12" id="addButton">
                     <a href="{{ route('admin.dishes.create') }}" class="ballButton">
-                    <i class="fa-solid fa-plus fa-lg me-2"></i>New Dish</a>
+                        <i class="fa-solid fa-plus fa-lg me-2"></i>New Dish</a>
                 </div>
                 {{-- * Pagination --}}
                 {{ $dishes->links('pagination::bootstrap-5') }}
@@ -74,8 +71,8 @@
 @section('modal')
     {{-- * Foreach of the modal --}}
     @foreach ($dishes as $dish)
-        <div class="modal fade" id="dish-{{ $dish->id }}" tabindex="-1" 
-        aria-labelledby="dish-{{ $dish->id }}" aria-hidden="true">
+        <div class="modal fade" id="dish-{{ $dish->id }}" tabindex="-1" aria-labelledby="dish-{{ $dish->id }}"
+            aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
