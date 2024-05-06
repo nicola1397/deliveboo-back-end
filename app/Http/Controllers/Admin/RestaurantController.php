@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\RestaurantStoreRequest;
 use Illuminate\Http\Request;
 use App\Models\Restaurant;
 use App\Models\User;
@@ -39,16 +40,24 @@ class RestaurantController extends Controller
      *
      * @param  \Illuminate\Http\Request  $request
      */
-    public function store(Request $request)
+    public function store(RestaurantStoreRequest $request)
     {
+
+        // validiamo i dati
+        $request->validated();
+
         // recupero dati
         $data = $request->all();
+
+
 
         //istanzio nuovo ristorante
         $restaurant = new Restaurant;
 
         //filloil ristorante con i dati del form
         $restaurant->fill($data);
+
+
         /*
         $restaurant->name = $data['name'];
         $restaurant->phone = $data['phone'];
@@ -57,6 +66,8 @@ class RestaurantController extends Controller
         $restaurant->address = $data['address'];
         // $restaurant->types = $data['types'];
         */
+
+
         //lego il nuovo ristorante all'autore/utente loggato
         $restaurant->user_id = Auth::id();
         //genero lo slug
@@ -64,7 +75,7 @@ class RestaurantController extends Controller
 
         //gestione immagine
         if (Arr::exists($data, "image")) {
-            $img_path = Storage::put('uploads/restautants', $data['image']);
+            $img_path = Storage::put('uploads/restaurants', $data['image']);
             $restaurant->image = $img_path;
         }
 
