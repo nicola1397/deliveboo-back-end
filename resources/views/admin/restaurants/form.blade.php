@@ -13,10 +13,8 @@
 
         <h1 class="mb-4">Aggiungi Ristorante</h1>
 
-        <form action="{{ empty($restaurant->id) ? route('admin.restaurants.store') : route('admin.restaurants.update', $restaurant) }}" method="post" enctype="multipart/form-data">
-            @if (!empty($restaurant->id))
-            @method('PATCH')
-            @endif
+        <form action="{{ route('admin.restaurants.store') }}" method="POST" enctype="multipart/form-data">
+
             @csrf
 
 
@@ -26,7 +24,7 @@
 
                         {{-- input nome --}}
                         <label for="name" class="form-label">Name:</label>
-                        <input type="text" class="form-control" id="name" name="name" value="{{ old('name') ?? ''}}" required max='200' />
+                        <input type="text" class="form-control @error('name') is-invalid @enderror" id="name" name="name" value="{{ old('name') ?? ''}}" required max='200' />
 
                         {{-- todo: implementare l'errore di inserimento --}}
                         @error('name')
@@ -41,7 +39,7 @@
 
                         {{-- input p_iva --}}
                         <label for="p_iva" class="form-label">P.Iva:</label>
-                        <input type="number" class="form-control" id="p_iva" name="p_iva" required pattern="[0-9]{11}" />
+                        <input type="text" class="form-control @error('p_iva') is-invalid @enderror" id="p_iva" name="p_iva" required pattern='\d{11}' title='11 cifre numeriche' />
 
                         {{-- todo: implementare l'errore di inserimento --}}
 
@@ -55,7 +53,7 @@
                     <div class="mt-3">
                         {{-- input nome --}}
                         <label for="phone" class="form-label">Phone:</label>
-                        <input type="text" class="form-control" id="phone" name="phone" value="{{old('phone') ?? '' }}" required max='20' />
+                        <input type="text" class="form-control @error('phone') is-invalid @enderror" id="phone" name="phone" value="{{old('phone') ?? '' }}" required max='20' />
 
                         {{-- todo: implementare l'errore di inserimento --}}
 
@@ -72,7 +70,7 @@
                     <div class="mt-3">
 
                         <label for="address" class="form-label">Address:</label>
-                        <input type="text" class="form-control" name="address" id="address" required max='150' />
+                        <input type="text" class="form-control @error('address') is-invalid @enderror" name="address" id="address" required max='150' />
 
                         {{-- todo: implementare l'errore di inserimento --}}
 
