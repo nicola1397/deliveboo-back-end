@@ -22,16 +22,15 @@
         {{-- ! Main --}}
         <main>
             @if (session('message'))
-
-              <section>
-                  <div class="container mt-3">
-                      <div class="alert {{ session('message-class') }} alert-dismissible">
-                          {{ session('message') }}
-                          <button aria-label="Close" class="btn-close" data-bs-dismiss="alert" type="button"></button>
-                      </div>
-                  </div>
-              </section>
-
+                <section>
+                    <div class="container mt-3">
+                        <div class="alert {{ session('message-class') }} alert-dismissible">
+                            {{ session('message') }}
+                            <button aria-label="Close" class="btn-close" data-bs-dismiss="alert"
+                                type="button"></button>
+                        </div>
+                    </div>
+                </section>
             @endif
 
             {{-- * Main content --}}
@@ -40,23 +39,23 @@
             @yield('modal')
         </main>
 
-    </div>
-    
+
         {{-- ! Footer --}}
         @include('layouts.partials.footer')
 
+    </div>
 
 
     {{-- ! Logout --}}
     @auth
-    <script>
-        const logoutLink = document.getElementById('logout-link');
-        const logoutForm = document.getElementById('logout-form');
-        logoutLink.addEventListener('click', (e) => {
-            e.preventDefault();
-            logoutForm.submit();
-        });
-    </script>
+        <script>
+            const logoutLink = document.getElementById('logout-link');
+            const logoutForm = document.getElementById('logout-form');
+            logoutLink.addEventListener('click', (e) => {
+                e.preventDefault();
+                logoutForm.submit();
+            });
+        </script>
 
     @endauth
 
