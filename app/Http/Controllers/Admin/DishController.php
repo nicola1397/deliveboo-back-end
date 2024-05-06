@@ -60,7 +60,7 @@ class DishController extends Controller
 
 
         if (Arr::exists($data, 'image')) {
-            $img_path = Storage::put('img/dishes', $data['image']);
+            $img_path = Storage::put('uploads/dishes', $data['image']);
             $dish->image = $img_path;
         }
 
@@ -79,6 +79,8 @@ class DishController extends Controller
      */
     public function show(Dish $dish)
     {
+        if (Auth::user()->id != $dish->restaurant->user_id)
+            abort(403);
 
         $restaurant = Auth::user()->restaurant;
 

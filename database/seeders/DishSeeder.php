@@ -24,7 +24,7 @@ class DishSeeder extends Seeder
         $dish->price = 12;
         $dish->availability = false;
         $dish->slug = Str::slug($dish->name);
-        $dish->image = 'img/dishes/tagliere.webp';
+        $dish->image = 'uploads/dishes/tagliere.webp';
         $dish->save();
 
         $dish = new Dish;
@@ -34,7 +34,7 @@ class DishSeeder extends Seeder
         $dish->price = 18;
         $dish->availability = true;
         $dish->slug = Str::slug($dish->name);
-        $dish->image = 'img/dishes/costata.webp';
+        $dish->image = 'uploads/dishes/costata.webp';
         $dish->save();
 
         $dish = new Dish;
@@ -44,7 +44,7 @@ class DishSeeder extends Seeder
         $dish->price = 15;
         $dish->availability = true;
         $dish->slug = Str::slug($dish->name);
-        $dish->image = 'img/dishes/galletto alla diavola Fine Dining Lovers.avif';
+        $dish->image = 'uploads/dishes/galletto alla diavola Fine Dining Lovers.avif';
         $dish->save();
 
         $dish = new Dish;
@@ -54,7 +54,7 @@ class DishSeeder extends Seeder
         $dish->price = 22;
         $dish->availability = true;
         $dish->slug = Str::slug($dish->name);
-        $dish->image = 'img/dishes/bistecca-fiorentina.jpg';
+        $dish->image = 'uploads/dishes/bistecca-fiorentina.jpg';
         $dish->save();
 
         $dish = new Dish;
@@ -64,7 +64,7 @@ class DishSeeder extends Seeder
         $dish->price = 8;
         $dish->availability = true;
         $dish->slug = Str::slug($dish->name);
-        $dish->image = 'img/dishes/tiramisu.jpg';
+        $dish->image = 'uploads/dishes/tiramisu.jpg';
         $dish->save();
 
 
@@ -77,7 +77,7 @@ class DishSeeder extends Seeder
         $dish->price = 8;
         $dish->availability = true;
         $dish->slug = Str::slug($dish->name);
-        $dish->image = 'img/dishes/Veg-Spring-Rolls-3.jpg';
+        $dish->image = 'uploads/dishes/Veg-Spring-Rolls-3.jpg';
         $dish->save();
 
         $dish = new Dish;
@@ -87,7 +87,7 @@ class DishSeeder extends Seeder
         $dish->price = 8;
         $dish->availability = true;
         $dish->slug = Str::slug($dish->name);
-        $dish->image = 'img/dishes/ravioli-al-vapore-cinesi-ecco-la-vera-ricetta-tradizionale-ripieno-carne-o-pesce.jpg';
+        $dish->image = 'uploads/dishes/ravioli-al-vapore-cinesi-ecco-la-vera-ricetta-tradizionale-ripieno-carne-o-pesce.jpg';
         $dish->save();
 
         $dish = new Dish;
@@ -97,7 +97,7 @@ class DishSeeder extends Seeder
         $dish->price = 8;
         $dish->availability = true;
         $dish->slug = Str::slug($dish->name);
-        $dish->image = 'img/dishes/onigiri.webp';
+        $dish->image = 'uploads/dishes/onigiri.webp';
         $dish->save();
 
         $dish = new Dish;
@@ -107,7 +107,7 @@ class DishSeeder extends Seeder
         $dish->price = 8;
         $dish->availability = true;
         $dish->slug = Str::slug($dish->name);
-        $dish->image = 'img/dishes/riso-alla-cantonese-.jpeg';
+        $dish->image = 'uploads/dishes/riso-alla-cantonese-.jpeg';
         $dish->save();
 
         $dish = new Dish;
@@ -117,7 +117,7 @@ class DishSeeder extends Seeder
         $dish->price = 8;
         $dish->availability = true;
         $dish->slug = Str::slug($dish->name);
-        $dish->image = 'img/dishes/bocconcini sushi mix.webp';
+        $dish->image = 'uploads/dishes/bocconcini sushi mix.webp';
         $dish->save();
 
         /* RESTAURANT 3 DISHES */
@@ -129,7 +129,7 @@ class DishSeeder extends Seeder
         $dish->price = 8;
         $dish->availability = true;
         $dish->slug = Str::slug($dish->name);
-        $dish->image = 'img/dishes/nachos.jpeg';
+        $dish->image = 'uploads/dishes/nachos.jpeg';
         $dish->save();
 
         $dish = new Dish;
@@ -139,7 +139,7 @@ class DishSeeder extends Seeder
         $dish->price = 9;
         $dish->availability = true;
         $dish->slug = Str::slug($dish->name);
-        $dish->image = 'img/dishes/empanadas.jpeg';
+        $dish->image = 'uploads/dishes/empanadas.jpeg';
         $dish->save();
 
         $dish = new Dish;
@@ -149,7 +149,7 @@ class DishSeeder extends Seeder
         $dish->price = 12;
         $dish->availability = true;
         $dish->slug = Str::slug($dish->name);
-        $dish->image = 'img/dishes/frijoles.jpeg';
+        $dish->image = 'uploads/dishes/frijoles.jpeg';
         $dish->save();
 
         $dish = new Dish;
@@ -159,7 +159,7 @@ class DishSeeder extends Seeder
         $dish->price = 25;
         $dish->availability = true;
         $dish->slug = Str::slug($dish->name);
-        $dish->image = 'img/dishes/churrasco.jpeg';
+        $dish->image = 'uploads/dishes/churrasco.jpeg';
         $dish->save();
 
         $dish = new Dish;
@@ -169,7 +169,7 @@ class DishSeeder extends Seeder
         $dish->price = 23;
         $dish->availability = true;
         $dish->slug = Str::slug($dish->name);
-        $dish->image = 'img/dishes/manzo argentino all abrace.jpeg';
+        $dish->image = 'uploads/dishes/manzo argentino all abrace.jpeg';
         $dish->save();
 
 
@@ -182,7 +182,7 @@ class DishSeeder extends Seeder
         $dish->price = 9;
         $dish->availability = true;
         $dish->slug = Str::slug($dish->name);
-        $dish->image = 'img/dishes/Ueberbackene Zwiebelsuppe.webp';
+        $dish->image = 'uploads/dishes/Ueberbackene Zwiebelsuppe.webp';
         $dish->save();
 
         $dish = new Dish;
@@ -192,7 +192,7 @@ class DishSeeder extends Seeder
         $dish->price = 12;
         $dish->availability = true;
         $dish->slug = Str::slug($dish->name);
-        $dish->image = 'img/dishes/original_wurstel-tedeschi-con-crauti-ed-erbe-aromatiche.jpg';
+        $dish->image = 'uploads/dishes/original_wurstel-tedeschi-con-crauti-ed-erbe-aromatiche.jpg';
         $dish->save();
 
         $dish = new Dish;
@@ -202,7 +202,7 @@ class DishSeeder extends Seeder
         $dish->price = 13;
         $dish->availability = true;
         $dish->slug = Str::slug($dish->name);
-        $dish->image = 'img/dishes/knodel.webp';
+        $dish->image = 'uploads/dishes/knodel.webp';
         $dish->save();
 
         $dish = new Dish;
@@ -212,7 +212,7 @@ class DishSeeder extends Seeder
         $dish->price = 17;
         $dish->availability = true;
         $dish->slug = Str::slug($dish->name);
-        $dish->image = 'img/dishes/gulash.webp';
+        $dish->image = 'uploads/dishes/gulash.webp';
         $dish->save();
 
         $dish = new Dish;
@@ -222,7 +222,7 @@ class DishSeeder extends Seeder
         $dish->price = 7;
         $dish->availability = true;
         $dish->slug = Str::slug($dish->name);
-        $dish->image = 'img/dishes/sacher.jpeg';
+        $dish->image = 'uploads/dishes/sacher.jpeg';
         $dish->save();
 
 
@@ -235,7 +235,7 @@ class DishSeeder extends Seeder
         $dish->price = 15;
         $dish->availability = true;
         $dish->slug = Str::slug($dish->name);
-        $dish->image = 'img/dishes/tagliere sardo.jpeg';
+        $dish->image = 'uploads/dishes/tagliere sardo.jpeg';
         $dish->save();
 
         $dish = new Dish;
@@ -245,7 +245,7 @@ class DishSeeder extends Seeder
         $dish->price = 12;
         $dish->availability = true;
         $dish->slug = Str::slug($dish->name);
-        $dish->image = 'img/dishes/culurgiones-al-pomodoro.jpg';
+        $dish->image = 'uploads/dishes/culurgiones-al-pomodoro.jpg';
         $dish->save();
 
         $dish = new Dish;
@@ -255,7 +255,7 @@ class DishSeeder extends Seeder
         $dish->price = 22;
         $dish->availability = true;
         $dish->slug = Str::slug($dish->name);
-        $dish->image = 'img/dishes/porceddu.jpeg';
+        $dish->image = 'uploads/dishes/porceddu.jpeg';
         $dish->save();
 
         $dish = new Dish;
@@ -265,7 +265,7 @@ class DishSeeder extends Seeder
         $dish->price = 16;
         $dish->availability = true;
         $dish->slug = Str::slug($dish->name);
-        $dish->image = 'img/dishes/trattalia.jpeg';
+        $dish->image = 'uploads/dishes/trattalia.jpeg';
         $dish->save();
 
         $dish = new Dish;
@@ -275,7 +275,7 @@ class DishSeeder extends Seeder
         $dish->price = 8;
         $dish->availability = true;
         $dish->slug = Str::slug($dish->name);
-        $dish->image = 'img/dishes/seadas.jpeg';
+        $dish->image = 'uploads/dishes/seadas.jpeg';
         $dish->save();
 
         /* RESTAURANT 6 DISHES */
@@ -287,7 +287,7 @@ class DishSeeder extends Seeder
         $dish->price = 18;
         $dish->availability = true;
         $dish->slug = Str::slug($dish->name);
-        $dish->image = 'img/dishes/crudomare.jpeg';
+        $dish->image = 'uploads/dishes/crudomare.jpeg';
         $dish->save();
 
         $dish = new Dish;
@@ -297,7 +297,7 @@ class DishSeeder extends Seeder
         $dish->price = 14;
         $dish->availability = true;
         $dish->slug = Str::slug($dish->name);
-        $dish->image = 'img/dishes/pescatora.jpg';
+        $dish->image = 'uploads/dishes/pescatora.jpg';
         $dish->save();
 
         $dish = new Dish;
@@ -307,7 +307,7 @@ class DishSeeder extends Seeder
         $dish->price = 7;
         $dish->availability = true;
         $dish->slug = Str::slug($dish->name);
-        $dish->image = 'img/dishes/margherita.avif';
+        $dish->image = 'uploads/dishes/margherita.avif';
         $dish->save();
 
         $dish = new Dish;
@@ -317,7 +317,7 @@ class DishSeeder extends Seeder
         $dish->price = 28;
         $dish->availability = true;
         $dish->slug = Str::slug($dish->name);
-        $dish->image = 'img/dishes/sanpietro.webp';
+        $dish->image = 'uploads/dishes/sanpietro.webp';
         $dish->save();
 
         $dish = new Dish;
@@ -327,7 +327,7 @@ class DishSeeder extends Seeder
         $dish->price = 5;
         $dish->availability = true;
         $dish->slug = Str::slug($dish->name);
-        $dish->image = 'img/dishes/pannacotta.avif';
+        $dish->image = 'uploads/dishes/pannacotta.avif';
         $dish->save();
     }
 }
