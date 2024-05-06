@@ -22,6 +22,7 @@
         {{-- ! Main --}}
         <main>
             @if (session('message'))
+
               <section>
                   <div class="container mt-3">
                       <div class="alert {{ session('message-class') }} alert-dismissible">
@@ -30,6 +31,7 @@
                       </div>
                   </div>
               </section>
+
             @endif
 
             {{-- * Main content --}}
@@ -37,6 +39,7 @@
             {{-- * Destroy modal --}}
             @yield('modal')
         </main>
+
     </div>
     
         {{-- ! Footer --}}
@@ -54,6 +57,7 @@
             logoutForm.submit();
         });
     </script>
+
     @endauth
 
     {{-- ! Script --}}

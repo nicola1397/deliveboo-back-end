@@ -12,16 +12,17 @@
                 <i class="fa-solid fa-circle-left fa-beat"></i>
                 Back to the List</a>
 
-            <div class="row">
+            <div class="row mb-5">
 
-                <div class="col-sm-12 col-md-6 restaurantLayout">
+                <div class="col-sm-12 col-md-6 restaurantLayout  flex-column justify-content-center align-items-center">
                     {{-- COLONNA IMMAGINE --}}
-                    <div class="coverImage">
-                        <img src="{{ asset('storage/' . $restaurant->image) }}" alt="{{ $restaurant->name }}">
+                    <div class="coverImage rounded-top mb-0">
+                        <img src="{{ asset('storage/' . $restaurant->image) }}" alt="{{ $restaurant->name }}"
+                            class="w-100 h-auto">
                     </div>
 
                     {{-- COLONNA DATI --}}
-                    <div class="col-sm-12 col-md-6 row detailsCard">
+                    <div class="col-sm-12 col-md-6 row detailsCard rounded-bottom">
                         {{-- NOME --}}
                         <div class="col-12 ">
                             <h5>Nome Ristorante</h5>
