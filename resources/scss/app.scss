@@ -248,19 +248,19 @@ body {
 // Variables
 $color: #c0392b;
 $color-dark: #a53125;
-$color2: #2929b9;
-$color3: #58e888;
+$color2: orange;
+$color3: #2929b9;
 
 $speed: "0.25s";
 $transition: all #{$speed} cubic-bezier(0.31, -0.105, 0.43, 1.4);
 /* DELETE BUTTON */
-.menubutton {
+.editbutton {
     display: inline-block;
     background-color: white;
     width: 150px;
     height: 50px;
     line-height: 50px;
-    color: $color2;
+    color: $color3;
     position: relative;
     cursor: pointer;
     overflow: hidden;
@@ -287,7 +287,7 @@ $transition: all #{$speed} cubic-bezier(0.31, -0.105, 0.43, 1.4);
 
         &:after {
             content: "";
-            background-color: $color2;
+            background-color: $color3;
             width: 2px;
             height: 70%;
             position: absolute;
