@@ -75,8 +75,13 @@
                             {{-- Input dish-image --}}
                             <div class="img mt-3">
                                 <label for="image" class="form-label">Image</label>
-                                <input class="form-control @error('image') is-invalid @enderror" id="image"
-                                    name="image" type="file" value="{{ empty($dish->id) ? '' : old('image') }}" />
+                                <div class="d-flex">
+                                    <input class="form-control @error('image') is-invalid @enderror" id="image"
+                                        name="image" type="file" value="{{ empty($dish->id) ? '' : old('image') }}" />
+                                    @if (!empty($dish->id))
+                                        <div class="delete-dish-image btn btn-danger rounded">X</div>
+                                    @endif
+                                </div>
                                 @error('image')
                                     <div class="invalid-feedback">{{ $message }}</div>
                                 @enderror
@@ -104,8 +109,31 @@
                     </div>
                 </div>
             </form>
+
+
+            {{-- IMAGE DELETION FORM --}}
+            @if (!empty($dish->id))
+                <form action="{{ route('admin.dish.destroyImage', $dish) }}" class="d-none" method="POST"
+                    id="delete-image-form">
+                    @csrf
+                    @method('DELETE')
+                </form>
+            @endif
         </div>
     </section>
+@endsection
+
+
+@section('js')
+    <script>
+        // IMAGE DELETION
+        const deleteImageButton = document.querySelector('.delete-dish-image');
+        const deleteImageForm = document.querySelector('#delete-image-form');
+
+        deleteImageButton.addEventListener('click', () => {
+            deleteImageForm.submit();
+        })
+    </script>
 @endsection
 
 {{-- ! CSS --}}

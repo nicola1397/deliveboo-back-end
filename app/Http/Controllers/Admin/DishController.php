@@ -149,4 +149,12 @@ class DishController extends Controller
         $dish->delete();
         return redirect()->route('admin.dishes.index');
     }
+
+    public function destroyImage(Dish $dish)
+    {
+        Storage::delete($dish->image);
+        $dish->image = null;
+        $dish->save();
+        return redirect()->back();
+    }
 }

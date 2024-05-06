@@ -35,6 +35,10 @@ Route::middleware('auth')
 
     /* ROUTES DISHES */
     Route::resource('/dishes', DishController::class);
+
+    /* ROUTES FOR DISH IMAGE REMOVAL */
+    Route::delete('/dishes/{dish}/destroyImage', [DishController::class, 'destroyImage'])->name('dish.destroyImage');
+
   });
 
 require __DIR__ . '/auth.php';
