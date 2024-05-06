@@ -118,11 +118,10 @@ class RestaurantController extends Controller
      */
     public function destroy(Restaurant $restaurant)
     {
-        // if (!empty($restaurant->image)) {
-        //     Storage::delete($restaurant->image);
-        // }
+        if (!empty($restaurant->image)) {
+            Storage::delete($restaurant->image);
+        }
         $restaurant->delete();
-        // return redirect()->route('admin.restaurants.index')->with('message-class', 'alert-danger')->with('message', 'Restaurant Deleted');
-        return redirect()->route('admin.restaurants.index');
+        return redirect()->route('admin.restaurants.index')->with('message-class', 'alert-danger')->with('message', 'Restaurant Deleted');
     }
 }
