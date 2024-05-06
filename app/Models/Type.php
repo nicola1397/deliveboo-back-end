@@ -9,6 +9,8 @@ class Type extends Model
 {
     use HasFactory;
 
+    protected $fillable = ['label', 'color', 'image'];
+
     /* Realation between the types & the related restaurants */
     public function restaurants()
     {
