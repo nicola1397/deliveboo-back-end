@@ -43,7 +43,7 @@
                 @endforelse
 
 
-                <div class="col-lg-3 col-md-6 col-sm-12" id="addDish">
+                <div class="col-lg-3 col-md-6 col-sm-12" id="addButton">
                     <a href="{{ route('admin.dishes.create') }}" class="ballButton"><i
                             class="fa-solid fa-plus fa-lg me-2"></i>New Dish</a>
                 </div>
