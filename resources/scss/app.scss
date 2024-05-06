@@ -213,6 +213,17 @@ footer {
     }
 }
 
+.dishDetailImg {
+    max-height: 600px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    img {
+        object-fit: cover;
+    }
+}
+
 // TYPE BADGES
 .badge {
     display: inline-block;

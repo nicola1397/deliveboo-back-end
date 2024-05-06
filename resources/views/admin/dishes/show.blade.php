@@ -27,7 +27,7 @@
             <div class="row">
                 <div class="col-sm-12 col-md-6">
                     {{-- Dish image --}}
-                    <div class="overflow-hidden rounded ">
+                    <div class="overflow-hidden rounded dishDetailImg">
                         <img src="{{ $dish->image ? asset('storage/' . $dish->image) : '' }}" alt="" class="w-100">
                     </div>
                 </div>
@@ -57,11 +57,19 @@
                              // <span>MENU</span>
                              // <div class="icon"><i class="fa-solid fa-bars"></i></div>
                              // </a> --}}
-                            {{-- Button/link to edit-dish --}}
-                            <a href="{{ route('admin.dishes.edit', $dish) }}" class="my-4 btn btn-primary editbutton">
-                                <span>EDIT</span>
-                                <div class="icon"><i class="fa-solid link-white fa-pencil me-2"></i></div>
-                            </a>
+                            <div class="d-flex justify-content-between align-items-center">
+                                {{-- Button/link to edit-dish --}}
+                                <a href="{{ route('admin.dishes.edit', $dish) }}" class="my-4 btn btn-primary editbutton">
+                                    <span>EDIT</span>
+                                    <div class="icon"><i class="fa-solid link-white fa-pencil me-2"></i></div>
+                                </a>
+                                {{-- ? Destroy/delete button --}}
+                                <button type="button" class="deletebutton" data-bs-toggle="modal"
+                                    data-bs-target="#dish-{{ $dish->id }}">
+                                    <span>DELETE</span>
+                                    <div class="icon"><i class="fa-solid fa-trash"></i></div>
+                                </button>
+                            </div>
                         </div>
 
                     </div>

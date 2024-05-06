@@ -57,7 +57,7 @@
                             <div class="mt-2">
                                 <label for="price" class="form-label">Price</label>
                                 <input class="form-control @error('price') is-invalid @enderror" id="price"
-                                    name="price" type='number' step='0.01' min='0.01' max='9999' required
+                                    name="price" type='text' pattern="^\d{4}*(\.\d{0,2})?$" required
                                     value="{{ empty($dish->id) ? '' : old('price') ?? $dish->price }}">
                                 @error('price')
                                     <div class="invalid-feedback">{{ $message }}</div>
