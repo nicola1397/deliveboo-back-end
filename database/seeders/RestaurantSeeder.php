@@ -85,7 +85,7 @@ class RestaurantSeeder extends Seeder
                 'name' => 'Il buco',
                 'phone' => '3247526006',
                 'p_iva' => '55555478934',
-                'image' => 'img/restaurants/il-buco.jpg',
+                'image' => 'img/restaurants/il-buco.jpeg',
                 'address' => 'via giocosa, XX, 41100, Modena',
                 'types' => [
                     "Pesce",
