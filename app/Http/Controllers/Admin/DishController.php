@@ -26,6 +26,8 @@ class DishController extends Controller
     {
         $restaurantId = Auth::user()->restaurant->id;
 
+        // Permission user-restaurant-dishes for index
+
         $restaurant = Auth::user()->restaurant;
         $dishes = Dish::where('restaurant_id', $restaurantId)->orderBy('name')->paginate(10);
         return view('admin.dishes.index', compact('dishes', 'restaurant'));
@@ -49,24 +51,28 @@ class DishController extends Controller
      */
     public function store(DishStoreRequest $request)
     {
+        // Permission user-restaurant-dishes for store
+
         $restaurantId = Auth::user()->restaurant->id;
 
+        // Dish validation
         $request->validated();
         $data = $request->all();
         $data['restaurant_id'] = $restaurantId;
+
+        // Data dish in store
         $dish = new Dish;
         $dish->fill($data);
         $dish->slug = Str::slug($dish->name);
-
-
+        // Add img in dish store
         if (Arr::exists($data, 'image')) {
             $img_path = Storage::put('uploads/dishes', $data['image']);
             $dish->image = $img_path;
         }
 
-
         $dish->save();
 
+        // Redirect to dish show & success output
         return redirect()->route('admin.dishes.show', compact('dish'))->with('message-class', 'alert-success')->with('message', 'New Dish Added.');
 
     }

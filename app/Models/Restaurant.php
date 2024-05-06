@@ -16,14 +16,19 @@ class Restaurant extends Model
         'address',
     ];
 
+    /* Realation between any restaurant & its user */
     public function user()
     {
         return $this->belongsTo(User::class);
     }
+
+    /* Realation between any restaurant & its dishes */
     public function dishes()
     {
         return $this->hasMany(Dish::class);
     }
+
+    /* Realation between the restaurants & their types */
     public function types()
     {
         return $this->belongsToMany(Type::class);

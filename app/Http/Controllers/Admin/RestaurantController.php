@@ -99,8 +99,12 @@ class RestaurantController extends Controller
     public function show(Restaurant $restaurant, Dish $dish)
     {
 
+
+        // Permission user-restaurant
+
         if (Auth::user()->id != $restaurant->user_id)
             abort(403);
+
 
         $user = User::where('user_id', $restaurant->user_id);
         $dishes = Dish::where("restaurant_id", $restaurant->id)->get();

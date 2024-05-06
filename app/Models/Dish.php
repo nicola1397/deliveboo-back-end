@@ -19,11 +19,13 @@ class Dish extends Model
         'slug',
     ];
 
+    /* Realation between the dishes & their restaurant */
     public function restaurant()
     {
         return $this->belongsTo(Restaurant::class);
     }
 
+    /* Cut the dish description in the table list */
     public function getAbstract($n_chars = 100)
     {
         return (strlen($this->description) > $n_chars) ? substr($this->description, 0, $n_chars) . "..." : $this->description;

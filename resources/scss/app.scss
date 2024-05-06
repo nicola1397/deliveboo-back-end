@@ -1,3 +1,4 @@
+// BOOTSTRAP
 @import "~bootstrap/scss/bootstrap";
 // FREEMAN FONT
 @import url("https://fonts.googleapis.com/css2?family=Freeman&display=swap");
@@ -6,6 +7,7 @@
 // // RESETS
 // @import url(//codepen.io/chrisdothtml/pen/ojLzJK.css);
 
+// BASIC SETTINGS
 a {
     text-decoration: none;
 }
@@ -13,43 +15,14 @@ a:hover {
     text-decoration: none;
 }
 
-// a:visited {
-//   color: white;
-// }
+/* a:visited {
+  color: white;
+} */
 
 button {
     background-color: transparent;
     border: 0;
     cursor: pointer;
-}
-
-.wrapper {
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    background-color: #3535ec;
-
-    main {
-        flex-grow: 1;
-    }
-
-    .headerNav,
-   
-
-    .headerNav {
-        box-shadow: 5px;
-    }
-}
-
-footer {
-    background-color: #5d5d63;
-}
-
-body {
-    font-family: "Freeman", sans-serif;
-    font-weight: 400;
-    font-style: normal;
-    color: white;
 }
 
 .rob4 {
@@ -58,75 +31,87 @@ body {
     font-style: normal;
 }
 
-
 .active {
     color: orange !important ;
 }
 
-// JUMBO BUTTON ANIMATION
-.btn--action {
-    font-size: 1.5rem;
-    display: block;
-    width: 100%;
-    padding: 1rem;
-    border-radius: 100px;
-    background-color: white;
-    color: black;
-    transition: all 0.5s ease 0s;
-    box-shadow: 0 10px #18186c;
+// BODY
+body {
+    font-family: "Freeman", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    color: white;
 }
 
-.btn--action span {
-    display: inline-block;
-    position: relative;
-    transition: all 0.5s ease;
-}
-
-.btn--action span::before {
-    content: "🧑🏻‍🍳";
-    display: inline-block;
-    position: absolute;
-    top: 50%;
-    font-size: 2rem;
-    transform: translate(-100%, -50%);
-    left: 1.5rem;
-    opacity: 0;
-    transition: all 0.1s ease 0s;
-}
-
-.btn--action:hover {
-    background-color: #2929b9;
-}
-
-.btn--action:hover span {
-    padding-left: 1.5rem;
-}
-
-.btn--action:hover span:before {
-    left: 0;
-    opacity: 1;
-}
-
-.btn--action:active {
-    box-shadow: 0 5px #58e888;
-    transform: translateY(5px);
-}
-
-// CARDS
-.myCard {
-    background-color: #2929b9;
-    padding-top: 10px;
-    padding: 20px;
-    border-radius: 10px;
+.wrapper {
+    min-height: 100vh;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    background-color: #3535ec;
 
-    &:hover {
-        box-shadow: 0 0 7px black;
-        transform: scale(1.02);
-        transition: all 0.1s ease-in-out 0.1s;
+    // HEADER
+    .headerNav {
+        box-shadow: 5px;
     }
+
+    // MAIN
+    main {
+        flex-grow: 1;
+    }
+
+    // JUMBO BUTTON ANIMATION
+    .btn--action {
+        font-size: 1.5rem;
+        display: block;
+        width: 100%;
+        padding: 1rem;
+        border-radius: 100px;
+        background-color: white;
+        color: black;
+        transition: all 0.5s ease 0s;
+        box-shadow: 0 10px #18186c;
+    }
+
+    .btn--action span {
+        display: inline-block;
+        position: relative;
+        transition: all 0.5s ease;
+    }
+
+    .btn--action span::before {
+        content: "🧑🏻‍🍳";
+        display: inline-block;
+        position: absolute;
+        top: 50%;
+        font-size: 2rem;
+        transform: translate(-100%, -50%);
+        left: 1.5rem;
+        opacity: 0;
+        transition: all 0.1s ease 0s;
+    }
+
+    .btn--action:hover {
+        background-color: #2929b9;
+    }
+
+    .btn--action:hover span {
+        padding-left: 1.5rem;
+    }
+
+    .btn--action:hover span:before {
+        left: 0;
+        opacity: 1;
+    }
+
+    .btn--action:active {
+        box-shadow: 0 5px #58e888;
+        transform: translateY(5px);
+    }
+}
+
+// FOOTER
+footer {
+    background-color: #5d5d63;
 }
 
 #addButton {
@@ -147,7 +132,7 @@ body {
     }
 }
 
-#dishCover.coverImage {
+.dishCover.coverImage {
     height: 200px;
     display: flex;
     justify-content: center;
