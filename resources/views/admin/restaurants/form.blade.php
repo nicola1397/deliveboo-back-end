@@ -17,6 +17,7 @@
             @if (!empty($restaurant->id))
             @method('PATCH')
             @endif
+            @csrf
 
 
             <div class="row">
