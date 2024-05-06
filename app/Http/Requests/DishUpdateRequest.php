@@ -27,7 +27,7 @@ class DishUpdateRequest extends FormRequest
             'name' => 'required|string|max:150',
             'slug' => "nullable|string|max:150",
             "description" => "required|string",
-            'price' => "required|string",
+            'price' => "required|integer|min:0.1|max:9999",
             "image" => "nullable|image",
         ];
     }
