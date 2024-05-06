@@ -41,28 +41,45 @@ class RestaurantController extends Controller
      */
     public function store(Request $request)
     {
+        // recupero dati
         $data = $request->all();
+
+        //istanzio nuovo ristorante
         $restaurant = new Restaurant;
+
+        //filloil ristorante con i dati del form
+        $restaurant->fill($data);
+        /*
         $restaurant->name = $data['name'];
         $restaurant->phone = $data['phone'];
         $restaurant->p_iva = $data['p_iva'];
         $restaurant->image = $data['image'];
         $restaurant->address = $data['address'];
         // $restaurant->types = $data['types'];
+        */
+        //lego il nuovo ristorante all'autore/utente loggato
         $restaurant->user_id = Auth::id();
+        //genero lo slug
         $restaurant->slug = Str::slug($restaurant->name);
 
+        //gestione immagine
+        if (Arr::exists($data, "image")) {
+            $img_path = Storage::put('uploads/restautants', $data['image']);
+            $restaurant->image = $img_path;
+        }
 
+        //salvataggio nel db
         $restaurant->save();
 
-
-
+        // relazione ristoranti ai tipi associati
         if (Arr::exists($data, 'types')) {
             $restaurant->types()->attach($data['types']);
         }
 
         return redirect()->route('admin.restaurants.show', $restaurant->id);
     }
+
+
     /*
      * Display the specified resource.
      *
@@ -73,7 +90,7 @@ class RestaurantController extends Controller
 
         $user = User::where('user_id', $restaurant->user_id);
         $dishes = Dish::where("restaurant_id", $restaurant->id)->get();
-                    
+
         $types = Type::all();
         return view('admin.restaurants.show', compact('restaurant', 'user', 'types', 'dishes'));
     }

@@ -16,7 +16,7 @@
 
             <form
                 action="{{ empty($restaurant->id) ? route('admin.restaurants.store') : route('admin.restaurants.update', $restaurant) }}"
-                method="post">
+                method="post" enctype="multipart/form-data">
                 @if (!empty($restaurant->id))
                     @method('PATCH')
                 @endif
