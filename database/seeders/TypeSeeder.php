@@ -10,7 +10,7 @@ use Faker\Generator as Faker;
 class TypeSeeder extends Seeder
 {
     /**
-     * Run the database seeds.
+     * Run the database seeds of the types of restaurants.
      *
      * @return void
      */

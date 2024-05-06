@@ -1,0 +1,16 @@
+// INDEXS CARDS
+.myCard {
+    background-color: #2929b9;
+    padding-top: 10px;
+    padding: 20px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    &:hover {
+        box-shadow: 0 0 7px black;
+        transform: scale(1.02);
+        transition: all 0.1s ease-in-out 0.1s;
+    }
+}

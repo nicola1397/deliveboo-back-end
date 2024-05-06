@@ -10,7 +10,7 @@ use Illuminate\Support\Str;
 class DishSeeder extends Seeder
 {
     /**
-     * Run the database seeds.
+     * Run the database seeds of the dishes
      *
      * @return void
      */

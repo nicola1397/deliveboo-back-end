@@ -11,8 +11,7 @@ use Illuminate\Support\Str;
 class RestaurantSeeder extends Seeder
 {
     /**
-     * Run the database seeds.
-     *
+     * Run the database seeds of the restaurants
      * @return void
      */
     public function run()
