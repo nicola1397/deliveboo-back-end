@@ -22,7 +22,7 @@ class RestaurantSeeder extends Seeder
                 'name' => 'Lo sporcaccione',
                 'phone' => '3247526001',
                 'p_iva' => '01235478907',
-                'image' => 'img/restaurants/losporcaccione.png',
+                'image' => 'uploads/restaurants/losporcaccione.png',
                 'address' => 'via innominabile, 44, 70100, Bari',
                 'types' => [
                     "Italiana",
@@ -35,7 +35,7 @@ class RestaurantSeeder extends Seeder
                 'name' => "L'asiatico allegro",
                 'phone' => '3247526002',
                 'p_iva' => '01237898906',
-                'image' => 'img/restaurants/lasiaticoallegro.png',
+                'image' => 'uploads/restaurants/lasiaticoallegro.png',
                 'address' => 'via della seta, 99, 20100, Milano',
                 'types' => [
                     "Asiatica",
@@ -48,7 +48,7 @@ class RestaurantSeeder extends Seeder
                 'name' => 'Messicanino',
                 'phone' => '3247526003',
                 'p_iva' => '01275308905',
-                'image' => 'img/restaurants/messicanino.jpg',
+                'image' => 'uploads/restaurants/messicanino.jpg',
                 'address' => 'via del sombrero, 22, 20100, Milano',
                 'types' => [
                     "Messicana",
@@ -60,7 +60,7 @@ class RestaurantSeeder extends Seeder
                 'name' => 'Nonno Bismarck',
                 'phone' => '3247526004',
                 'p_iva' => '55555478904',
-                'image' => 'img/restaurants/nonno-bismarck.jpg',
+                'image' => 'uploads/restaurants/nonno-bismarck.jpg',
                 'address' => 'via bellicosa, XX, 40100, Bologna',
                 'types' => [
                     "Tedesca",
@@ -72,7 +72,7 @@ class RestaurantSeeder extends Seeder
                 'name' => 'Da Padre Demetrio',
                 'phone' => '3247526005',
                 'p_iva' => '01235998902',
-                'image' => 'img/restaurants/da-demetrio.jpg',
+                'image' => 'uploads/restaurants/da-demetrio.jpg',
                 'address' => 'via arrabbiata, 69, 07100, Sassari',
                 'types' => [
                     "Italiana",
@@ -84,7 +84,7 @@ class RestaurantSeeder extends Seeder
                 'name' => 'Il buco',
                 'phone' => '3247526006',
                 'p_iva' => '55555478934',
-                'image' => 'img/restaurants/il-buco.jpeg',
+                'image' => 'uploads/restaurants/il-buco.jpeg',
                 'address' => 'via giocosa, XX, 41100, Modena',
                 'types' => [
                     "Pesce",
