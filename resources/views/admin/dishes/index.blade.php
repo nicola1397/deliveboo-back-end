@@ -3,7 +3,7 @@
 
 @section('content')
     <section>
-        <div class="container mb-4">
+        <div class="container mt-4 mb-4">
             <h1 class="text-center mb-5">I tuoi piatti</h1>
 
 
@@ -87,6 +87,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
         integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
-        
+
     @vite('resources/scss/indexs.scss')
 @endsection
