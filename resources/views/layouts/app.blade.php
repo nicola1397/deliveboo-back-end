@@ -20,37 +20,37 @@
 
         <main>
             @if (session('message'))
-            <section>
-                <div class="container mt-3">
-                    <div class="alert {{ session('message-class') }} alert-dismissible">
-                        {{ session('message') }}
-                        <button aria-label="Close" class="btn-close" data-bs-dismiss="alert" type="button"></button>
+                <section>
+                    <div class="container mt-3">
+                        <div class="alert {{ session('message-class') }} alert-dismissible">
+                            {{ session('message') }}
+                            <button aria-label="Close" class="btn-close" data-bs-dismiss="alert"
+                                type="button"></button>
+                        </div>
                     </div>
-                </div>
-            </section>
+                </section>
             @endif
             @yield('content')
             @yield('modal')
         </main>
 
-
+        @include('layouts.partials.footer')
     </div>
-    @include('layouts.partials.footer')
+
 
 
 
 
     @auth
-    <script>
-        const logoutLink = document.getElementById('logout-link');
-        const logoutForm = document.getElementById('logout-form');
+        <script>
+            const logoutLink = document.getElementById('logout-link');
+            const logoutForm = document.getElementById('logout-form');
 
-        logoutLink.addEventListener('click', (e) => {
-            e.preventDefault();
-            logoutForm.submit();
-        });
-
-    </script>
+            logoutLink.addEventListener('click', (e) => {
+                e.preventDefault();
+                logoutForm.submit();
+            });
+        </script>
     @endauth
 
     @yield('js')

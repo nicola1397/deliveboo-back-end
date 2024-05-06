@@ -44,14 +44,20 @@ body {
 }
 
 .wrapper {
-    min-height: 100vh;
     display: flex;
     flex-direction: column;
     background-color: #3535ec;
+    min-height: 100vh;
 
     // HEADER
     .headerNav {
-        box-shadow: 5px;
+        box-shadow: 0 0 5px black;
+        background: #2929b9;
+
+        a:hover {
+            transform: scale(1.1);
+            transition: all 0.1s ease 0.1s;
+        }
     }
 
     // MAIN
@@ -111,7 +117,13 @@ body {
 
 // FOOTER
 footer {
-    background-color: #5d5d63;
+    background-color: #2929b9;
+    // background: rgb(41, 41, 185);
+    // background: linear-gradient(
+    //     90deg,
+    //     rgba(41, 41, 185, 1) 35%,
+    //     rgba(53, 53, 236, 1) 100%
+    // );
 }
 
 #addButton {
@@ -145,9 +157,10 @@ footer {
     overflow: hidden;
     border-radius: 10px;
     margin-bottom: 15px;
+    aspect-ratio: 1 / 1;
 
     img {
-        width: 100%;
+        height: 100%;
     }
 }
 
