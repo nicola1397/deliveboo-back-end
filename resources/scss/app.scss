@@ -177,18 +177,20 @@ footer {
 }
 
 .restaurantLayout {
-    max-height: 50vh;
     position: relative;
     display: flex;
     justify-content: center;
+    flex-direction: column;
+
+    .coverImage {
+        max-height: 400px;
+        border-radius: 0;
+    }
 
     .detailsCard {
-        position: absolute;
-        top: 70%;
         background-color: white;
-        border-radius: 15px;
         color: black;
-        width: 95%;
+        width: 100%;
         padding: 30px 20px;
     }
 }
