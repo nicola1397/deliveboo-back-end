@@ -26,9 +26,9 @@ class DishController extends Controller
     {
         $restaurantId = Auth::user()->restaurant->id;
 
-
+        $restaurant = Auth::user()->restaurant;
         $dishes = Dish::where('restaurant_id', $restaurantId)->orderBy('name')->paginate(10);
-        return view('admin.dishes.index', compact('dishes'));
+        return view('admin.dishes.index', compact('dishes', 'restaurant'));
     }
 
     /**
@@ -79,7 +79,10 @@ class DishController extends Controller
      */
     public function show(Dish $dish)
     {
-        return view('admin.dishes.show', compact('dish'));
+
+        $restaurant = Auth::user()->restaurant;
+
+        return view('admin.dishes.show', compact('dish', 'restaurant'));
     }
 
     /**
