@@ -34,13 +34,15 @@ button {
     }
 
     .headerNav,
-    footer {
-        background-color: #3535ec;
-    }
+   
 
     .headerNav {
         box-shadow: 5px;
     }
+}
+
+footer {
+    background-color: #5d5d63;
 }
 
 body {
@@ -56,9 +58,6 @@ body {
     font-style: normal;
 }
 
-.jumbotron {
-    max-height: 80vh;
-}
 
 .active {
     color: orange !important ;
