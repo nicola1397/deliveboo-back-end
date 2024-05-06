@@ -13,8 +13,11 @@
 
         <h1 class="mb-4">Aggiungi Ristorante</h1>
 
-        <form enctype="multipart/form-data" action="{{route('admin.restaurants.store') }}" method="POST">
-            @csrf
+        <form action="{{ empty($restaurant->id) ? route('admin.restaurants.store') : route('admin.restaurants.update', $restaurant) }}" method="post" enctype="multipart/form-data">
+            @if (!empty($restaurant->id))
+            @method('PATCH')
+            @endif
+
 
             <div class="row">
                 <div class="col-sm-12 col-md-6 card p-3">
