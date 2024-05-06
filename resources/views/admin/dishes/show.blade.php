@@ -28,7 +28,8 @@
                 <div class="col-sm-12 col-md-6">
                     {{-- Dish image --}}
                     <div class="overflow-hidden rounded dishDetailImg">
-                        <img src="{{ $dish->image ? asset('storage/' . $dish->image) : '' }}" alt="" class="w-100">
+                        <img src="{{ !empty($dish->image) ? asset('storage/' . $dish->image) : asset('storage/assets/placeholder.jpg') }}"
+                            alt="" class="w-100">
                     </div>
                 </div>
                 <div class="col-sm-12 col-md-6">

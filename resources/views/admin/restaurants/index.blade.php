@@ -13,7 +13,8 @@
             @forelse($restaurants as $restaurant)
                 <div class="myCard col-md-3 col-sm-12 me-3">
                     <div class="coverImage">
-                        <img src="{{ asset('storage/' . $restaurant->image) }}" alt="{{ $restaurant->name }}">
+                        <img
+                            src="{{ !empty($restaurant->image) ? asset('storage/' . $restaurant->image) : asset('storage/assets/placeholder.jpg') }}">
                         {{-- @dd($restaurant->image); --}}
                     </div>
                     <h3 class="detailCap">{{ $restaurant->name }}</h3>

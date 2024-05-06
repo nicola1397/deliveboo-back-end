@@ -16,9 +16,9 @@
 
                 <div class="col-sm-12 col-md-6 restaurantLayout  flex-column justify-content-center align-items-center">
                     {{-- COLONNA IMMAGINE --}}
-                    <div class="coverImage rounded-top mb-0">
-                        <img src="{{ asset('storage/' . $restaurant->image) }}" alt="{{ $restaurant->name }}"
-                            class="w-100 h-auto">
+                    <div class="coverImage rounded-top mb-0 d-flex overflow-hidden">
+                        <img src="{{ !empty($restaurant->image) ? asset('storage/' . $restaurant->image) : asset('storage/assets/placeholder.jpg') }}"
+                            class="h-100 w-100 object-fit-cover">
                     </div>
 
                     {{-- COLONNA DATI --}}
@@ -91,7 +91,8 @@
                                     <div class="roundDish">
 
                                         <div class="dishPrev">
-                                            <img src="{{ asset('storage/' . $dish->image) }}" alt="">
+                                            <img src="{{ !empty($dish->image) ? asset('storage/' . $dish->image) : asset('storage/assets/placeholder.jpg') }}"
+                                                alt="{{ $dish->name }}" class="">
                                         </div>
 
                                     </div>
