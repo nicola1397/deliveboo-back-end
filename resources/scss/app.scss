@@ -130,12 +130,12 @@ body {
     }
 }
 
-#addDish {
+#addButton {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    min-height: 500px;
+    min-height: 350px;
 
     .ballButton {
         height: 150px;
