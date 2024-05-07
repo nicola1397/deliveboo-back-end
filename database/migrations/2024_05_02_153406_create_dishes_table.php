@@ -21,6 +21,7 @@ return new class extends Migration {
             $table->string('image', 250)->nullable();
             $table->string('slug', 150);
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 
