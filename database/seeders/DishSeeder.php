@@ -297,7 +297,7 @@ class DishSeeder extends Seeder
                 'description' => 'Panna cotta fatta in casa con topping a scelta',
                 'price' => 5,
                 'availability' => true,
-                'image' => 'pannacotta.avif',
+                'image' => 'uploads/dishes/pannacotta.avif',
             ],
 
 
