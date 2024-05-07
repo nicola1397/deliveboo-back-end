@@ -22,12 +22,14 @@ class DishController extends Controller
      *
     
      */
-    public function index(Request $request)
-    {
-        $restaurantId = Auth::user()->restaurant->id;
+    public function index(Dish $dish)
+    {   
+        if(empty(Auth::user()->restaurant->id)) return view('admin.dishes.form', compact('dish'));
 
+        
+        
         // Permission user-restaurant-dishes for index
-
+        $restaurantId = Auth::user()->restaurant->id;
         $restaurant = Auth::user()->restaurant;
         $dishes = Dish::where('restaurant_id', $restaurantId)->orderBy('name')->paginate(10);
         return view('admin.dishes.index', compact('dishes', 'restaurant'));

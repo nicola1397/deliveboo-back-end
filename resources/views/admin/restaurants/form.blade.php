@@ -27,7 +27,7 @@
                         
                         {{-- Input restaurant-name --}}
                         <div>
-                            <label for="name" class="form-label">Name:</label>
+                            <label for="name" class="form-label"><strong>* </strong>Name:</label>
                             <input class="form-control @error('name') is-invalid @enderror" 
                                 name="name" id="name" type="text"  required max='200'
                                 value="{{ old('name') ?? '' }}" />
@@ -38,7 +38,7 @@
 
                         {{-- Input p_iva --}}
                         <div class="mt-2">
-                            <label for="p_iva" class="form-label">P.Iva:</label>
+                            <label for="p_iva" class="form-label"><strong>* </strong>P.Iva:</label>
                             <input class="form-control @error('p_iva') is-invalid @enderror"
                                 name="p_iva" id="p_iva" type="text" required 
                                 pattern='\d{11}' title='11 cifre numeriche' />
@@ -49,7 +49,7 @@
 
                         {{-- Input phone number --}}
                         <div class="mt-2">
-                            <label for="phone" class="form-label">Phone:</label>
+                            <label for="phone" class="form-label"><strong>* </strong>Phone:</label>
                             <input class="form-control @error('phone') is-invalid @enderror"
                                 name="phone" id="phone" type="text" required max='20'
                                 value="{{ old('phone') ?? '' }}" />
@@ -60,7 +60,7 @@
 
                         {{-- Input restaurant address --}}
                         <div class="mt-2">
-                            <label for="address" class="form-label">Address:</label>
+                            <label for="address" class="form-label"><strong>* </strong>Address:</label>
                             <input class="form-control @error('address') is-invalid @enderror" 
                                 name="address" id="address" type="text" required max='150' />
                             @error('address')
@@ -70,19 +70,19 @@
 
                         {{-- Input restaurant type --}}
                         <div class="mt-2">
-                            <label for="types" class="mb-2">Types:</label>
+                            <label for="types" class="mb-2"><strong>* </strong>Types:</label>
                             <div class="d-flex flex-wrap @error('types') is-invalid @enderror">
                                 @foreach ($types as $type)
                                     <div class="col-4 mb-1">
                                         <input class="form-check-input @error('types') is-invalid @enderror"
                                             name="types[]" id="type-{{ $type->id }}" 
-                                            type="checkbox" value="{{ $type->id }}" >
+                                            type="checkbox" value="{{ $type->id }}" required >
                                         <label class="form-check-label"for=" type-{{ $type->id }}">{{ $type->label }}</label>
                                     </div>
-                                @endforeach
                                 @error('types')
                                     <div class="invalid-feedback">{{ $message }}</div>
                                 @enderror
+                                @endforeach
                             </div>
                         </div>
 
@@ -100,6 +100,8 @@
                         <button type="submit" class="btn btn-success mt-3"><i
                                 class="fa-solid fa-floppy-disk me-2"></i>Save
                         </button>
+                        <p class="mt-3"><strong>* </strong>I campi contrassegnati sono obbligatori</p>
+
                     </div>
 
                     {{-- Right layout img --}}

@@ -29,7 +29,7 @@ class RestaurantStoreRequest extends FormRequest
             'p_iva' => 'required|unique:restaurants|digits:11',
             'image' => 'nullable|image',
             'address' => 'required|string|max:150',
-            'types' => 'exists:types,id'
+            'types' => 'required|exists:types,id'
         ];
     }
 }
