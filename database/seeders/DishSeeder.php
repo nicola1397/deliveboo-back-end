@@ -23,9 +23,11 @@ class DishSeeder extends Seeder
         $dish->description = "Selezione di affettati locali di prima qualità";
         $dish->price = 12;
         $dish->availability = false;
-        $dish->slug = Str::slug($dish->name);
         $dish->image = 'uploads/dishes/tagliere.webp';
+        $dish->slug = Str::slug($dish->name . $dish->id);
         $dish->save();
+        $dish->slug = Str::slug($dish->name) . '-' . $dish->id;
+        $dish->update();
 
         $dish = new Dish;
         $dish->restaurant_id = 1;
@@ -36,6 +38,8 @@ class DishSeeder extends Seeder
         $dish->slug = Str::slug($dish->name);
         $dish->image = 'uploads/dishes/costata.webp';
         $dish->save();
+        $dish->slug = Str::slug($dish->name) . '-' . $dish->id;
+        $dish->update();
 
         $dish = new Dish;
         $dish->restaurant_id = 1;
@@ -46,6 +50,8 @@ class DishSeeder extends Seeder
         $dish->slug = Str::slug($dish->name);
         $dish->image = 'uploads/dishes/galletto alla diavola Fine Dining Lovers.avif';
         $dish->save();
+        $dish->slug = Str::slug($dish->name) . '-' . $dish->id;
+        $dish->update();
 
         $dish = new Dish;
         $dish->restaurant_id = 1;
@@ -56,6 +62,8 @@ class DishSeeder extends Seeder
         $dish->slug = Str::slug($dish->name);
         $dish->image = 'uploads/dishes/bistecca-fiorentina.jpg';
         $dish->save();
+        $dish->slug = Str::slug($dish->name) . '-' . $dish->id;
+        $dish->update();
 
         $dish = new Dish;
         $dish->restaurant_id = 1;
@@ -66,6 +74,8 @@ class DishSeeder extends Seeder
         $dish->slug = Str::slug($dish->name);
         $dish->image = 'uploads/dishes/tiramisu.jpg';
         $dish->save();
+        $dish->slug = Str::slug($dish->name) . '-' . $dish->id;
+        $dish->update();
 
 
         /* RESTAURANT 2 DISHES */
@@ -79,6 +89,8 @@ class DishSeeder extends Seeder
         $dish->slug = Str::slug($dish->name);
         $dish->image = 'uploads/dishes/Veg-Spring-Rolls-3.jpg';
         $dish->save();
+        $dish->slug = Str::slug($dish->name) . '-' . $dish->id;
+        $dish->update();
 
         $dish = new Dish;
         $dish->restaurant_id = 2;
@@ -89,6 +101,8 @@ class DishSeeder extends Seeder
         $dish->slug = Str::slug($dish->name);
         $dish->image = 'uploads/dishes/ravioli-al-vapore-cinesi-ecco-la-vera-ricetta-tradizionale-ripieno-carne-o-pesce.jpg';
         $dish->save();
+        $dish->slug = Str::slug($dish->name) . '-' . $dish->id;
+        $dish->update();
 
         $dish = new Dish;
         $dish->restaurant_id = 2;
@@ -99,6 +113,8 @@ class DishSeeder extends Seeder
         $dish->slug = Str::slug($dish->name);
         $dish->image = 'uploads/dishes/onigiri.webp';
         $dish->save();
+        $dish->slug = Str::slug($dish->name) . '-' . $dish->id;
+        $dish->update();
 
         $dish = new Dish;
         $dish->restaurant_id = 2;
@@ -109,6 +125,8 @@ class DishSeeder extends Seeder
         $dish->slug = Str::slug($dish->name);
         $dish->image = 'uploads/dishes/riso-alla-cantonese-.jpeg';
         $dish->save();
+        $dish->slug = Str::slug($dish->name) . '-' . $dish->id;
+        $dish->update();
 
         $dish = new Dish;
         $dish->restaurant_id = 2;
@@ -119,6 +137,8 @@ class DishSeeder extends Seeder
         $dish->slug = Str::slug($dish->name);
         $dish->image = 'uploads/dishes/bocconcini sushi mix.webp';
         $dish->save();
+        $dish->slug = Str::slug($dish->name) . '-' . $dish->id;
+        $dish->update();
 
         /* RESTAURANT 3 DISHES */
 
@@ -131,6 +151,8 @@ class DishSeeder extends Seeder
         $dish->slug = Str::slug($dish->name);
         $dish->image = 'uploads/dishes/nachos.jpeg';
         $dish->save();
+        $dish->slug = Str::slug($dish->name) . '-' . $dish->id;
+        $dish->update();
 
         $dish = new Dish;
         $dish->restaurant_id = 3;
@@ -141,6 +163,8 @@ class DishSeeder extends Seeder
         $dish->slug = Str::slug($dish->name);
         $dish->image = 'uploads/dishes/empanadas.jpeg';
         $dish->save();
+        $dish->slug = Str::slug($dish->name) . '-' . $dish->id;
+        $dish->update();
 
         $dish = new Dish;
         $dish->restaurant_id = 3;
@@ -151,6 +175,8 @@ class DishSeeder extends Seeder
         $dish->slug = Str::slug($dish->name);
         $dish->image = 'uploads/dishes/frijoles.jpeg';
         $dish->save();
+        $dish->slug = Str::slug($dish->name) . '-' . $dish->id;
+        $dish->update();
 
         $dish = new Dish;
         $dish->restaurant_id = 3;
@@ -161,6 +187,8 @@ class DishSeeder extends Seeder
         $dish->slug = Str::slug($dish->name);
         $dish->image = 'uploads/dishes/churrasco.jpeg';
         $dish->save();
+        $dish->slug = Str::slug($dish->name) . '-' . $dish->id;
+        $dish->update();
 
         $dish = new Dish;
         $dish->restaurant_id = 3;
@@ -171,6 +199,8 @@ class DishSeeder extends Seeder
         $dish->slug = Str::slug($dish->name);
         $dish->image = 'uploads/dishes/manzo argentino all abrace.jpeg';
         $dish->save();
+        $dish->slug = Str::slug($dish->name) . '-' . $dish->id;
+        $dish->update();
 
 
         /* RESTAURANT 4 DISHES */
@@ -184,6 +214,8 @@ class DishSeeder extends Seeder
         $dish->slug = Str::slug($dish->name);
         $dish->image = 'uploads/dishes/Ueberbackene Zwiebelsuppe.webp';
         $dish->save();
+        $dish->slug = Str::slug($dish->name) . '-' . $dish->id;
+        $dish->update();
 
         $dish = new Dish;
         $dish->restaurant_id = 4;
@@ -194,6 +226,8 @@ class DishSeeder extends Seeder
         $dish->slug = Str::slug($dish->name);
         $dish->image = 'uploads/dishes/original_wurstel-tedeschi-con-crauti-ed-erbe-aromatiche.jpg';
         $dish->save();
+        $dish->slug = Str::slug($dish->name) . '-' . $dish->id;
+        $dish->update();
 
         $dish = new Dish;
         $dish->restaurant_id = 4;
@@ -204,6 +238,8 @@ class DishSeeder extends Seeder
         $dish->slug = Str::slug($dish->name);
         $dish->image = 'uploads/dishes/knodel.webp';
         $dish->save();
+        $dish->slug = Str::slug($dish->name) . '-' . $dish->id;
+        $dish->update();
 
         $dish = new Dish;
         $dish->restaurant_id = 4;
@@ -214,6 +250,8 @@ class DishSeeder extends Seeder
         $dish->slug = Str::slug($dish->name);
         $dish->image = 'uploads/dishes/gulash.webp';
         $dish->save();
+        $dish->slug = Str::slug($dish->name) . '-' . $dish->id;
+        $dish->update();
 
         $dish = new Dish;
         $dish->restaurant_id = 4;
@@ -224,6 +262,8 @@ class DishSeeder extends Seeder
         $dish->slug = Str::slug($dish->name);
         $dish->image = 'uploads/dishes/sacher.jpeg';
         $dish->save();
+        $dish->slug = Str::slug($dish->name) . '-' . $dish->id;
+        $dish->update();
 
 
         /* RESTAURANT 5 DISHES */
@@ -237,6 +277,8 @@ class DishSeeder extends Seeder
         $dish->slug = Str::slug($dish->name);
         $dish->image = 'uploads/dishes/tagliere sardo.jpeg';
         $dish->save();
+        $dish->slug = Str::slug($dish->name) . '-' . $dish->id;
+        $dish->update();
 
         $dish = new Dish;
         $dish->restaurant_id = 5;
@@ -247,6 +289,8 @@ class DishSeeder extends Seeder
         $dish->slug = Str::slug($dish->name);
         $dish->image = 'uploads/dishes/culurgiones-al-pomodoro.jpg';
         $dish->save();
+        $dish->slug = Str::slug($dish->name) . '-' . $dish->id;
+        $dish->update();
 
         $dish = new Dish;
         $dish->restaurant_id = 5;
@@ -257,6 +301,8 @@ class DishSeeder extends Seeder
         $dish->slug = Str::slug($dish->name);
         $dish->image = 'uploads/dishes/porceddu.jpeg';
         $dish->save();
+        $dish->slug = Str::slug($dish->name) . '-' . $dish->id;
+        $dish->update();
 
         $dish = new Dish;
         $dish->restaurant_id = 5;
@@ -267,6 +313,8 @@ class DishSeeder extends Seeder
         $dish->slug = Str::slug($dish->name);
         $dish->image = 'uploads/dishes/trattalia.jpeg';
         $dish->save();
+        $dish->slug = Str::slug($dish->name) . '-' . $dish->id;
+        $dish->update();
 
         $dish = new Dish;
         $dish->restaurant_id = 5;
@@ -277,6 +325,8 @@ class DishSeeder extends Seeder
         $dish->slug = Str::slug($dish->name);
         $dish->image = 'uploads/dishes/seadas.jpeg';
         $dish->save();
+        $dish->slug = Str::slug($dish->name) . '-' . $dish->id;
+        $dish->update();
 
         /* RESTAURANT 6 DISHES */
 
@@ -289,6 +339,8 @@ class DishSeeder extends Seeder
         $dish->slug = Str::slug($dish->name);
         $dish->image = 'uploads/dishes/crudomare.jpeg';
         $dish->save();
+        $dish->slug = Str::slug($dish->name) . '-' . $dish->id;
+        $dish->update();
 
         $dish = new Dish;
         $dish->restaurant_id = 6;
@@ -299,6 +351,8 @@ class DishSeeder extends Seeder
         $dish->slug = Str::slug($dish->name);
         $dish->image = 'uploads/dishes/pescatora.jpg';
         $dish->save();
+        $dish->slug = Str::slug($dish->name) . '-' . $dish->id;
+        $dish->update();
 
         $dish = new Dish;
         $dish->restaurant_id = 6;
@@ -309,6 +363,8 @@ class DishSeeder extends Seeder
         $dish->slug = Str::slug($dish->name);
         $dish->image = 'uploads/dishes/margherita.avif';
         $dish->save();
+        $dish->slug = Str::slug($dish->name) . '-' . $dish->id;
+        $dish->update();
 
         $dish = new Dish;
         $dish->restaurant_id = 6;
@@ -319,6 +375,8 @@ class DishSeeder extends Seeder
         $dish->slug = Str::slug($dish->name);
         $dish->image = 'uploads/dishes/sanpietro.webp';
         $dish->save();
+        $dish->slug = Str::slug($dish->name) . '-' . $dish->id;
+        $dish->update();
 
         $dish = new Dish;
         $dish->restaurant_id = 6;
@@ -329,5 +387,7 @@ class DishSeeder extends Seeder
         $dish->slug = Str::slug($dish->name);
         $dish->image = 'uploads/dishes/pannacotta.avif';
         $dish->save();
+        $dish->slug = Str::slug($dish->name) . '-' . $dish->id;
+        $dish->update();
     }
 }
