@@ -27,7 +27,8 @@
             <h1 class="my-3">{{ empty($dish->id) ? 'Add Dish' : 'Edit Dish' }}</h1>
 
             {{-- * CREATE/EDIT FORM --}}
-            <form enctype="multipart/form-data" {{-- Distinguish if the user needs to create or to edit --}}
+            <form enctype="multipart/form-data" 
+                {{-- Distinguish if the user needs to create or to edit --}}
                 action="{{ empty($dish->id) ? route('admin.dishes.store') : route('admin.dishes.update', $dish) }}"
                 method="POST">
                 @if (!empty($dish->id))
@@ -39,7 +40,7 @@
                 <div class="row">
                     <div class="col-sm-12 col-md-6">
 
-                        {{-- * Creation card --}}
+                        {{-- * Creation/edit card --}}
                         <div class="card p-2">
 
                             {{-- Input dish-name --}}
