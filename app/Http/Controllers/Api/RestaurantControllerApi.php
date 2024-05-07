@@ -38,9 +38,15 @@ class RestaurantControllerApi extends Controller
             return $restaurants;
         });
 
+        $types = Type::select(['id', 'label', 'image'])->get();
+        foreach ($types as $type) {
+            $type->image = asset('/storage' . "/" . $type->image);
+        }
+
      
         return response()->json([
             'restaurants' => $restaurants,
+            'types' => $types,
             'success' => true
         ]);
     }
