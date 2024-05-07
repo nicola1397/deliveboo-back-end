@@ -20,8 +20,7 @@ return new class extends Migration
             $table->foreignId("restaurant_id")->constrained()->onDelete("cascade");
 
             //creo una colonna type_id che prende come riferimento l'id della tabella types
-
-            $table->foreignId("type_id");
+            $table->foreignId("type_id")->constrained()->onDelete("cascade");
             $table->timestamps();
         });
     }
