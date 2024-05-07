@@ -86,6 +86,11 @@
                                 @error('image')
                                     <div class="invalid-feedback">{{ $message }}</div>
                                 @enderror
+
+                                {{-- @if(!empty($dish->image)) --}}
+                                <img class="img-fluid my-3" src="{{ !empty($dish->image) ? asset('storage/' . $dish->image) : asset('storage/uploads/placeholder2.png') }}">
+
+                                {{-- @endif --}}
                             </div>
 
                             {{-- Input dish-description --}}
