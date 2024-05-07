@@ -10,7 +10,7 @@
         <div class="container">
             <a href="{{ route('admin.restaurants.index') }}" class="my-4 btn btn-primary">
                 <i class="fa-solid fa-circle-left fa-beat"></i>
-                Back to the List</a>
+                Torna alla Lista</a>
 
             <div class="row mb-5">
 

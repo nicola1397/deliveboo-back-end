@@ -11,17 +11,17 @@
             {{-- * Return-button to the restaurant-details of this dish --}}
             <a href="{{ route('admin.restaurants.show', $restaurant) }}" class="btn btn-primary mb-4 me-2">
                 <i class="fa-solid fa-circle-left fa-beat "></i>
-                Return to Restaurant
+                Ritorna al Ristorante
             </a>
 
             {{-- * Return-button to the dishes list --}}
             <a href="{{ route('admin.dishes.index') }}" class="btn btn-primary mb-4">
                 <i class="fa-solid fa-circle-left fa-beat"></i>
-                Return to Dishes List
+                Ritorna alla lista dei Piatti
             </a>
 
             {{-- * Main title page --}}
-            <h1 class="mb-4">Dish details</h1>
+            <h1 class="mb-4">Dettagli Piatto</h1>
 
             {{-- * Row/col layout of the main --}}
             <div class="row">
@@ -61,13 +61,13 @@
                             <div class="d-flex justify-content-between align-items-center">
                                 {{-- Button/link to edit-dish --}}
                                 <a href="{{ route('admin.dishes.edit', $dish) }}" class="my-4 btn btn-primary editbutton">
-                                    <span>EDIT</span>
+                                    <span>MODIFICA</span>
                                     <div class="icon"><i class="fa-solid link-white fa-pencil me-2"></i></div>
                                 </a>
                                 {{-- ? Destroy/delete button --}}
                                 <button type="button" class="deletebutton" data-bs-toggle="modal"
                                     data-bs-target="#dish-{{ $dish->id }}">
-                                    <span>DELETE</span>
+                                    <span>CANCELLA</span>
                                     <div class="icon"><i class="fa-solid fa-trash"></i></div>
                                 </button>
                             </div>
@@ -91,24 +91,24 @@
             <div class="modal-content">
                 <div class="modal-header">
                     {{-- Modal title --}}
-                    <h1 class="modal-title fs-5 text-danger" id="exampleModalLabel">Delete {{ $dish->name }}?</h1>
+                    <h1 class="modal-title fs-5 text-danger" id="exampleModalLabel">Cancella {{ $dish->name }}?</h1>
                     {{-- Close modal button --}}
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 {{-- Modal main text --}}
                 <div class="modal-body text-black">
-                    You CANNOT revert this action
+                    Azione Irreversibile
                 </div>
                 {{-- Modal buttons area --}}
                 <div class="modal-footer">
                     {{-- Close modal button --}}
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Abort</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Indietro</button>
                     {{-- Delete dish miniform --}}
                     <form action="{{ route('admin.dishes.destroy', $dish) }}" method="POST">
                         @csrf
                         @method('DELETE')
                         {{-- Delete dish button --}}
-                        <button class="btn btn-danger">Delete</button>
+                        <button class="btn btn-danger">Cancella</button>
                     </form>
                 </div>
             </div>

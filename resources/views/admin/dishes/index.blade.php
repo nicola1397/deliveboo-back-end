@@ -22,7 +22,7 @@
                             <div class="coverImage dishCover">
                                 <img src="{{ !empty($dish->image) ? asset('storage/' . $dish->image) : asset('storage/assets/placeholder.jpg') }}"
                                     alt="{{ $dish->name }}" class="w-100">
-                                {{--// <img src="{{ asset('storage/' . $dish->image) }}" alt="{{ $dish->name }}" class="w-100"> --}}
+                                {{-- // <img src="{{ asset('storage/' . $dish->image) }}" alt="{{ $dish->name }}" class="w-100"> --}}
                             </div>
                             <div class="d-flex flex-column justify-content-between flex-grow-1">
                                 <div class="mb-4 d-flex flex-column justify-content-between flex-grow-1">
@@ -45,7 +45,7 @@
                                     {{-- ? Destroy/delete button --}}
                                     <button type="button" class="deletebutton" data-bs-toggle="modal"
                                         data-bs-target="#dish-{{ $dish->id }}">
-                                        <span>DELETE</span>
+                                        <span>CANCELLA</span>
                                         <div class="icon"><i class="fa-solid fa-trash"></i></div>
                                     </button>
                                 </div>
@@ -53,15 +53,15 @@
                         </div>
                     </div>
 
-                {{-- Message if list/grill is empty  --}}
+                    {{-- Message if list/grill is empty  --}}
                 @empty
-                    <h2>No Dishes Found</h2>
+                    <h2>Nessun Piatto trovato</h2>
                 @endforelse
 
                 {{-- * Add dish button --}}
                 <div class="col-lg-3 col-md-6 col-sm-12" id="addButton">
                     <a href="{{ route('admin.dishes.create') }}" class="ballButton">
-                        <i class="fa-solid fa-plus fa-lg me-2"></i>New Dish</a>
+                        <i class="fa-solid fa-plus fa-xl "></i></a>
                 </div>
                 {{-- * Pagination --}}
                 {{ $dishes->links('pagination::bootstrap-5') }}
@@ -80,24 +80,24 @@
                 <div class="modal-content">
                     <div class="modal-header">
                         {{-- Modal title --}}
-                        <h1 class="modal-title fs-5 text-danger" id="exampleModalLabel">Delete {{ $dish->name }}?</h1>
+                        <h1 class="modal-title fs-5 text-danger" id="exampleModalLabel">Cancella {{ $dish->name }}?</h1>
                         {{-- Close modal button --}}
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     {{-- Modal main text --}}
                     <div class="modal-body text-black">
-                        You CANNOT revert this action
+                        Sicuro di voler procedere?
                     </div>
                     {{-- Modal buttons area --}}
                     <div class="modal-footer">
                         {{-- Close modal button --}}
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Abort</button>
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Indietro</button>
                         {{-- Delete dish miniform --}}
                         <form action="{{ route('admin.dishes.destroy', $dish) }}" method="POST">
                             @csrf
                             @method('DELETE')
                             {{-- Delete dish button --}}
-                            <button class="btn btn-danger">Delete</button>
+                            <button class="btn btn-danger">Cancella</button>
                         </form>
                     </div>
                 </div>

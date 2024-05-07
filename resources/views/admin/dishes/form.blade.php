@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 {{-- ! Page name --}}
-@section('title', empty($dish->id) ? 'New Dish' : 'Edit Dish')
+@section('title', empty($dish->id) ? 'Nuovo Piatto' : 'Modifica Piatto')
 
 {{-- !! Main-Content --}}
 @section('content')
@@ -21,14 +21,13 @@
 
             {{-- * LinkButton back to dishes list --}}
             <a href="{{ route('admin.dishes.index') }}" class="btn btn-primary mt-3">
-                <i class="fa-solid fa-table-list me-2"></i>Back to the Dish List</a>
+                <i class="fa-solid fa-table-list me-2"></i>Torna alla lista dei piatti</a>
 
             {{-- * Main title page --}}
-            <h1 class="my-3">{{ empty($dish->id) ? 'Add Dish' : 'Edit Dish' }}</h1>
+            <h1 class="my-3">{{ empty($dish->id) ? 'Aggiungi Piatto' : 'Modifica Piatto' }}</h1>
 
             {{-- * CREATE/EDIT FORM --}}
-            <form enctype="multipart/form-data" 
-                {{-- Distinguish if the user needs to create or to edit --}}
+            <form enctype="multipart/form-data" {{-- Distinguish if the user needs to create or to edit --}}
                 action="{{ empty($dish->id) ? route('admin.dishes.store') : route('admin.dishes.update', $dish) }}"
                 method="POST">
                 @if (!empty($dish->id))
@@ -45,7 +44,7 @@
 
                             {{-- Input dish-name --}}
                             <div>
-                                <label for="name" class="form-label"><strong>* </strong>Name</label>
+                                <label for="name" class="form-label"><strong>* </strong>Nome</label>
                                 <input class="form-control @error('name') is-invalid @enderror" id="name"
                                     name="name" type="text" max="150" required
                                     value="{{ empty($dish->id) ? '' : old('name') ?? $dish->name }}" />
@@ -56,10 +55,10 @@
 
                             {{-- Input dish-price --}}
                             <div class="mt-2">
-                                <label for="price" class="form-label"><strong>* </strong>Price</label>
+                                <label for="price" class="form-label"><strong>* </strong>Prezzo</label>
                                 <input class="form-control @error('price') is-invalid @enderror" id="price"
-                                    name="price" type='number' pattern="^\d{4}*(\.\d{0,2})?$" required min="0.01" max="9999.99"
-                                    value="{{ empty($dish->id) ? '' : old('price') ?? $dish->price }}">
+                                    name="price" type='number' pattern="^\d{4}*(\.\d{0,2})?$" required min="0.01"
+                                    max="9999.99" value="{{ empty($dish->id) ? '' : old('price') ?? $dish->price }}">
                                 @error('price')
                                     <div class="invalid-feedback">{{ $message }}</div>
                                 @enderror
@@ -67,7 +66,7 @@
 
                             {{-- Input dish-availability --}}
                             <div class="mt-2">
-                                <label for="availability" class="form-check-label">Available</label>
+                                <label for="availability" class="form-check-label">Disponibile</label>
                                 <input type="hidden" name="availability" value="0">
                                 <input class="form-check-input form-control" id="availability" name="availability"
                                     type="checkbox" value="1" {{ $dish->availability ? 'checked' : '' }}>
@@ -75,7 +74,7 @@
 
                             {{-- Input dish-image --}}
                             <div class="img mt-3">
-                                <label for="image" class="form-label">Image</label>
+                                <label for="image" class="form-label">Immagine</label>
                                 <div class="d-flex">
                                     <input class="form-control @error('image') is-invalid @enderror" id="image"
                                         name="image" type="file" value="{{ empty($dish->id) ? '' : old('image') }}" />
@@ -95,7 +94,7 @@
 
                             {{-- Input dish-description --}}
                             <div class="mt-2">
-                                <label for="description" class="form-label">Description</label>
+                                <label for="description" class="form-label">Descrizione</label>
                                 <textarea class="form-control @error('description') is-invalid @enderror" id="description" name="description"
                                     rows="4">{{ empty($dish->id) ? '' : old('description') ?? $dish->description }}</textarea>
                                 @error('description')
@@ -105,8 +104,8 @@
 
                             {{-- Form submit-button --}}
                             <button type="submit" class="btn btn-success mt-5"><i
-                                    class="fa-solid fa-floppy-disk me-2"></i>Save</button>
-                            
+                                    class="fa-solid fa-floppy-disk me-2"></i>Salva</button>
+
                             <p class="mt-3"><strong>* </strong>I campi contrassegnati sono obbligatori</p>
 
                         </div>
