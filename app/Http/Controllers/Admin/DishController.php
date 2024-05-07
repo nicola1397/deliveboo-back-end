@@ -35,19 +35,6 @@ class DishController extends Controller
     }
 
 
-
-        $restaurantId = Auth::user()->restaurant->id;
-
-
-        
-        
-        // Permission user-restaurant-dishes for index
-        $restaurantId = Auth::user()->restaurant->id;
-        $restaurant = Auth::user()->restaurant;
-        $dishes = Dish::where('restaurant_id', $restaurantId)->orderBy('name')->paginate(10);
-        return view('admin.dishes.index', compact('dishes', 'restaurant'));
-    }
-
     /**
      * Show the form for creating a new resource.
      *
