@@ -25,9 +25,12 @@ class RestaurantSeeder extends Seeder
                 'image' => 'uploads/restaurants/losporcaccione.png',
                 'address' => 'via innominabile, 44, 70100, Bari',
                 'types' => [
-                    "Italiana",
-                    "BBQ",
-                    'Dolci'
+                    'Italiana',
+                    'BBQ',
+                    'Dolci',
+                    'Celiaci',
+                    'Tagliere',
+                    'Pollo'
                 ],
             ],
             [
@@ -38,8 +41,12 @@ class RestaurantSeeder extends Seeder
                 'image' => 'uploads/restaurants/lasiaticoallegro.png',
                 'address' => 'via della seta, 99, 20100, Milano',
                 'types' => [
-                    "Asiatica",
-                    'Pesce'
+                    'Asiatica',
+                    'Pesce',
+                    'Celiaci',
+                    'Crudi di pesce',
+
+
                 ],
             ],
 
@@ -51,8 +58,11 @@ class RestaurantSeeder extends Seeder
                 'image' => 'uploads/restaurants/messicanino.jpg',
                 'address' => 'via del sombrero, 22, 20100, Milano',
                 'types' => [
-                    "Messicana",
-                    'BBQ'
+                    'Messicana',
+                    'BBQ',
+                    'Argentino',
+                    'Celiaci',
+                    'Vegetariano'
                 ],
             ],
             [
@@ -63,8 +73,12 @@ class RestaurantSeeder extends Seeder
                 'image' => 'uploads/restaurants/nonno-bismarck.jpg',
                 'address' => 'via bellicosa, XX, 40100, Bologna',
                 'types' => [
-                    "Tedesca",
-                    'Dolci'
+                    'Tedesca',
+                    'Dolci',
+                    'Vegetariano',
+                    'Celiaci',
+                    'Selvaggina'
+
                 ],
             ],
             [
@@ -75,8 +89,12 @@ class RestaurantSeeder extends Seeder
                 'image' => 'uploads/restaurants/da-demetrio.jpg',
                 'address' => 'via arrabbiata, 69, 07100, Sassari',
                 'types' => [
-                    "Italiana",
-                    'Sarda'
+                    'Italiana',
+                    'Sarda',
+                    'Tagliere',
+                    'Celiaci',
+                    'Pasta',
+                    'Vegetariano',
                 ],
             ],
             [
@@ -89,7 +107,10 @@ class RestaurantSeeder extends Seeder
                 'types' => [
                     "Pesce",
                     'Italiana',
-                    'Dolci'
+                    'Dolci',
+                    'Crudi di pesce',
+                    'Celiaci',
+                    'Vegetariano',
                 ],
             ],
 

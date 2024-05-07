@@ -18,57 +18,87 @@ class TypeSeeder extends Seeder
     {
         $type = new Type;
         $type->label = 'Italiana';
-        $type->color = $faker->hexColor();
         $type->image = 'assets/types/italy.svg';
         $type->save();
 
         $type = new Type;
         $type->label = 'Asiatica';
-        $type->color = $faker->hexColor();
         $type->image = 'assets/types/asian.jpg';
         $type->save();
 
         $type = new Type;
         $type->label = 'Messicana';
-        $type->color = $faker->hexColor();
         $type->image = 'assets/types/mexican.png';
         $type->save();
 
         $type = new Type;
         $type->label = 'Tedesca';
-        $type->color = $faker->hexColor();
         $type->image = 'assets/types/germany.webp';
         $type->save();
 
         $type = new Type;
         $type->label = 'Sarda';
-        $type->color = $faker->hexColor();
         $type->image = 'assets/types/sardinia.png';
         $type->save();
 
         $type = new Type;
         $type->label = 'BBQ';
-        $type->color = $faker->hexColor();
         $type->image = 'assets/types/bbq.webp';
         $type->save();
 
         $type = new Type;
         $type->label = 'Pizza';
-        $type->color = $faker->hexColor();
         $type->image = 'assets/types/pizza.jpg';
         $type->save();
 
         $type = new Type;
         $type->label = 'Dolci';
-        $type->color = $faker->hexColor();
         $type->image = 'assets/types/dessert.avif';
         $type->save();
 
         $type = new Type;
         $type->label = 'Pesce';
-        $type->color = $faker->hexColor();
         $type->image = 'assets/types/fish.jpg';
         $type->save();
 
+        $type = new Type;
+        $type->label = 'Pasta';
+        $type->image = 'assets/types/pasta.webp';
+        $type->save();
+
+        $type = new Type;
+        $type->label = 'Tagliere';
+        $type->image = 'assets/types/tagliere misto.jpeg';
+        $type->save();
+
+        $type = new Type;
+        $type->label = 'Pollo';
+        $type->image = 'assets/types/pollo arrosto.webp';
+        $type->save();
+
+        $type = new Type;
+        $type->label = 'Vegetariano';
+        $type->image = 'assets/types/vegetali.jpeg';
+        $type->save();
+
+        $type = new Type;
+        $type->label = 'Celiaci';
+        $type->image = 'assets/types/pasta.webp';
+        $type->save();
+
+        $type = new Type;
+        $type->label = 'Selvaggina';
+        $type->image = 'assets/types/selvaggina.jpeg';
+        $type->save();
+
+        $type = new Type;
+        $type->label = 'Crudi di pesce';
+        $type->image = 'assets/types/crudo di pesce.jpeg';
+        $type->save();
+
+        $type = new Type;
+        $type->label = 'Argentino';
+        $type->image = 'assets/types/bbq.webp';
+        $type->save();
     }
 }
