@@ -22,14 +22,14 @@
                             <div class="coverImage dishCover">
                                 <img src="{{ !empty($dish->image) ? asset('storage/' . $dish->image) : asset('storage/assets/placeholder.jpg') }}"
                                     alt="{{ $dish->name }}" class="w-100">
-
-                                {{-- <img src="{{ asset('storage/' . $dish->image) }}" alt="{{ $dish->name }}" class="w-100"> --}}
+                                {{--// <img src="{{ asset('storage/' . $dish->image) }}" alt="{{ $dish->name }}" class="w-100"> --}}
                             </div>
                             <div class="d-flex flex-column justify-content-between flex-grow-1">
-                                <!-- Dish description -->
                                 <div class="mb-4 d-flex flex-column justify-content-between flex-grow-1">
                                     <div>
+                                        <!-- Dish name -->
                                         <h3 class="detailCap">{{ $dish->name }}</h3>
+                                        <!-- Dish description -->
                                         <p>{{ $dish->getAbstract() }}</p>
                                     </div>
                                     <h3>€{{ $dish->price }}</h3>
@@ -53,7 +53,7 @@
                         </div>
                     </div>
 
-                    {{-- Message if list/grill is empty  --}}
+                {{-- Message if list/grill is empty  --}}
                 @empty
                     <h2>No Dishes Found</h2>
                 @endforelse
