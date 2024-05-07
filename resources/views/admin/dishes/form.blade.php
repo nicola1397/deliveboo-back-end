@@ -45,7 +45,7 @@
 
                             {{-- Input dish-name --}}
                             <div>
-                                <label for="name" class="form-label">Name</label>
+                                <label for="name" class="form-label"><strong>* </strong>Name</label>
                                 <input class="form-control @error('name') is-invalid @enderror" id="name"
                                     name="name" type="text" max="150" required
                                     value="{{ empty($dish->id) ? '' : old('name') ?? $dish->name }}" />
@@ -56,9 +56,9 @@
 
                             {{-- Input dish-price --}}
                             <div class="mt-2">
-                                <label for="price" class="form-label">Price</label>
+                                <label for="price" class="form-label"><strong>* </strong>Price</label>
                                 <input class="form-control @error('price') is-invalid @enderror" id="price"
-                                    name="price" type='text' pattern="^\d{4}*(\.\d{0,2})?$" required
+                                    name="price" type='number' pattern="^\d{4}*(\.\d{0,2})?$" required min="0.01" max="9999.99"
                                     value="{{ empty($dish->id) ? '' : old('price') ?? $dish->price }}">
                                 @error('price')
                                     <div class="invalid-feedback">{{ $message }}</div>
@@ -101,6 +101,9 @@
                             {{-- Form submit-button --}}
                             <button type="submit" class="btn btn-success mt-5"><i
                                     class="fa-solid fa-floppy-disk me-2"></i>Save</button>
+                            
+                            <p class="mt-3"><strong>* </strong>I campi contrassegnati sono obbligatori</p>
+
                         </div>
                     </div>
 

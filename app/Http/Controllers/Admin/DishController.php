@@ -22,18 +22,27 @@ class DishController extends Controller
      *
     
      */
-    public function index(Request $request)
-    {
-    if(empty(Auth::user()->restaurant->id)){
-    return redirect()->route('admin.restaurants.create')->with('message-class', 'alert-danger')->with('message', 'Devi prima creare un ristorante!');
+
+    public function index(Dish $dish)
+    {   
+        if(empty(Auth::user()->restaurant->id)) return view('admin.dishes.form', compact('dish'));
+
+    // Permission user-restaurant-dishes for index
+        $restaurantId = Auth::user()->restaurant->id;
+        $restaurant = Auth::user()->restaurant;
+        $dishes = Dish::where('restaurant_id', $restaurantId)->orderBy('name')->paginate(10);
+        return view('admin.dishes.index', compact('dishes', 'restaurant'));
     }
 
 
 
         $restaurantId = Auth::user()->restaurant->id;
 
-        // Permission user-restaurant-dishes for index
 
+        
+        
+        // Permission user-restaurant-dishes for index
+        $restaurantId = Auth::user()->restaurant->id;
         $restaurant = Auth::user()->restaurant;
         $dishes = Dish::where('restaurant_id', $restaurantId)->orderBy('name')->paginate(10);
         return view('admin.dishes.index', compact('dishes', 'restaurant'));

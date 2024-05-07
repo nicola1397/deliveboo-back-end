@@ -25,11 +25,9 @@ class RestaurantControllerApi extends Controller
                 },
 
                 'types' => function ($query) {
-                    $query->select(['id', 'label', 'color', 'image']);
+                    $query->select(['label', 'color', 'image']);
                 },
-            ])
-
-            ->get();
+            ])->get();
 
         return response()->json([
             'restaurants' => $restaurants,
