@@ -250,10 +250,13 @@ footer {
             text-shadow: 0px 0px 20px black;
             letter-spacing: 2px;
             font-size: 1.3rem;
+            text-shadow: -2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000,
+                2px 2px 0 #000;
         }
         .badgeImg {
             position: absolute;
             width: 100%;
+            filter: brightness(90%);
         }
     }
 }
