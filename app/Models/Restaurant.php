@@ -33,4 +33,10 @@ class Restaurant extends Model
     {
         return $this->belongsToMany(Type::class);
     }
+
+    /* Slug in url */
+    public function getRouteKeyName()
+{
+    return 'slug';
+}
 }

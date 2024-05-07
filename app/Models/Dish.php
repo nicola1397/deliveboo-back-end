@@ -36,4 +36,9 @@ class Dish extends Model
     {
         return $this->belongsToMany(Order::class);
     }
+
+    /* Slug in url */
+    public function getRouteKeyName() {
+        return 'slug';
+      }
 }
