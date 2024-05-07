@@ -19,19 +19,19 @@
 
                         <li class="nav-item">
                             <a class='nav-link text-white {{ str_contains(Route::currentRouteName(), 'admin.restaurants') ? 'active' : '' }}'
-                                href="{{ route('admin.restaurants.index') }}">Restaurants</a>
+                                href="{{ route('admin.restaurants.index') }}">Ristoranti</a>
                         </li>
 
 
                         <li class="nav-item">
                             <a class="nav-link text-white {{ str_contains(Route::currentRouteName(), 'admin.dishes') ? 'active' : '' }}"
-                                href="{{ route('admin.dishes.index') }}">Dishes</a>
+                                href="{{ route('admin.dishes.index') }}">Piatti</a>
 
                             <!-- <a class="nav-link" @class(['active' => Route::currentRouteName() == 'dishes']) href="{{ route('admin.dishes.index') }}">Dishes</a> -->
                         </li>
                         <!-- <li class="nav-item">
-                            <a class="nav-link" href="#">Types</a>
-                        </li> -->
+                                        <a class="nav-link" href="#">Types</a>
+                                    </li> -->
 
 
 
@@ -42,12 +42,12 @@
                 <ul class="navbar-nav ml-auto">
                     @guest
                         <li class="nav-item">
-                            <a class="nav-link text-white" href="{{ route('login') }}">Login</a>
+                            <a class="nav-link text-white" href="{{ route('login') }}">Accedi</a>
                         </li>
 
                         @if (Route::has('register'))
                             <li class="nav-item">
-                                <a class="nav-link text-white" href="{{ route('register') }}">Register</a>
+                                <a class="nav-link text-white" href="{{ route('register') }}">Registrati</a>
                             </li>
                         @endif
                     @else
@@ -58,8 +58,9 @@
                             </a>
 
                             <div aria-labelledby="navbarDropdown" class="dropdown-menu dropdown-menu-right">
-                                <div class="dropdown-item"><a href="{{ route('admin.dashboard') }}"> Dashboard</a></div>
-                                <div class="dropdown-item"><a href="{{ url('profile') }}"> Profile</a></div>
+                                <div class="dropdown-item"><a href="{{ route('admin.dashboard') }}"> Pannello Utente</a>
+                                </div>
+                                <div class="dropdown-item"><a href="{{ url('profile') }}"> Profilo</a></div>
                                 <div class="dropdown-item"><a href="{{ route('logout') }}" id="logout-link">
                                         Logout
                                     </a></div>

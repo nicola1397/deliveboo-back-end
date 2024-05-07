@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('customer_name', 200);
             $table->string('email', 200)->unique();
-            $table->string('phone', 15);
+            $table->string('phone', 20);
             $table->string('address', 250);
             $table->dateTime('date_time');
             $table->decimal('price', 6, 2);

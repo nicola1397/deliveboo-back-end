@@ -19,9 +19,10 @@
                 <div class="myCard col-md-3 col-sm-12 me-3">
                     <!-- Restaurant image -->
                     <div class="coverImage">
-                        <img src="{{ !empty($restaurant->image) ?
-                         asset('storage/' . $restaurant->image) :
-                         asset('storage/assets/placeholder.jpg') }}">
+                        <img
+                            src="{{ !empty($restaurant->image)
+                                ? asset('storage/' . $restaurant->image)
+                                : asset('storage/assets/placeholder.jpg') }}">
                     </div>
                     {{-- Restaurant name --}}
                     <h3 class="detailCap">{{ $restaurant->name }}</h3>
@@ -31,21 +32,21 @@
                     <div class="d-flex align-items-center justify-content-between">
                         {{-- ? Details button --}}
                         <a class="ballButton" href="{{ route('admin.restaurants.show', $restaurant) }}">
-                                <i class="fa-solid fa-eye"></i></a>
+                            <i class="fa-solid fa-eye"></i></a>
                         {{-- ? Edit button --}}
                         {{-- // <a class="ballButton" href="{{ route('admin.restaurants.edit', $restaurant) }}"><i class="fa-solid fa-pencil"></i></a> --}}
                         {{-- ? Destroy/delete button --}}
                         <button type="button" class="deletebutton" data-bs-toggle="modal"
                             data-bs-target="#restaurant-{{ $restaurant->id }}">
-                            <span>DELETE</span>
+                            <span>Cancella</span>
                             <div class="icon"><i class="fa-solid fa-trash"></i></div>
                         </button>
                     </div>
                 </div>
 
-            {{-- Message if list/grill is empty  --}}
+                {{-- Message if list/grill is empty  --}}
             @empty
-                <h2>No Restaurant Found</h2>
+                <h2>Nessun Ristorante Trovato</h2>
             @endforelse
 
             {{-- * Add restaurant button --}}
@@ -66,7 +67,7 @@
                         <div class="modal-content">
                             <div class="modal-header">
                                 {{-- Modal title --}}
-                                <h1 class="modal-title fs-5 text-danger" id="exampleModalLabel">Delete
+                                <h1 class="modal-title fs-5 text-danger" id="exampleModalLabel">Cancella
                                     {{ $restaurant->name }}?</h1>
                                 {{-- Close modal button --}}
                                 <button type="button" class="btn-close" data-bs-dismiss="modal"
@@ -74,18 +75,18 @@
                             </div>
                             {{-- Modal main text --}}
                             <div class="modal-body text-black">
-                                You CANNOT go back.
+                                Sicuro di voler procedere?
                             </div>
                             {{-- Modal buttons area --}}
                             <div class="modal-footer">
                                 {{-- Close modal button --}}
-                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Abort</button>
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Indietro</button>
                                 {{-- Delete dish miniform --}}
                                 <form action="{{ route('admin.restaurants.destroy', $restaurant) }}" method="POST">
                                     @csrf
                                     @method('DELETE')
                                     {{-- Delete dish button --}}
-                                    <button class="btn btn-danger">Delete</button>
+                                    <button class="btn btn-danger">Cancella</button>
                                 </form>
                             </div>
                         </div>
