@@ -189,7 +189,7 @@ class DishSeeder extends Seeder
                 'description' => 'Spezzatino di cinghiale, cotto 3 ore con sugo di cipolla, carota, pomodoro e spezie',
                 'price' => 17,
                 'availability' => false,
-                'image' => 'uploads/dishes/knodel.webp',
+                'image' => 'uploads/dishes/gulash.webp',
             ],
 
 
