@@ -24,6 +24,12 @@ class DishController extends Controller
      */
     public function index(Request $request)
     {
+    if(empty(Auth::user()->restaurant->id)){
+    return redirect()->route('admin.restaurants.create')->with('message-class', 'alert-danger')->with('message', 'Devi prima creare un ristorante!');
+    }
+
+
+
         $restaurantId = Auth::user()->restaurant->id;
 
         // Permission user-restaurant-dishes for index
