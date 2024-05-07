@@ -16,378 +16,312 @@ class DishSeeder extends Seeder
      */
     public function run()
     {
-        /* RESTAURANT 1 DISHES */
-        $dish = new Dish;
-        $dish->restaurant_id = 1;
-        $dish->name = "Tagliere di affettati locali";
-        $dish->description = "Selezione di affettati locali di prima qualità";
-        $dish->price = 12;
-        $dish->availability = false;
-        $dish->image = 'uploads/dishes/tagliere.webp';
-        $dish->slug = Str::slug($dish->name . $dish->id);
-        $dish->save();
-        $dish->slug = Str::slug($dish->name) . '-' . $dish->id;
-        $dish->update();
 
-        $dish = new Dish;
-        $dish->restaurant_id = 1;
-        $dish->name = "Costata pacettata";
-        $dish->description = "Costata di maiale grigliata e a metà cottura avvolta nella pancetta prima della cottura finale";
-        $dish->price = 18;
-        $dish->availability = true;
-        $dish->slug = Str::slug($dish->name);
-        $dish->image = 'uploads/dishes/costata.webp';
-        $dish->save();
-        $dish->slug = Str::slug($dish->name) . '-' . $dish->id;
-        $dish->update();
+        $dishes = [
+            [
+                'restaurant_id' => 1,
+                'name' => 'Tagliere di affettati locali',
+                'description' => 'Selezione di affettati locali di prima qualità',
+                'price' => 12,
+                'availability' => false,
+                'image' => 'uploads/dishes/tagliere.webp',
+            ],
 
-        $dish = new Dish;
-        $dish->restaurant_id = 1;
-        $dish->name = "Galletto alla brace";
-        $dish->description = "Galletto di prima scelta, marinato con birra, rosmarino, aglio e grigliato";
-        $dish->price = 15;
-        $dish->availability = true;
-        $dish->slug = Str::slug($dish->name);
-        $dish->image = 'uploads/dishes/galletto alla diavola Fine Dining Lovers.avif';
-        $dish->save();
-        $dish->slug = Str::slug($dish->name) . '-' . $dish->id;
-        $dish->update();
+            [
+                'restaurant_id' => 1,
+                'name' => 'Costata pacettata',
+                'description' => 'Costata di maiale grigliata e a metà cottura avvolta nella pancetta prima della cottura finale',
+                'price' => 18,
+                'availability' => true,
+                'image' => 'uploads/dishes/costata.webp',
+            ],
 
-        $dish = new Dish;
-        $dish->restaurant_id = 1;
-        $dish->name = "La regina Fiorentina";
-        $dish->description = "Bistecca Fiorentina da 1.5Kg al sangue, servita con contorno di patate al forno e pomodorini";
-        $dish->price = 22;
-        $dish->availability = true;
-        $dish->slug = Str::slug($dish->name);
-        $dish->image = 'uploads/dishes/bistecca-fiorentina.jpg';
-        $dish->save();
-        $dish->slug = Str::slug($dish->name) . '-' . $dish->id;
-        $dish->update();
+            [
+                'restaurant_id' => 1,
+                'name' => 'Galletto alla brace',
+                'description' => 'Galletto di prima scelta, marinato con birra, rosmarino, aglio e grigliato',
+                'price' => 15,
+                'availability' => true,
+                'image' => 'uploads/dishes/galletto alla diavola Fine Dining Lovers.avif',
+            ],
 
-        $dish = new Dish;
-        $dish->restaurant_id = 1;
-        $dish->name = "Tiramisù";
-        $dish->description = "Nostro Tiramisù della casa con uova pastorizzate  mascarpone no lattosio e biscotti homemade";
-        $dish->price = 8;
-        $dish->availability = true;
-        $dish->slug = Str::slug($dish->name);
-        $dish->image = 'uploads/dishes/tiramisu.jpg';
-        $dish->save();
-        $dish->slug = Str::slug($dish->name) . '-' . $dish->id;
-        $dish->update();
+            [
+                'restaurant_id' => 1,
+                'name' => 'La regina Fiorentina',
+                'description' => 'Bistecca Fiorentina da 1.5Kg al sangue, servita con contorno di patate al forno e pomodorini',
+                'price' => 22,
+                'availability' => true,
+                'image' => 'uploads/dishes/bistecca-fiorentina.jpg',
+            ],
 
+            [
+                'restaurant_id' => 1,
+                'name' => 'Tiramisù',
+                'description' => 'Nostro Tiramisù della casa con uova pastorizzate  mascarpone no lattosio e biscotti homemade',
+                'price' => 8,
+                'availability' => true,
+                'image' => 'uploads/dishes/tiramisu.jpg',
+            ],
 
-        /* RESTAURANT 2 DISHES */
+            [
+                'restaurant_id' => 2,
+                'name' => 'Involtini primavera',
+                'description' => 'Involtini primavera tradizionali, con verdure e salsa agrodolce di accomagnamento',
+                'price' => 8,
+                'availability' => true,
+                'image' => 'uploads/dishes/Veg-Spring-Rolls-3.jpg',
+            ],
 
-        $dish = new Dish;
-        $dish->restaurant_id = 2;
-        $dish->name = "Involtini primavera";
-        $dish->description = "Involtini primavera tradizionali, con verdure e salsa agrodolce di accomagnamento";
-        $dish->price = 8;
-        $dish->availability = true;
-        $dish->slug = Str::slug($dish->name);
-        $dish->image = 'uploads/dishes/Veg-Spring-Rolls-3.jpg';
-        $dish->save();
-        $dish->slug = Str::slug($dish->name) . '-' . $dish->id;
-        $dish->update();
+            [
+                'restaurant_id' => 2,
+                'name' => 'Ravioli di gamberi',
+                'description' => 'Ravioli al vapore tradizionali con ripieno di verdure e gamberi',
+                'price' => 8.50,
+                'availability' => false,
+                'image' => 'uploads/dishes/ravioli-al-vapore-cinesi-ecco-la-vera-ricetta-tradizionale-ripieno-carne-o-pesce.jpg',
+            ],
 
-        $dish = new Dish;
-        $dish->restaurant_id = 2;
-        $dish->name = "Ravioli di gamberi";
-        $dish->description = "Ravioli al vapore tradizionali con ripieno di verdure e gamberi";
-        $dish->price = 8;
-        $dish->availability = true;
-        $dish->slug = Str::slug($dish->name);
-        $dish->image = 'uploads/dishes/ravioli-al-vapore-cinesi-ecco-la-vera-ricetta-tradizionale-ripieno-carne-o-pesce.jpg';
-        $dish->save();
-        $dish->slug = Str::slug($dish->name) . '-' . $dish->id;
-        $dish->update();
+            [
+                'restaurant_id' => 2,
+                'name' => 'Onigiri',
+                'description' => 'Onigiri di riso con ripieno di pollo fritto e verdure fritte',
+                'price' => 10.50,
+                'availability' => true,
+                'image' => 'uploads/dishes/onigiri.webp',
+            ],
 
-        $dish = new Dish;
-        $dish->restaurant_id = 2;
-        $dish->name = "Onigiri";
-        $dish->description = "Onigiri di riso con ripieno di pollo fritto e verdure fritte";
-        $dish->price = 8;
-        $dish->availability = true;
-        $dish->slug = Str::slug($dish->name);
-        $dish->image = 'uploads/dishes/onigiri.webp';
-        $dish->save();
-        $dish->slug = Str::slug($dish->name) . '-' . $dish->id;
-        $dish->update();
+            [
+                'restaurant_id' => 2,
+                'name' => 'Riso cantonese',
+                'description' => 'Tradizionale riso cantonese con verdure, gamberi e zafferano',
+                'price' => 14.99,
+                'availability' => true,
+                'image' => 'uploads/dishes/riso-alla-cantonese-.jpeg',
+            ],
 
-        $dish = new Dish;
-        $dish->restaurant_id = 2;
-        $dish->name = "Riso cantonese";
-        $dish->description = "Tradizionale riso cantonese con verdure, gamberi e zafferano";
-        $dish->price = 8;
-        $dish->availability = true;
-        $dish->slug = Str::slug($dish->name);
-        $dish->image = 'uploads/dishes/riso-alla-cantonese-.jpeg';
-        $dish->save();
-        $dish->slug = Str::slug($dish->name) . '-' . $dish->id;
-        $dish->update();
+            [
+                'restaurant_id' => 2,
+                'name' => 'Bocconcini sushi',
+                'description' => 'Selezione di 4 coppie di sushi con salmone, gambero, tonno e polipo',
+                'price' => 9.99,
+                'availability' => true,
+                'image' => 'uploads/dishes/bocconcini sushi mix.webp',
+            ],
 
-        $dish = new Dish;
-        $dish->restaurant_id = 2;
-        $dish->name = "Bocconcini sushi";
-        $dish->description = "Selezione di 4 coppie di sushi con salmone, gambero, tonno e polipo";
-        $dish->price = 8;
-        $dish->availability = true;
-        $dish->slug = Str::slug($dish->name);
-        $dish->image = 'uploads/dishes/bocconcini sushi mix.webp';
-        $dish->save();
-        $dish->slug = Str::slug($dish->name) . '-' . $dish->id;
-        $dish->update();
+            [
+                'restaurant_id' => 3,
+                'name' => 'Nachos',
+                'description' => 'Tortillias con formaggio fuso, avocado e pomodorini',
+                'price' => 12.99,
+                'availability' => true,
+                'image' => 'uploads/dishes/nachos.jpeg',
+            ],
 
-        /* RESTAURANT 3 DISHES */
+            [
+                'restaurant_id' => 3,
+                'name' => 'Empanadas',
+                'description' => 'Ravioli croccanti di pasta cotti al forno con ripieno di patate e carne',
+                'price' => 15.99,
+                'availability' => true,
+                'image' => 'uploads/dishes/empanadas.jpeg',
+            ],
 
-        $dish = new Dish;
-        $dish->restaurant_id = 3;
-        $dish->name = "Nachos";
-        $dish->description = "Tortillias con formaggio fuso, avocado e pomodorini";
-        $dish->price = 8;
-        $dish->availability = true;
-        $dish->slug = Str::slug($dish->name);
-        $dish->image = 'uploads/dishes/nachos.jpeg';
-        $dish->save();
-        $dish->slug = Str::slug($dish->name) . '-' . $dish->id;
-        $dish->update();
+            [
+                'restaurant_id' => 3,
+                'name' => 'Frijoles',
+                'description' => 'Fagioli rossi messicanicotti con sugo piccante e pezzi di salsiccia',
+                'price' => 11.99,
+                'availability' => true,
+                'image' => 'uploads/dishes/frijoles.jpeg',
+            ],
 
-        $dish = new Dish;
-        $dish->restaurant_id = 3;
-        $dish->name = "Empanadas";
-        $dish->description = "Ravioli croccanti di pasta cotti al forno con ripieno di patate e carne";
-        $dish->price = 9;
-        $dish->availability = true;
-        $dish->slug = Str::slug($dish->name);
-        $dish->image = 'uploads/dishes/empanadas.jpeg';
-        $dish->save();
-        $dish->slug = Str::slug($dish->name) . '-' . $dish->id;
-        $dish->update();
+            [
+                'restaurant_id' => 3,
+                'name' => 'Churrasco',
+                'description' => 'Grigliata di carne mista (pollo, manzo, maiale, agnello) cotta con fiamma lambente',
+                'price' => 25,
+                'availability' => true,
+                'image' => 'uploads/dishes/churrasco.jpeg',
+            ],
 
-        $dish = new Dish;
-        $dish->restaurant_id = 3;
-        $dish->name = "Frijoles";
-        $dish->description = "Fagioli rossi messicanicotti con sugo piccante e pezzi di salsiccia";
-        $dish->price = 12;
-        $dish->availability = true;
-        $dish->slug = Str::slug($dish->name);
-        $dish->image = 'uploads/dishes/frijoles.jpeg';
-        $dish->save();
-        $dish->slug = Str::slug($dish->name) . '-' . $dish->id;
-        $dish->update();
+            [
+                'restaurant_id' => 3,
+                'name' => 'Costata di Manzo Argentino alla brace',
+                'description' => 'Costata di Manzo Argentino cotto su brace di pietra Pomice con contorno a scelta',
+                'price' => 23.50,
+                'availability' => false,
+                'image' => 'uploads/dishes/manzo argentino all abrace.jpeg',
+            ],
 
-        $dish = new Dish;
-        $dish->restaurant_id = 3;
-        $dish->name = "Churrasco";
-        $dish->description = "Grigliata di carne mista (pollo, manzo, maiale, agnello) cotta con fiamma lambente";
-        $dish->price = 25;
-        $dish->availability = true;
-        $dish->slug = Str::slug($dish->name);
-        $dish->image = 'uploads/dishes/churrasco.jpeg';
-        $dish->save();
-        $dish->slug = Str::slug($dish->name) . '-' . $dish->id;
-        $dish->update();
-
-        $dish = new Dish;
-        $dish->restaurant_id = 3;
-        $dish->name = "Costata di Manzo Argentino alla brace";
-        $dish->description = "Costata di Manzo Argentino cotto su brace di pietra Pomice con contorno a scelta";
-        $dish->price = 23;
-        $dish->availability = true;
-        $dish->slug = Str::slug($dish->name);
-        $dish->image = 'uploads/dishes/manzo argentino all abrace.jpeg';
-        $dish->save();
-        $dish->slug = Str::slug($dish->name) . '-' . $dish->id;
-        $dish->update();
+            [
+                'restaurant_id' => 4,
+                'name' => 'Ueberbackene Zwiebelsuppe',
+                'description' => 'Zuppa di cipolle e patate cotta a fuoco lento in un tegame di terracotta',
+                'price' => 9,
+                'availability' => true,
+                'image' => 'uploads/dishes/Ueberbackene Zwiebelsuppe.webp',
+            ],
 
 
-        /* RESTAURANT 4 DISHES */
-
-        $dish = new Dish;
-        $dish->restaurant_id = 4;
-        $dish->name = "Ueberbackene Zwiebelsuppe";
-        $dish->description = "Zuppa di cipolle e patate cotta a fuoco lento in un tegame di terracotta";
-        $dish->price = 9;
-        $dish->availability = true;
-        $dish->slug = Str::slug($dish->name);
-        $dish->image = 'uploads/dishes/Ueberbackene Zwiebelsuppe.webp';
-        $dish->save();
-        $dish->slug = Str::slug($dish->name) . '-' . $dish->id;
-        $dish->update();
-
-        $dish = new Dish;
-        $dish->restaurant_id = 4;
-        $dish->name = "Crauti";
-        $dish->description = "Crauti di verza fermentata con aceto e sale cotti con pezzi di würstel e accompagnati con senape";
-        $dish->price = 12;
-        $dish->availability = true;
-        $dish->slug = Str::slug($dish->name);
-        $dish->image = 'uploads/dishes/original_wurstel-tedeschi-con-crauti-ed-erbe-aromatiche.jpg';
-        $dish->save();
-        $dish->slug = Str::slug($dish->name) . '-' . $dish->id;
-        $dish->update();
-
-        $dish = new Dish;
-        $dish->restaurant_id = 4;
-        $dish->name = "Knödel";
-        $dish->description = "Canederli con speck e formaggio cotti in brodo ";
-        $dish->price = 13;
-        $dish->availability = true;
-        $dish->slug = Str::slug($dish->name);
-        $dish->image = 'uploads/dishes/knodel.webp';
-        $dish->save();
-        $dish->slug = Str::slug($dish->name) . '-' . $dish->id;
-        $dish->update();
-
-        $dish = new Dish;
-        $dish->restaurant_id = 4;
-        $dish->name = "Gulash";
-        $dish->description = "Spezzatino di cinghiale, cotto 3 ore con sugo di cipolla, carota, pomodoro e spezie";
-        $dish->price = 17;
-        $dish->availability = true;
-        $dish->slug = Str::slug($dish->name);
-        $dish->image = 'uploads/dishes/gulash.webp';
-        $dish->save();
-        $dish->slug = Str::slug($dish->name) . '-' . $dish->id;
-        $dish->update();
-
-        $dish = new Dish;
-        $dish->restaurant_id = 4;
-        $dish->name = "Sacher";
-        $dish->description = "Torta sacher tipica con farina, cioccolato, burro e marmellata di albiccocche";
-        $dish->price = 7;
-        $dish->availability = true;
-        $dish->slug = Str::slug($dish->name);
-        $dish->image = 'uploads/dishes/sacher.jpeg';
-        $dish->save();
-        $dish->slug = Str::slug($dish->name) . '-' . $dish->id;
-        $dish->update();
+            [
+                'restaurant_id' => 4,
+                'name' => 'Crauti',
+                'description' => 'Crauti di verza fermentata con aceto e sale cotti con pezzi di würstel e accompagnati con senape',
+                'price' => 12,
+                'availability' => true,
+                'image' => 'uploads/dishes/original_wurstel-tedeschi-con-crauti-ed-erbe-aromatiche.jpg',
+            ],
 
 
-        /* RESTAURANT 5 DISHES */
+            [
+                'restaurant_id' => 4,
+                'name' => 'Knödel',
+                'description' => 'Canederli con speck e formaggio cotti in brodo ',
+                'price' => 19,
+                'availability' => true,
+                'image' => 'uploads/dishes/knodel.webp',
+            ],
 
-        $dish = new Dish;
-        $dish->restaurant_id = 5;
-        $dish->name = "Tagliere di formaggi";
-        $dish->description = "Selezione di pecorini sardi e casumarzu con carasau di accompagnamento";
-        $dish->price = 15;
-        $dish->availability = true;
-        $dish->slug = Str::slug($dish->name);
-        $dish->image = 'uploads/dishes/tagliere sardo.jpeg';
-        $dish->save();
-        $dish->slug = Str::slug($dish->name) . '-' . $dish->id;
-        $dish->update();
 
-        $dish = new Dish;
-        $dish->restaurant_id = 5;
-        $dish->name = "Culurgiones al pomodoro e pecorino";
-        $dish->description = "Pasta ripiena con patate e menta in sugo di pomodoro e spolverata di pecorino";
-        $dish->price = 12;
-        $dish->availability = true;
-        $dish->slug = Str::slug($dish->name);
-        $dish->image = 'uploads/dishes/culurgiones-al-pomodoro.jpg';
-        $dish->save();
-        $dish->slug = Str::slug($dish->name) . '-' . $dish->id;
-        $dish->update();
+            [
+                'restaurant_id' => 4,
+                'name' => 'Gulash',
+                'description' => 'Spezzatino di cinghiale, cotto 3 ore con sugo di cipolla, carota, pomodoro e spezie',
+                'price' => 17,
+                'availability' => false,
+                'image' => 'uploads/dishes/knodel.webp',
+            ],
 
-        $dish = new Dish;
-        $dish->restaurant_id = 5;
-        $dish->name = "Porceddu";
-        $dish->description = "Giovanissimo esemplare di maialino, grigliato a fuoco lento sulla brace";
-        $dish->price = 22;
-        $dish->availability = true;
-        $dish->slug = Str::slug($dish->name);
-        $dish->image = 'uploads/dishes/porceddu.jpeg';
-        $dish->save();
-        $dish->slug = Str::slug($dish->name) . '-' . $dish->id;
-        $dish->update();
 
-        $dish = new Dish;
-        $dish->restaurant_id = 5;
-        $dish->name = "Sa trattalia";
-        $dish->description = "Spiedi grigliati con interiora di agnello (pezzetti di cuore, polmone, fegato e reni)";
-        $dish->price = 16;
-        $dish->availability = true;
-        $dish->slug = Str::slug($dish->name);
-        $dish->image = 'uploads/dishes/trattalia.jpeg';
-        $dish->save();
-        $dish->slug = Str::slug($dish->name) . '-' . $dish->id;
-        $dish->update();
+            [
+                'restaurant_id' => 4,
+                'name' => 'Sacher',
+                'description' => 'Torta sacher tipica con farina, cioccolato, burro e marmellata di albiccocche',
+                'price' => 7,
+                'availability' => true,
+                'image' => 'uploads/dishes/sacher.jpeg',
+            ],
 
-        $dish = new Dish;
-        $dish->restaurant_id = 5;
-        $dish->name = "Seadas";
-        $dish->description = "Ravioli di semola e strutto, ripieni di formaggio, fritti e ricoperti di miele subito dopo la fruttura, sono da comsumare ancora caldi";
-        $dish->price = 8;
-        $dish->availability = true;
-        $dish->slug = Str::slug($dish->name);
-        $dish->image = 'uploads/dishes/seadas.jpeg';
-        $dish->save();
-        $dish->slug = Str::slug($dish->name) . '-' . $dish->id;
-        $dish->update();
 
-        /* RESTAURANT 6 DISHES */
+            [
+                'restaurant_id' => 5,
+                'name' => 'Tagliere di formaggi',
+                'description' => 'Selezione di pecorini sardi e casumarzu con carasau di accompagnamento',
+                'price' => 15,
+                'availability' => true,
+                'image' => 'uploads/dishes/tagliere sardo.jpeg',
+            ],
 
-        $dish = new Dish;
-        $dish->restaurant_id = 6;
-        $dish->name = "Crudi di pesce";
-        $dish->description = "Cruditè di pesce di prima Qualità";
-        $dish->price = 18;
-        $dish->availability = true;
-        $dish->slug = Str::slug($dish->name);
-        $dish->image = 'uploads/dishes/crudomare.jpeg';
-        $dish->save();
-        $dish->slug = Str::slug($dish->name) . '-' . $dish->id;
-        $dish->update();
 
-        $dish = new Dish;
-        $dish->restaurant_id = 6;
-        $dish->name = "Risotto alla Pescatora";
-        $dish->description = "Risotto ai frutti di mare con battuta di gambero rosso di Mazzara";
-        $dish->price = 14;
-        $dish->availability = true;
-        $dish->slug = Str::slug($dish->name);
-        $dish->image = 'uploads/dishes/pescatora.jpg';
-        $dish->save();
-        $dish->slug = Str::slug($dish->name) . '-' . $dish->id;
-        $dish->update();
+            [
+                'restaurant_id' => 5,
+                'name' => 'Culurgiones al pomodoro e pecorino',
+                'description' => 'Pasta ripiena con patate e menta in sugo di pomodoro e spolverata di pecorino',
+                'price' => 12,
+                'availability' => true,
+                'image' => 'uploads/dishes/culurgiones-al-pomodoro.jpg',
+            ],
 
-        $dish = new Dish;
-        $dish->restaurant_id = 6;
-        $dish->name = "Pizza Margherita";
-        $dish->description = "Pizza con pomodoro, mozzarella, basilico, olio, origano";
-        $dish->price = 7;
-        $dish->availability = true;
-        $dish->slug = Str::slug($dish->name);
-        $dish->image = 'uploads/dishes/margherita.avif';
-        $dish->save();
-        $dish->slug = Str::slug($dish->name) . '-' . $dish->id;
-        $dish->update();
 
-        $dish = new Dish;
-        $dish->restaurant_id = 6;
-        $dish->name = "SanPietro al forno";
-        $dish->description = "Pesce SanPietro di varie pezzature con contorno a scelta";
-        $dish->price = 28;
-        $dish->availability = true;
-        $dish->slug = Str::slug($dish->name);
-        $dish->image = 'uploads/dishes/sanpietro.webp';
-        $dish->save();
-        $dish->slug = Str::slug($dish->name) . '-' . $dish->id;
-        $dish->update();
+            [
+                'restaurant_id' => 5,
+                'name' => 'Porceddu',
+                'description' => 'iovanissimo esemplare di maialino, grigliato a fuoco lento sulla brace',
+                'price' => 22,
+                'availability' => false,
+                'image' => 'uploads/dishes/porceddu.jpeg',
+            ],
 
-        $dish = new Dish;
-        $dish->restaurant_id = 6;
-        $dish->name = "Panna cotta";
-        $dish->description = "Panna cotta fatta in casa con topping a scelta";
-        $dish->price = 5;
-        $dish->availability = true;
-        $dish->slug = Str::slug($dish->name);
-        $dish->image = 'uploads/dishes/pannacotta.avif';
-        $dish->save();
-        $dish->slug = Str::slug($dish->name) . '-' . $dish->id;
-        $dish->update();
+
+            [
+                'restaurant_id' => 5,
+                'name' => 'Sa trattalia',
+                'description' => 'Spiedi grigliati con interiora di agnello (pezzetti di cuore, polmone, fegato e reni)',
+                'price' => 16,
+                'availability' => true,
+                'image' => 'uploads/dishes/trattalia.jpeg',
+            ],
+
+
+            [
+                'restaurant_id' => 5,
+                'name' => 'Seadas',
+                'description' => 'Ravioli di semola e strutto, ripieni di formaggio, fritti e ricoperti di miele subito dopo la fruttura, sono da comsumare ancora caldi',
+                'price' => 8,
+                'availability' => true,
+                'image' => 'uploads/dishes/seadas.jpeg',
+            ],
+
+
+            [
+                'restaurant_id' => 6,
+                'name' => 'Crudi di pesce',
+                'description' => 'Cruditè di pesce di prima Qualità',
+                'price' => 18,
+                'availability' => true,
+                'image' => 'uploads/dishes/crudomare.jpeg',
+            ],
+
+
+            [
+                'restaurant_id' => 6,
+                'name' => 'Risotto alla Pescatora',
+                'description' => 'Risotto ai frutti di mare con battuta di gambero rosso di Mazzara',
+                'price' => 14,
+                'availability' => false,
+                'image' => 'uploads/dishes/pescatora.jpg',
+            ],
+
+            [
+                'restaurant_id' => 6,
+                'name' => 'Pizza Margherita',
+                'description' => 'Pizza con pomodoro, mozzarella, basilico, olio, origano',
+                'price' => 7,
+                'availability' => true,
+                'image' => 'uploads/dishes/margherita.avif',
+            ],
+
+
+            [
+                'restaurant_id' => 6,
+                'name' => 'SanPietro al forno',
+                'description' => 'Pesce SanPietro di varie pezzature con contorno a scelta',
+                'price' => 28,
+                'availability' => true,
+                'image' => 'uploads/dishes/sanpietro.webp',
+            ],
+
+            [
+                'restaurant_id' => 6,
+                'name' => 'Panna cotta',
+                'description' => 'Panna cotta fatta in casa con topping a scelta',
+                'price' => 5,
+                'availability' => true,
+                'image' => 'pannacotta.avif',
+            ],
+
+
+
+        ];
+
+        // Salvare nuovo ristorante
+        foreach ($dishes as $dish_data) {
+
+            $dish = new Dish;
+            $dish->restaurant_id = $dish_data['restaurant_id'];
+            $dish->name = $dish_data['name'];
+            $dish->description = $dish_data['description'];
+            $dish->price = $dish_data['price'];
+            $dish->availability = $dish_data['availability'];
+            $dish->slug = Str::slug($dish_data['name']);
+            $dish->image = $dish_data['image'];
+            $dish->save();
+
+            // rendere lo slug univoco includendo l'id
+            $dish->slug = Str::slug($dish->name) . '-' . $dish->id;
+            $dish->update();
+        }
+
+
     }
 }
