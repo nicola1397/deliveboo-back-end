@@ -82,6 +82,9 @@ class RestaurantControllerApi extends Controller
 
 
         $restaurants = Restaurant::select(['id', 'user_id', 'name', 'slug', 'phone', 'p_iva', 'address', 'image'])
+        ->whereHas('types', function ($query) use ($paramsCollection) {
+            $query->whereIn('label', $paramsCollection->toArray());
+        }, '>=', $paramsCollection->count())
         ->with([
             'dishes' => function ($query) {
                 $query->select(['id', 'restaurant_id', 'name', 'description', 'price', 'availability', 'image', 'slug']);
@@ -89,10 +92,7 @@ class RestaurantControllerApi extends Controller
             'types' => function ($query) {
                 $query->select(['label', 'image']);
             },
-        ])    
-            ->whereHas('types', function ($query) use ($paramsArray) {
-             $query->whereIn('label', $paramsArray);})
-         
+        ])             
         ->get()->map(function ($restaurants) {
             $restaurants->image = asset('storage/' . $restaurants->image);
             $restaurants->dishes->each(function ($dish) {
@@ -114,7 +114,7 @@ class RestaurantControllerApi extends Controller
             'restaurants' => $restaurants,
             'types' => $types,
             'success' => true,
-            'explosion' => $paramsArray
+            'explosion' => $paramsCollection
         ]);
     }
 
