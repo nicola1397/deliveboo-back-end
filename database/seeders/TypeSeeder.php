@@ -77,7 +77,7 @@ class TypeSeeder extends Seeder
         $type->save();
 
         $type = new Type;
-        $type->label = 'Vegetariano';
+        $type->label = 'Vegano';
         $type->image = 'assets/types/vegetali.jpeg';
         $type->save();
 
