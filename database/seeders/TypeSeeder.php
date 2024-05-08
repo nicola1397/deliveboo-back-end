@@ -87,18 +87,18 @@ class TypeSeeder extends Seeder
         $type->save();
 
         $type = new Type;
-        $type->label = 'Selvaggina';
-        $type->image = 'assets/types/selvaggina.jpeg';
+        $type->label = 'Gelato';
+        $type->image = 'assets/types/gelato.jpg';
         $type->save();
 
         $type = new Type;
-        $type->label = 'Crudi di pesce';
-        $type->image = 'assets/types/crudo di pesce.jpeg';
+        $type->label = 'Kebab';
+        $type->image = 'assets/types/kebab.avif';
         $type->save();
 
-        $type = new Type;
-        $type->label = 'Argentino';
-        $type->image = 'assets/types/bbq.webp';
-        $type->save();
+        // $type = new Type;
+        // $type->label = 'Argentino';
+        // $type->image = 'assets/types/bbq.webp';
+        // $type->save();
     }
 }
