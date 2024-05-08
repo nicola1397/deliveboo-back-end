@@ -4,6 +4,7 @@ use App\Http\Controllers\Guest\DashboardController as GuestDashboardController;
 use App\Http\Controllers\Admin\DashboardController as AdminDashboardController;
 use App\Http\Controllers\Admin\RestaurantController;
 use App\Http\Controllers\Admin\DishController;
+use App\Http\Controllers\OrderController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -39,6 +40,8 @@ Route::middleware('auth')
     /* ROUTES FOR DISH IMAGE REMOVAL */
     Route::delete('/dishes/{dish}/destroyImage', [DishController::class, 'destroyImage'])->name('dish.destroyImage');
 
+    // ROUTE FOR ORDERS
+    Route::resource('/orders', OrderController::class);
   });
 
 require __DIR__ . '/auth.php';
