@@ -75,9 +75,7 @@ class RestaurantControllerApi extends Controller
                 return $restaurants;
             });;
 
-        return response()->json([
-            'restaurants' => $restaurants,
-            'success' => true
+        return response()->json([ $restaurants
         ]);
     }
 
