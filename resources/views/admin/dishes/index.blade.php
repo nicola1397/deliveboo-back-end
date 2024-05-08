@@ -20,7 +20,7 @@
                         <div class="myCard h-100">
                             <!-- Dish image -->
                             <div class="coverImage dishCover">
-                                <img src="{{ !empty($dish->image) ? asset('storage/' . $dish->image) : asset('storage/assets/placeholder.jpg') }}"
+                                <img src="{{ !empty($dish->image) ? asset('storage/' . $dish->image) : asset('storage/uploads/placeholder.png') }}"
                                     alt="{{ $dish->name }}" class="w-100">
                                 {{-- // <img src="{{ asset('storage/' . $dish->image) }}" alt="{{ $dish->name }}" class="w-100"> --}}
                             </div>
