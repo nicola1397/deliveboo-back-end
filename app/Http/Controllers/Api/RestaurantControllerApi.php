@@ -72,4 +72,51 @@ class RestaurantControllerApi extends Controller
         ]);
     }
 
+
+
+    public function filter($params, Request $request)
+    {
+
+        $paramsArray = explode('&', $params);
+        $paramsCollection = collect($paramsArray);
+
+
+        $restaurants = Restaurant::select(['id', 'user_id', 'name', 'slug', 'phone', 'p_iva', 'address', 'image'])
+        ->with([
+            'dishes' => function ($query) {
+                $query->select(['id', 'restaurant_id', 'name', 'description', 'price', 'availability', 'image', 'slug']);
+            },
+            'types' => function ($query) {
+                $query->select(['label', 'image']);
+            },
+        ])    
+            ->whereHas('types', function ($query) use ($paramsArray) {
+             $query->whereIn('label', $paramsArray);})
+         
+        ->get()->map(function ($restaurants) {
+            $restaurants->image = asset('storage/' . $restaurants->image);
+            $restaurants->dishes->each(function ($dish) {
+                $dish->image = asset('storage/' . $dish->image);
+            });
+            $restaurants->types->each(function ($type) {
+                $type->image = asset('storage/' . $type->image);
+            });
+            return $restaurants;
+        });
+
+        $types = Type::select(['id', 'label', 'image'])->get();
+        foreach ($types as $type) {
+            $type->image = asset('/storage' . "/" . $type->image);
+        }
+
+     
+        return response()->json([
+            'restaurants' => $restaurants,
+            'types' => $types,
+            'success' => true,
+            'explosion' => $paramsArray
+        ]);
+    }
+
 }
+
