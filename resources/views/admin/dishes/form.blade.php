@@ -69,7 +69,7 @@
                     <div class="img mt-3">
                         <label for="image" class="form-label">Immagine</label>
                         <div class="d-flex">
-                            <input class="form-control @error('image') is-invalid @enderror" id="image" name="image" type="file" value="{{ empty($dish->id) ? '' : old('image') }}" />
+                            <input class="form-control me-2 @error('image') is-invalid @enderror" id="image" name="image" type="file" value="{{ empty($dish->id) ? '' : old('image') }}" />
                             @if (!empty($dish->id))
                             <div class="delete-dish-image btn btn-danger rounded">X</div>
                             @endif
