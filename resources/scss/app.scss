@@ -15,13 +15,6 @@ a:hover {
     text-decoration: none;
 }
 
-img {
-    width: 100%;
-    height: 100%;
-    display: block;
-    object-fit: cover;
-}
-
 /* a:visited {
   color: white;
 } */
@@ -219,7 +212,11 @@ footer {
     justify-content: center;
     align-items: center;
 
-    
+    img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
 }
 
 .dishDetailImg {
