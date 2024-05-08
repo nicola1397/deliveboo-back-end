@@ -64,7 +64,16 @@ class RestaurantControllerApi extends Controller
                 'types' => function ($query) {
                     $query->select(['label', 'image']);
                 },
-            ])->get();
+            ])->get()->map(function ($restaurants) {
+                $restaurants->image = asset('storage/' . $restaurants->image);
+                $restaurants->dishes->each(function ($dish) {
+                    $dish->image = asset('storage/' . $dish->image);
+                });
+                $restaurants->types->each(function ($type) {
+                    $type->image = asset('storage/' . $type->image);
+                });
+                return $restaurants;
+            });;
 
         return response()->json([
             'restaurants' => $restaurants,
