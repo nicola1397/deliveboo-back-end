@@ -39,16 +39,16 @@ class RestaurantControllerApi extends Controller
     {
 
         $restaurants = Restaurant::select(['id', 'user_id', 'name', 'slug', 'phone', 'p_iva', 'address', 'image',])
-        ->where('slug', $slug)
-        ->with([
-            'dishes' => function ($query) {
-                $query->select(['id', 'restaurant_id', 'name', 'description', 'price', 'availability', 'image', 'slug']);
-            },
+            ->where('slug', $slug)
+            ->with([
+                'dishes' => function ($query) {
+                    $query->select(['id', 'restaurant_id', 'name', 'description', 'price', 'availability', 'image', 'slug']);
+                },
 
-            'types' => function ($query) {
-                $query->select(['label', 'color', 'image']);
-            },
-        ])->get();
+                'types' => function ($query) {
+                    $query->select(['label', 'image']);
+                },
+            ])->get();
 
         return response()->json([
             'restaurants' => $restaurants,
