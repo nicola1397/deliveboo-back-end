@@ -32,4 +32,12 @@ class RestaurantStoreRequest extends FormRequest
             'types' => 'required|exists:types,id'
         ];
     }
+
+    public function messages()
+    {
+        return [
+            'types.required' => 'At least one TYPE must be selected',
+
+        ];
+    }
 }
