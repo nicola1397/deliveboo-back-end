@@ -73,9 +73,11 @@ class RestaurantControllerApi extends Controller
                     $type->image = asset('storage/' . $type->image);
                 });
                 return $restaurants;
-            });;
+            });
 
-        return response()->json([ $restaurants
+        return response()->json([ 
+            'restaurants' => $restaurants,
+            'success' => true
         ]);
     }
 
