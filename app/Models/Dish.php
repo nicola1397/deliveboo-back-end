@@ -38,7 +38,8 @@ class Dish extends Model
     }
 
     /* Slug in url */
-    public function getRouteKeyName() {
+    public function getRouteKeyName()
+    {
         return 'slug';
-      }
+    }
 }

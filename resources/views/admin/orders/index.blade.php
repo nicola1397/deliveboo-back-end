@@ -12,6 +12,44 @@
         {{-- * Main title page --}}
         <h1 class="text-center mb-5">I tuoi ordini</h1>
 
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">Nome_cliente</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">Telefono</th>
+                    <th scope="col">Indirizzo</th>
+                    <th scope="col">Data_ordine</th>
+                    <th scope="col">Piatto</th>
+                    <th scope="col">Prezzo</th>
+                    <th scope="col">Quantitá</th>
+                </tr>
+            </thead>
+            <tbody>
+                @forelse($orders as $order)
+                @if(!empty($order['dishes']))
+                <tr>
+                    <td>{{$order['id']}}</td>
+                    <td>{{$order['customer_name']}}</td>
+                    <td>{{$order['email']}}</td>
+                    <td>{{$order['phone']}}</td>
+                    <td>{{$order['address']}}</td>
+                    <td>{{$order['date_time']}}</td>
+                    <td>{{$order['dishes'][0]['name']}}</td>
+                    <td>{{$order['dishes'][0]['price']}}</td>
+                    {{-- <td>{{$order['dishes'][0]['quantity']}}</td> --}}
+                </tr>
+                @endif
+                @empty
+                <tr>
+                    <p>Nessun ordine</p>
+                </tr>
+
+                @endforelse
+            </tbody>
+        </table>
+
 
     </div>
     @endsection
