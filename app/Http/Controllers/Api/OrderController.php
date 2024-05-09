@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Orders\OrderRequest;
 use Braintree\Gateway;
 use Illuminate\Http\Request;
 
@@ -20,13 +21,16 @@ class OrderController extends Controller
         return response()->json($data, 200);
     }
 
-    public function makePayment(Request $request, Gateway $gateway)
+    public function makePayment(OrderRequest $request, Gateway $gateway)
     {
         $result = $gateway->transaction()->sale([
             'amount' => '10.00',
             'paymentMethodNonce' => $request->token,
-
+            'options' => [
+                'submitForSettlement' => true
+            ]
         ]);
+
         if ($result->success) {
             $data = [
                 'success' => true,
