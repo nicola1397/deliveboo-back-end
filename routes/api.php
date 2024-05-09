@@ -24,6 +24,10 @@ Route::apiResource('restaurants', RestaurantControllerApi::class);
 Route::get('order/generate', [OrderController::class, 'generate']);
 Route::post('order/make/payment', [OrderController::class, 'makePayment']);
 
+/*order
+* todo: rotta ordine
+*/
+
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
