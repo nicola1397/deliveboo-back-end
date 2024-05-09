@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Api\OrderController;
 use App\Http\Controllers\Api\RestaurantControllerApi;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -19,6 +20,9 @@ use Illuminate\Support\Facades\Route;
 Route::get('/restaurants/search={types}', [RestaurantControllerApi::class, 'filter']);
 Route::apiResource('restaurants', RestaurantControllerApi::class);
 
+//braintree
+Route::get('order/generate', [OrderController::class, 'generate']);
+Route::post('order/make/payment', [OrderController::class, 'makePayment']);
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
