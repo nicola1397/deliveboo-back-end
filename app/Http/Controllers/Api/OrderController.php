@@ -10,6 +10,7 @@ class OrderController extends Controller
 {
     public function generate(Request $request, Gateway $gateway)
     {
+        //generazione del token da braintree
         $token = $gateway->clientToken()->generate();
         $data = [
             'success' => true,
@@ -21,6 +22,23 @@ class OrderController extends Controller
 
     public function makePayment(Request $request, Gateway $gateway)
     {
-        return 'makePayment';
+        $result = $gateway->transaction()->sale([
+            'amount' => '10.00',
+            'paymentMethodNonce' => $request->token,
+
+        ]);
+        if ($result->success) {
+            $data = [
+                'success' => true,
+                'message' => 'Transazione eseguita con successo!'
+            ];
+            return response()->json($data, 200);
+        } else {
+            $data = [
+                'success' => false,
+                'message' => 'Transazione fallita!'
+            ];
+            return response()->json($data, 401);
+        }
     }
 }
