@@ -30,7 +30,10 @@ class RestaurantSeeder extends Seeder
                     'Dolci',
                     'Celiaci',
                     'Tagliere',
-                    'Pollo'
+                    'Pollo',
+                    'Pizza',
+                    'Vegano',
+                    'Gelato'
                 ],
             ],
             [
@@ -44,7 +47,8 @@ class RestaurantSeeder extends Seeder
                     'Asiatica',
                     'Pesce',
                     'Celiaci',
-                    'Crudi di pesce',
+                    'Gelato',
+                    'Dolci'
 
 
                 ],
@@ -60,9 +64,10 @@ class RestaurantSeeder extends Seeder
                 'types' => [
                     'Messicana',
                     'BBQ',
-                    'Argentino',
                     'Celiaci',
-                    'Vegetariano'
+                    'Vegano',
+                    'Tagliere',
+                    'Dolci'
                 ],
             ],
             [
@@ -75,9 +80,10 @@ class RestaurantSeeder extends Seeder
                 'types' => [
                     'Tedesca',
                     'Dolci',
-                    'Vegetariano',
+                    'Vegano',
                     'Celiaci',
-                    'Selvaggina'
+                    'BBQ',
+                    'Dolci'
 
                 ],
             ],
@@ -94,7 +100,8 @@ class RestaurantSeeder extends Seeder
                     'Tagliere',
                     'Celiaci',
                     'Pasta',
-                    'Vegetariano',
+                    'Vegano',
+                    'Dolci'
                 ],
             ],
             [
@@ -107,10 +114,11 @@ class RestaurantSeeder extends Seeder
                 'types' => [
                     "Pesce",
                     'Italiana',
+                    'Pizza',
+                    'Pasta',
                     'Dolci',
-                    'Crudi di pesce',
                     'Celiaci',
-                    'Vegetariano',
+                    'Vegano',
                 ],
             ],
 
