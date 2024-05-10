@@ -56,7 +56,7 @@
 
         {{-- * Add restaurant button --}}
         {{-- <div class="col-lg-3 col-md-6 col-sm-12 restaurantPlus" id="addButton">
-                <a href="{{ route('admin.restaurants.create') }}" class="ballButton"><i class="fa-solid fa-plus fa-xl me-2"></i></a>
+            <a href="{{ route('admin.restaurants.create') }}" class="ballButton"><i class="fa-solid fa-plus fa-xl me-2"></i></a>
     </div> --}}
     @endsection
 
