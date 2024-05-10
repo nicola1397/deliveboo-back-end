@@ -23,13 +23,37 @@ class OrderController extends Controller
     {
 
         // controllo se l'utente loggato corrisponde a chi fa la richiesta
-        $restaurant = Restaurant::find(1)->where('user_id', Auth::id())->get()->toArray();
-        $restaurantUserId = $restaurant[0]['user_id'];
-        // dd($restaurantUserId);
+        $restaurant = Restaurant::find(1)->where('user_id', Auth::id())->first()->toArray();
+        $restaurantUserId = $restaurant['user_id'];
         if (Auth::user()->id != $restaurantUserId)
             abort(403);
 
-
+            $orders = Order::whereHas('dishes.restaurant', function ($query) use ($restaurantUserId) {
+                $query->where('user_id', $restaurantUserId);
+            })->with('dishes')->get();
+       
+        return view('admin.orders.index', compact('orders'));
+    }
+    
+    
+        public function show(Order $order, Dish $dish)
+        {
+            $restaurant = Restaurant::find(1)->where('user_id', Auth::id())->firstOrFail();
+            $medau = $restaurant->id;
+                               
+           
+            if (Auth::user()->id != $medau) {
+                abort(403);
+            }
+            
+            
+            $order = Order::where('id', $order->id)->with(['dishes' => function($query) {
+                $query->withPivot('quantity');
+            }])->firstOrFail();
+          
+          return view('admin.orders.show', compact('order'));
+        }
+}
 
 
         // ###VARIE PROVE-------------------------------------------------------
@@ -53,17 +77,3 @@ class OrderController extends Controller
         //         array_push($orders, $order);
 
         // ###FINE PROVE----------------------------------------------------------
-
-
-        $orders = Order::with([
-            'dishes' => function ($q) {
-                $q->where('restaurant_id', Auth::user()->restaurant->id);
-            }
-        ])->get()->toArray();
-
-        // dd($orders);
-
-        return view('admin.orders.index', compact('orders'));
-    }
-
-}
