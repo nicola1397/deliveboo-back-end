@@ -17,7 +17,7 @@
         <h1 class="mb-4">Aggiungi Ristorante</h1>
 
         {{-- * CREATE/EDIT FORM --}}
-        <form action="{{ route('admin.restaurants.store') }}" method="POST" enctype="multipart/form-data">
+        <form action="{{ route('admin.restaurants.store') }}" method="POST" enctype="multipart/form-data" id="checkGroup">
             @csrf
 
             <div class="row mb-5">
@@ -65,15 +65,15 @@
                         <label for="types" class="mb-2"><strong>* </strong>Tipologie:</label>
                         <div class="d-flex flex-wrap @error('types') is-invalid @enderror">
                             @foreach ($types as $type)
-                            <div class="col-4 mb-1">
-                                <input class="form-check-input @error('types') is-invalid @enderror" name="types[]" id="type-{{ $type->id }}" type="checkbox" value="{{ $type->id }}">
-                                <label class="form-check-label" for=" type-{{ $type->id }}">{{ $type->label }}</label>
-                                @error('types')
-                                <div class="invalid-feedback">{{ $message }}</div>
-                                @enderror
+                            <div class="col-4 mb-1 form-group checkboxes">
+                                <input class="form-check-input required_group @error('types') is-invalid @enderror" name="types[]" id="type-{{ $type->id }}" type="checkbox" value="{{ $type->id }}">
+                                <label class="form-check-label checkbox" for=" type-{{ $type->id }}">{{ $type->label }}</label>
                             </div>
                             @endforeach
                         </div>
+                        @error('types')
+                        <div class="invalid-feedback">{{ $message }}</div>
+                        @enderror
                     </div>
 
                     {{-- Input restaurant immagine --}}
@@ -87,7 +87,7 @@
 
 
                     {{-- Form submit-button --}}
-                    <button type="submit" class="btn btn-success mt-3"><i class="fa-solid fa-floppy-disk me-2"></i>Salva
+                    <button type="submit" name="submit" class="btn btn-success mt-3 " id="check"><i class="fa-solid fa-floppy-disk me-2"></i>Salva
                     </button>
                     <p class="mt-3"><strong>* </strong>I campi contrassegnati sono obbligatori</p>
 
@@ -101,6 +101,30 @@
         </form>
     </div>
 </section>
+@endsection
+
+@section('js')
+<script>
+    function validateGrp() {
+        let things = document.querySelectorAll('.required_group')
+        let checked = 0;
+        for (let thing of things) {
+            thing.checked && checked++
+        }
+        if (checked) {
+            things[things.length - 1].setCustomValidity("");
+            document.getElementById('checkGroup').submit();
+        } else {
+            things[things.length - 1].setCustomValidity("You must check at least one checkbox");
+            things[things.length - 1].reportValidity();
+        }
+    }
+
+    document.querySelector('[name=submit]').addEventListener('click', () => {
+        validateGrp()
+    });
+
+</script>
 @endsection
 
 {{-- ! CSS --}}
