@@ -20,30 +20,30 @@ class RestaurantControllerApi extends Controller
     {
 
         $restaurants = Restaurant::select(['id', 'user_id', 'name', 'slug', 'phone', 'p_iva', 'address', 'image'])
-        ->with([
-            'dishes' => function ($query) {
-                $query->select(['id', 'restaurant_id', 'name', 'description', 'price', 'availability', 'image', 'slug']);
-            },
-            'types' => function ($query) {
-                $query->select(['label', 'image']);
-            },
-        ])->get()->map(function ($restaurants) {
-            $restaurants->image = asset('storage/' . $restaurants->image);
-            $restaurants->dishes->each(function ($dish) {
-                $dish->image = asset('storage/' . $dish->image);
+            ->with([
+                'dishes' => function ($query) {
+                    $query->select(['id', 'restaurant_id', 'name', 'description', 'price', 'availability', 'image', 'slug']);
+                },
+                'types' => function ($query) {
+                    $query->select(['label', 'image', 'color']);
+                },
+            ])->get()->map(function ($restaurants) {
+                $restaurants->image = asset('storage/' . $restaurants->image);
+                $restaurants->dishes->each(function ($dish) {
+                    $dish->image = asset('storage/' . $dish->image);
+                });
+                $restaurants->types->each(function ($type) {
+                    $type->image = asset('storage/' . $type->image);
+                });
+                return $restaurants;
             });
-            $restaurants->types->each(function ($type) {
-                $type->image = asset('storage/' . $type->image);
-            });
-            return $restaurants;
-        });
 
         $types = Type::select(['id', 'label', 'image'])->get();
         foreach ($types as $type) {
             $type->image = asset('/storage' . "/" . $type->image);
         }
 
-     
+
         return response()->json([
             'restaurants' => $restaurants,
             'types' => $types,
@@ -75,7 +75,7 @@ class RestaurantControllerApi extends Controller
                 return $restaurants;
             });
 
-        return response()->json([ 
+        return response()->json([
             'restaurants' => $restaurants,
             'success' => true
         ]);
@@ -91,34 +91,34 @@ class RestaurantControllerApi extends Controller
 
 
         $restaurants = Restaurant::select(['id', 'user_id', 'name', 'slug', 'phone', 'p_iva', 'address', 'image'])
-        ->whereHas('types', function ($query) use ($paramsCollection) {
-            $query->whereIn('label', $paramsCollection->toArray());
-        }, '>=', $paramsCollection->count())
-        ->with([
-            'dishes' => function ($query) {
-                $query->select(['id', 'restaurant_id', 'name', 'description', 'price', 'availability', 'image', 'slug']);
-            },
-            'types' => function ($query) {
-                $query->select(['label', 'image']);
-            },
-        ])             
-        ->get()->map(function ($restaurants) {
-            $restaurants->image = asset('storage/' . $restaurants->image);
-            $restaurants->dishes->each(function ($dish) {
-                $dish->image = asset('storage/' . $dish->image);
+            ->whereHas('types', function ($query) use ($paramsCollection) {
+                $query->whereIn('label', $paramsCollection->toArray());
+            }, '>=', $paramsCollection->count())
+            ->with([
+                'dishes' => function ($query) {
+                    $query->select(['id', 'restaurant_id', 'name', 'description', 'price', 'availability', 'image', 'slug']);
+                },
+                'types' => function ($query) {
+                    $query->select(['label', 'image', 'color']);
+                },
+            ])
+            ->get()->map(function ($restaurants) {
+                $restaurants->image = asset('storage/' . $restaurants->image);
+                $restaurants->dishes->each(function ($dish) {
+                    $dish->image = asset('storage/' . $dish->image);
+                });
+                $restaurants->types->each(function ($type) {
+                    $type->image = asset('storage/' . $type->image);
+                });
+                return $restaurants;
             });
-            $restaurants->types->each(function ($type) {
-                $type->image = asset('storage/' . $type->image);
-            });
-            return $restaurants;
-        });
 
         $types = Type::select(['id', 'label', 'image'])->get();
         foreach ($types as $type) {
             $type->image = asset('/storage' . "/" . $type->image);
         }
 
-     
+
         return response()->json([
             'restaurants' => $restaurants,
             'types' => $types,
