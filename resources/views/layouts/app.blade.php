@@ -10,6 +10,7 @@
     {{-- ! Page tilte --}}
     <title>{{ env('APP_NAME', 'Laravel project') }} - @yield('title', 'My page')</title>
     @vite('resources/js/app.js')
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     {{-- ! CSS --}}
     @yield('css')
 </head>

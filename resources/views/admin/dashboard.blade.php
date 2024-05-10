@@ -29,18 +29,17 @@
 
 
             {{ __('Bentornato') . ', ' . Auth::user()->name . '!' }}
+            {{ __('Bentornato') . ', ' . Auth::user()->name . '!' }}
         </h2>
 
         <div class="row">
             <div class="col-9">
-                <div class="col">
-                    <select id="yearSelect">
+                <div><select id="yearSelect">
                         <option value="2023">2023</option>
                         <option value="2024">2024</option>
                     </select>
-                    <canvas id="myChart" width="400" height="400">
+                    <canvas id="myChart" width="500" height="300"></canvas>
 
-                    </canvas>
 
 
                 </div>
@@ -91,7 +90,7 @@
             <div class="col-3 myCard">
                 {{-- qua andremo a mostrare l'index del ristorante --}}
                 {{-- <div class="card ">
-                    <div class="card-body"> --}}
+                <div class="card-body"> --}}
                 {{-- <h5 class="card-title">{{ Auth::user()->name }}</h5> --}}
                 <div class="coverImage"><a href="{{ route('admin.restaurants.index') }}" class="card-link">
                         @foreach ($restaurants as $restaurant)
@@ -113,6 +112,15 @@
 
             </div>
         </div>
+        @vite('resources/js/charts.js')
+    @endsection
+
+    {{-- ! CSS --}}
+    @section('script')
+        @vite('resources/js/charts.js')
+        <script>
+            window.orders = @json($orders);
+        </script>
     @endsection
 
     {{-- ! CSS --}}

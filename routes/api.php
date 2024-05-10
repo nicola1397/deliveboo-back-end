@@ -16,6 +16,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+// ROUTES FOR BESTEMMIE 
+
+
 
 Route::get('/restaurants/search={types}', [RestaurantControllerApi::class, 'filter']);
 Route::apiResource('restaurants', RestaurantControllerApi::class);
@@ -23,6 +26,7 @@ Route::apiResource('restaurants', RestaurantControllerApi::class);
 //braintree
 Route::get('order/generate', [OrderController::class, 'generate']);
 Route::post('order/make/payment', [OrderController::class, 'makePayment']);
+
 
 /*order
 * todo: rotta ordine
