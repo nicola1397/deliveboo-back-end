@@ -127,5 +127,21 @@ class RestaurantControllerApi extends Controller
         ]);
     }
 
+   public function charts(){
+    
+    $restaurants = Restaurant::find(1)->where('user_id', Auth::id())->first()->toArray();
+        $restaurantUserId = $restaurants['user_id'];
+        if (Auth::user()->id != $restaurantUserId)
+            abort(403);
+
+            $orders = Order::whereHas('dishes.restaurant', function ($query) use ($restaurantUserId) {
+                $query->where('user_id', $restaurantUserId);
+            })->with('dishes')->get();
+
+
+            return response()->json([$orders]);
+
+   }
+
 }
 

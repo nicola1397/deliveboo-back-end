@@ -1,5 +1,17 @@
 @extends('layouts.app')
 
+{{-- @section('script')
+    @parent
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.min.js"
+        integrity="sha512-L0Shl7nXXzIlBSUUPpxrokqq4ojqgZFQczTYlGjzONGTDAcLremjwaWv5A+EDLnxhQzY5xUZPWLOLqYRkY0Cbw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    </script>
+    <script></script>
+@endsection --}}
+
+
+
+
 @section('content')
     <div class="container">
         <div class="card-body mt-3">
@@ -16,21 +28,60 @@
             {{-- schermata dashboard  --}}
 
 
-            {{ __('Bentornato') . ' ' . Auth::user()->name . ' nella tua pagina personale' }}
+            {{ __('Bentornato') . ', ' . Auth::user()->name . '!' }}
+            {{ __('Bentornato') . ', ' . Auth::user()->name . '!' }}
         </h2>
 
-        <div class="row justify-content-center h-100    ">
+        <div class="row">
             <div class="col-9">
-                <div class="card h-50 rounded-top rounded-bottom-0">
-                    <div class="">{{ __('qua ci vanno le statistiche') }} </div>
+                <div><select id="yearSelect">
+                        <option value="2023">2023</option>
+                        <option value="2024">2024</option>
+                    </select>
+                    <canvas id="myChart" width="500" height="300"></canvas>
+
 
 
                 </div>
-                <div class="card h-50 mt-2 rounded-top-0 rounded-bottom">
-                    <div class=" ">
-                        {{ __('qua ci vanno gli ordini') }}</div>
 
-
+                {{-- TABLE --}}
+                <div>
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th scope="col">ID</th>
+                                <th scope="col">Nome_cliente</th>
+                                <th scope="col">Email</th>
+                                <th scope="col">Telefono</th>
+                                <th scope="col">Indirizzo</th>
+                                <th scope="col">Data_ordine</th>
+                                {{-- <th scope="col">Piatto</th> --}}
+                                <th scope="col">Prezzo</th>
+                                <th scope="col">Dettagli</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @forelse($orders as $order)
+                                @if (!empty($order))
+                                    <tr>
+                                        <td>{{ $order->id }}</td>
+                                        <td>{{ $order->customer_name }}</td>
+                                        <td>{{ $order->email }}</td>
+                                        <td>{{ $order->phone }}</td>
+                                        <td>{{ $order->address }}</td>
+                                        <td>{{ $order->date_time }}</td>
+                                        <td>€ {{ $order->price }}</td>
+                                        <td><a href="{{ route('admin.orders.show', $order) }}"><i
+                                                    class="fa-solid fa-table-list"></i></a></td>
+                                    </tr>
+                                @endif
+                            @empty
+                                <tr>
+                                    <p>Nessun ordine</p>
+                                </tr>
+                            @endforelse
+                        </tbody>
+                    </table>
                 </div>
 
 
@@ -39,7 +90,7 @@
             <div class="col-3 myCard">
                 {{-- qua andremo a mostrare l'index del ristorante --}}
                 {{-- <div class="card ">
-                    <div class="card-body"> --}}
+                <div class="card-body"> --}}
                 {{-- <h5 class="card-title">{{ Auth::user()->name }}</h5> --}}
                 <div class="coverImage"><a href="{{ route('admin.restaurants.index') }}" class="card-link">
                         @foreach ($restaurants as $restaurant)
@@ -61,6 +112,15 @@
 
             </div>
         </div>
+        @vite('resources/js/charts.js')
+    @endsection
+
+    {{-- ! CSS --}}
+    @section('script')
+        @vite('resources/js/charts.js')
+        <script>
+            window.orders = @json($orders);
+        </script>
     @endsection
 
     {{-- ! CSS --}}

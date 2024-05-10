@@ -6,15 +6,21 @@
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="ie=edge" http-equiv="X-UA-Compatible">
     <meta content="{{ csrf_token() }}" name="csrf-token">
+
     {{-- ! Page tilte --}}
     <title>{{ env('APP_NAME', 'Laravel project') }} - @yield('title', 'My page')</title>
     @vite('resources/js/app.js')
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     {{-- ! CSS --}}
     @yield('css')
 </head>
 
 
 <body>
+    {{-- ! Script --}}
+    @yield('js')
+    @yield('script')
+
     <div class="wrapper">
         {{-- ! Header --}}
         @include('layouts.partials.header')
@@ -59,8 +65,6 @@
 
     @endauth
 
-    {{-- ! Script --}}
-    @yield('js')
 </body>
 
 </html>

@@ -42,7 +42,9 @@ Route::middleware('auth')
 
     // ROUTE FOR ORDERS
     Route::resource('/orders', OrderController::class);
+
   });
+
 
 require __DIR__ . '/auth.php';
 

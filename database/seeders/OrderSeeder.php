@@ -21,14 +21,14 @@ class OrderSeeder extends Seeder
     {
         
         // creo un  nuovo ordine
-        for($i = 0; $i < 10; $i++) {
+        for($i = 0; $i < 100; $i++) {
 
             $order = new Order;
             $order->customer_name = $faker->firstName();
             $order->email = $faker->email();;
             $order->phone = $faker->phoneNumber();
             $order->address = $faker->address();
-            $order->date_time = Date::now();
+            $order->date_time = $faker->dateTimeBetween('2024-01-01', '2024-12-31')->format('Y-m-d');
             $order->price = $faker->randomFloat(2, 0, 999);
             
             $order->save();
