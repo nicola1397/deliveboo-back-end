@@ -34,7 +34,14 @@
         <div class="row">
             <div class="col-9">
                 <div class="col">
-                    <canvas id="myChart"></canvas>
+                    <select id="yearSelect">
+                        <option value="2023">2023</option>
+                        <option value="2024">2024</option>
+                    </select>
+                    <canvas id="myChart" width="400" height="400">
+
+                    </canvas>
+
 
                 </div>
 
