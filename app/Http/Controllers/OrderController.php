@@ -28,52 +28,63 @@ class OrderController extends Controller
         if (Auth::user()->id != $restaurantUserId)
             abort(403);
 
-            $orders = Order::whereHas('dishes.restaurant', function ($query) use ($restaurantUserId) {
-                $query->where('user_id', $restaurantUserId);
-            })->with('dishes')->get();
-       
+        $orders = Order::whereHas('dishes.restaurant', function ($query) use ($restaurantUserId) {
+            $query->where('user_id', $restaurantUserId);
+        })->with('dishes')->get();
+
         return view('admin.orders.index', compact('orders'));
     }
-    
-    
-        public function show(Order $order, Dish $dish)
-        {
-            $restaurant = Restaurant::find(1)->where('user_id', Auth::id())->firstOrFail();
-            $medau = $restaurant->id;
-                               
-           
-            if (Auth::user()->id != $medau) {
-                abort(403);
-            }
-            
-            
-            $order = Order::where('id', $order->id)->with(['dishes' => function($query) {
-                $query->withPivot('quantity');
-            }])->firstOrFail();
-          
-          return view('admin.orders.show', compact('order'));
+
+
+    public function show(Order $order, Dish $dish)
+    {
+        // Controllo dei permessi per vedere gli ordini inerenti al ristorante
+        $restaurant = Restaurant::find(1)->where('user_id', Auth::id())->first()->toArray();
+        $restaurantUserId = $restaurant['user_id'];
+        $orders = Order::whereHas('dishes.restaurant', function ($query) use ($restaurantUserId) {
+            $query->where('user_id', $restaurantUserId);
+        })->with([
+                    'dishes' => function ($query) {
+                        $query->withPivot('order_id');
+                    }
+                ])->get()->toArray();
+
+        $orderId = $orders[0]['id'];
+
+        if ($order->id != $orderId) {
+            abort(403);
         }
+
+
+        $order = Order::where('id', $order->id)->with([
+            'dishes' => function ($query) {
+                $query->withPivot('quantity');
+            }
+        ])->firstOrFail();
+
+        return view('admin.orders.show', compact('order'));
+    }
 }
 
 
-        // ###VARIE PROVE-------------------------------------------------------
+// ###VARIE PROVE-------------------------------------------------------
 
-        // $dishes = Auth::user()->restaurant->dishes->toArray();
-        // $dishesId = [];
+// $dishes = Auth::user()->restaurant->dishes->toArray();
+// $dishesId = [];
 
-        // foreach ($dishes as $dish)
-        //     array_push($dishesId, $dish['id']);
+// foreach ($dishes as $dish)
+//     array_push($dishesId, $dish['id']);
 
 
-        // $dishes = Dish::where('restaurant_id', Auth::user()->restaurant->id)
-        //     ->with('orders')
-        //     ->get();
+// $dishes = Dish::where('restaurant_id', Auth::user()->restaurant->id)
+//     ->with('orders')
+//     ->get();
 
-        // $ordersId = Order::all()->pluck('id')->toArray();
-        // $ordersCount = $orders->count();
+// $ordersId = Order::all()->pluck('id')->toArray();
+// $ordersCount = $orders->count();
 
-        // foreach ($allOrders as $order)
-        //     if (!empty($order->dishes()))
-        //         array_push($orders, $order);
+// foreach ($allOrders as $order)
+//     if (!empty($order->dishes()))
+//         array_push($orders, $order);
 
-        // ###FINE PROVE----------------------------------------------------------
+// ###FINE PROVE----------------------------------------------------------
