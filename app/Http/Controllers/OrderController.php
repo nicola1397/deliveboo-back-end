@@ -26,7 +26,7 @@ class OrderController extends Controller
         $restaurant = Restaurant::find(1)->where('user_id', Auth::id())->first()->toArray();
         $restaurantUserId = $restaurant['user_id'];
         if (Auth::user()->id != $restaurantUserId)
-            abort(403);
+            abort(401);
 
         $orders = Order::whereHas('dishes.restaurant', function ($query) use ($restaurantUserId) {
             $query->where('user_id', $restaurantUserId);
@@ -52,7 +52,7 @@ class OrderController extends Controller
         $orderId = $orders[0]['id'];
 
         if ($order->id != $orderId) {
-            abort(403);
+            abort(401);
         }
 
 

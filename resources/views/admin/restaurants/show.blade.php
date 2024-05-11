@@ -56,7 +56,7 @@
                     {{-- TIPO RISTORANTE --}}
                     <div class="col-12">
                         <h5 class="mb-4">Tipologia Ristorante</h5>
-                        @foreach ($restaurant->types as $type)
+                        @foreach ($restaurant->types->sortBy('label') as $type)
                         {{-- <p class="detailCap">{{ $type->label }}</p> --}}
                         <div class="badge">
                             <div class="typeBadge">
