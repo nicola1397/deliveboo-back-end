@@ -10,12 +10,7 @@ document.getElementById("yearSelect").addEventListener("change", function () {
 
 // funzione di scelta per anno
 function updateChart(year) {
-    const dataForYear = [];
-    if (year === "2023") {
-        dataForYear = [12, 19, 3, 5, 2, 3, 7, 8, 12, 15, 20, 24];
-    } else if (year === "2024") {
-        dataForYear = getYears();
-    }
+    dataForYear = getYears();
 
     // Aggiorna il grafico con i nuovi dati
     myChart.data.datasets[0].data = dataForYear;

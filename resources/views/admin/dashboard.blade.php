@@ -29,7 +29,6 @@
 
 
             {{ __('Bentornato') . ', ' . Auth::user()->name . '!' }}
-            {{ __('Bentornato') . ', ' . Auth::user()->name . '!' }}
         </h2>
 
         <div class="row">
