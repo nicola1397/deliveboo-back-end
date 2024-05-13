@@ -13,7 +13,6 @@ return new class extends Migration {
     public function up()
     {
         Schema::create('dish_order', function (Blueprint $table) {
-            $table->id();
             //creo una colonna dish_id che prende come riferimento l'id della tabella dishes
             $table->foreignId("dish_id")->constrained()->onDelete("cascade");
 
@@ -23,7 +22,6 @@ return new class extends Migration {
             // creo la colonna quantità
             $table->smallInteger('quantity')->default('1');
 
-            $table->timestamps();
         });
     }
 
