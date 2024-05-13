@@ -9,6 +9,8 @@ use App\Models\Order;
 use Braintree\Gateway;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\DB;
+
 
 
 class OrderController extends Controller
@@ -35,7 +37,7 @@ class OrderController extends Controller
         $date_time = $request->input('date_time');
         $price = $request->input('price');
         $amount = $request->input('amount');
-        $orderData = $request->input('orderData');
+        $orderData = json_decode($request->input('orderData'), true);
         $token = $request->input('token');
 $newOrder = $request->validate([
     'customer_name' => 'required|max:200',
@@ -46,7 +48,18 @@ $newOrder = $request->validate([
     'price' => 'required',
 ]);
 
-Order::create($newOrder);
+
+
+// Order::create($newOrder);
+DB::transaction(function () use ($orderData, $newOrder) {
+
+    $order = Order::create($newOrder);
+    // dd($orderData);
+       foreach ($orderData as $dish) {
+        // You can use the attach method if you have defined a many-to-many relationship in your Order model.
+        $order->dishes()->attach($dish['id'], ['quantity' => $dish['quantity']]);
+    }
+});
 
 
 
