@@ -30,7 +30,7 @@ class OrderController extends Controller
 
         $orders = Order::whereHas('dishes.restaurant', function ($query) use ($restaurantUserId) {
             $query->where('user_id', $restaurantUserId);
-        })->with('dishes')->orderBy('id', 'desc')->paginate(10);
+        })->with('dishes')->orderBy('date_time', 'desc')->paginate(10);
 
         return view('admin.orders.index', compact('orders'));
     }

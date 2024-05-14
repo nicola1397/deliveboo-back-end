@@ -33,11 +33,11 @@
 
         <div class="row">
             <div class="col-9">
-                <div><select id="yearSelect">
-                        <option value="2023">2023</option>
-                        <option value="2024">2024</option>
-                    </select>
-                    <canvas id="myChart" width="500" height="300"></canvas>
+                <div class="chartContainer">
+                    <button class="btn orders" id="toggleData">Ordini</button>
+
+
+                    <canvas id="ordersChart" width="500" height="300"></canvas>
 
 
 
@@ -58,71 +58,77 @@
                             </tr>
                         </thead>
                         <tbody>
+                            @php $counter = 0; @endphp
                             @forelse($orders as $order)
-                                @if (!empty($order))
-                                    <tr>
-                                        <td>{{ $order->customer_name }}</td>
-                                        <td>{{ $order->email }}</td>
-                                        <td>{{ $order->phone }}</td>
-                                        <td>{{ $order->address }}</td>
-                                        <td>{{ $order->date_time }}</td>
-                                        <td>€ {{ $order->price }}</td>
-                                        <td><a href="{{ route('admin.orders.show', $order) }}"><i
-                                                    class="fa-solid fa-table-list"></i></a></td>
-                                    </tr>
-                                @endif
-                            @empty
+                                @if ($counter >= 5)
+                                @break
+                            @endif
+                            @if (!empty($order))
                                 <tr>
-                                    <p>Nessun ordine</p>
+                                    <td>{{ $order->customer_name }}</td>
+                                    <td>{{ $order->email }}</td>
+                                    <td>{{ $order->phone }}</td>
+                                    <td>{{ $order->address }}</td>
+                                    <td>{{ $order->date_time }}</td>
+                                    <td>€ {{ $order->price }}</td>
+                                    <td><a href="{{ route('admin.orders.show', $order) }}"><i
+                                                class="fa-solid fa-table-list"></i></a></td>
                                 </tr>
-                            @endforelse
-                        </tbody>
-                    </table>
-                </div>
-
-
-            </div>
-            {{--  --}}
-            <div class="col-3 myCard">
-                {{-- qua andremo a mostrare l'index del ristorante --}}
-                {{-- <div class="card ">
-                <div class="card-body"> --}}
-                {{-- <h5 class="card-title">{{ Auth::user()->name }}</h5> --}}
-                <div class="coverImage"><a href="{{ route('admin.restaurants.index') }}" class="card-link">
-                        @foreach ($restaurant as $restaurant)
-                            <img class="card-img-bottom"
-                                src="{{ !empty($restaurant->image)
-                                    ? asset('storage/' . $restaurant->image)
-                                    : asset('storage/uploads/placeholder.png') }}">
-                        @endforeach
-                    </a>
-                </div>
-                {{-- </div>
-                </div> --}}
-                <div class="card mt-4">
-                    <button class="btn btn-warning"><a href="{{ route('admin.dishes.index') }}"> Ecco i tuoi piatti
-                            🍝</a>
-                        </a>
-                    </button>
-                </div>
+                            @endif
+                            @php $counter++; @endphp
+                        @empty
+                            <tr>
+                                <p>Nessun ordine</p>
+                            </tr>
+                        @endforelse
+                    </tbody>
+                </table>
 
             </div>
+
+
         </div>
-        @vite('resources/js/charts.js')
-    @endsection
+        {{--  --}}
+        <div class="col-3 myCard">
+            {{-- qua andremo a mostrare l'index del ristorante --}}
+            {{-- <div class="card ">
+                <div class="card-body"> --}}
+            {{-- <h5 class="card-title">{{ Auth::user()->name }}</h5> --}}
+            <div class="coverImage"><a href="{{ route('admin.restaurants.index') }}" class="card-link">
+                    @foreach ($restaurant as $restaurant)
+                        <img class="card-img-bottom"
+                            src="{{ !empty($restaurant->image)
+                                ? asset('storage/' . $restaurant->image)
+                                : asset('storage/uploads/placeholder.png') }}">
+                    @endforeach
+                </a>
+            </div>
+            {{-- </div>
+                </div> --}}
+            <div class="card mt-4">
+                <button class="btn btn-warning"><a href="{{ route('admin.dishes.index') }}"> Ecco i tuoi piatti
+                        🍝</a>
+                    </a>
+                </button>
+            </div>
 
-    {{-- ! CSS --}}
-    @section('script')
-        @vite('resources/js/charts.js')
-        <script>
-            window.orders = @json($orders);
-        </script>
-    @endsection
+        </div>
+    </div>
+    @vite('resources/js/charts.js')
+@endsection
 
-    {{-- ! CSS --}}
-    @section('css')
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
-            integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
-            crossorigin="anonymous" referrerpolicy="no-referrer" />
-        @vite('resources/scss/indexs.scss')
-    @endsection
+{{-- ! CSS --}}
+@section('script')
+    @vite('resources/js/charts.js')
+    <script>
+        window.orders = @json($orders);
+    </script>
+@endsection
+
+{{-- ! CSS --}}
+@section('css')
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+        integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    @vite('resources/scss/indexs.scss')
+@endsection
