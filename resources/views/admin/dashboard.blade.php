@@ -53,7 +53,7 @@
                                 <th scope="col">Telefono</th>
                                 <th scope="col">Indirizzo</th>
                                 <th scope="col">Data ordine</th>
-                                <th scope="col">Prezzo</th>
+                                <th scope="col">Prezzo(€)</th>
                                 <th scope="col">Dettagli</th>
                             </tr>
                         </thead>
@@ -66,7 +66,7 @@
                                         <td>{{ $order->phone }}</td>
                                         <td>{{ $order->address }}</td>
                                         <td>{{ $order->date_time }}</td>
-                                        <td>€ {{ $order->price }}</td>
+                                        <td>{{ $order->price }}</td>
                                         <td><a href="{{ route('admin.orders.show', $order) }}"><i
                                                     class="fa-solid fa-table-list"></i></a></td>
                                     </tr>
