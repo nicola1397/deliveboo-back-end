@@ -28,8 +28,8 @@ class OrderController extends Controller
     }
 
     public function makePayment(PaymentRequest $request, Gateway $gateway)
-    {    
-        
+    {
+
         $customer_name = $request->input('customer_name');
         $email = $request->input('email');
         $phone = $request->input('phone');
@@ -39,38 +39,31 @@ class OrderController extends Controller
         $amount = $request->input('amount');
         $orderData = json_decode($request->input('orderData'), true);
         $token = $request->input('token');
-$newOrder = $request->validate([
-    'customer_name' => 'required|max:200',
-    'email' => 'required|email|max:200',
-    'phone' => 'required|max:20',
-    'address' => 'required|max:250',
-    'date_time' => 'required',
-    'price' => 'required',
-]);
+        $newOrder = $request->validate([
+            'customer_name' => 'required|max:200',
+            'email' => 'required|email|max:200',
+            'phone' => 'required|max:20',
+            'address' => 'required|max:250',
+            'date_time' => 'required',
+            'price' => 'required',
+        ]);
 
 
 
-// Order::create($newOrder);
-DB::transaction(function () use ($orderData, $newOrder) {
+        // Order::create($newOrder);
+        DB::transaction(function () use ($orderData, $newOrder) {
 
-    $order = Order::create($newOrder);
-    // dd($orderData);
-       foreach ($orderData as $dish) {
-        // You can use the attach method if you have defined a many-to-many relationship in your Order model.
-        $order->dishes()->attach($dish['id'], ['quantity' => $dish['quantity']]);
-    }
-});
-
-
-
-        $fileName = 'form-data.txt';
-        $filePath = 'public/' . $fileName;
-        Storage::put($filePath, $request);
-        return redirect()->back()->with('success', 'Data has been saved to a text file.');
+            $order = Order::create($newOrder);
+            // dd($orderData);
+            foreach ($orderData as $dish) {
+                // You can use the attach method if you have defined a many-to-many relationship in your Order model.
+                $order->dishes()->attach($dish['id'], ['quantity' => $dish['quantity']]);
+            }
+        });
 
         $result = $gateway->transaction()->sale([
-            'amount' => $request->amount, //todo: bisogna passare l'id del prodotto e del suo valore
-            'paymentMethodNonce' => $request->token,
+            'amount' => $amount,
+            'paymentMethodNonce' => "fake-valid-nonce",
             'options' => [
                 'submitForSettlement' => true
             ]
@@ -89,6 +82,7 @@ DB::transaction(function () use ($orderData, $newOrder) {
             ];
             return response()->json($data, 401);
         }
+
     }
 
     public function newOrder(Request $request)
