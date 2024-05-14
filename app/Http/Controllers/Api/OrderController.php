@@ -88,5 +88,6 @@ class OrderController extends Controller
     public function newOrder(Request $request)
     {
         // todo logica nuovo ordine
+        // todo Mail::to($request->user())->send(new NewsOrders());
     }
 }
