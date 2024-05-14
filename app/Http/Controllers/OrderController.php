@@ -64,27 +64,7 @@ class OrderController extends Controller
 
         return view('admin.orders.show', compact('order'));
     }
+
+
 }
 
-
-// ###VARIE PROVE-------------------------------------------------------
-
-// $dishes = Auth::user()->restaurant->dishes->toArray();
-// $dishesId = [];
-
-// foreach ($dishes as $dish)
-//     array_push($dishesId, $dish['id']);
-
-
-// $dishes = Dish::where('restaurant_id', Auth::user()->restaurant->id)
-//     ->with('orders')
-//     ->get();
-
-// $ordersId = Order::all()->pluck('id')->toArray();
-// $ordersCount = $orders->count();
-
-// foreach ($allOrders as $order)
-//     if (!empty($order->dishes()))
-//         array_push($orders, $order);
-
-// ###FINE PROVE----------------------------------------------------------

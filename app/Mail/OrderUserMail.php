@@ -9,22 +9,21 @@ use Illuminate\Mail\Mailables\Content;
 use Illuminate\Mail\Mailables\Envelope;
 use Illuminate\Queue\SerializesModels;
 
-class NewsOrders extends Mailable
+class OrderUserMail extends Mailable
 {
     use Queueable, SerializesModels;
 
-    public $newOrder;
-    public $orderData;
+    public $order;
+
 
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct($_newOrder, $_orderData)
+    public function __construct($_order)
     {
-        $this->newOrder = $_newOrder;
-        $this->orderData = $_orderData;
+        $this->order = $_order;
     }
 
     /**
@@ -35,7 +34,7 @@ class NewsOrders extends Mailable
     public function envelope()
     {
         return new Envelope(
-            subject: 'News Orders',
+            subject: 'Nuovo Ordine',
         );
     }
 
@@ -47,7 +46,9 @@ class NewsOrders extends Mailable
     public function content()
     {
         return new Content(
-            markdown: 'mail.order',
+            markdown: 'emails.ordersMail.user',
+
+
         );
     }
 
