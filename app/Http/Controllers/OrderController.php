@@ -30,41 +30,38 @@ class OrderController extends Controller
 
         $orders = Order::whereHas('dishes.restaurant', function ($query) use ($restaurantUserId) {
             $query->where('user_id', $restaurantUserId);
-        })->with('dishes')->orderBy('date_time', 'DESC')->get();
+
+        })->with('dishes')->orderBy('date_time', 'desc')->paginate(10);
+
 
         return view('admin.orders.index', compact('orders'));
     }
 
 
-    public function show(Order $order, Dish $dish)
-    {
-        // Controllo dei permessi per vedere gli ordini inerenti al ristorante
-        $restaurant = Restaurant::find(1)->where('user_id', Auth::id())->first()->toArray();
-        $restaurantUserId = $restaurant['user_id'];
-        $orders = Order::whereHas('dishes.restaurant', function ($query) use ($restaurantUserId) {
-            $query->where('user_id', $restaurantUserId);
-        })->with([
-            'dishes' => function ($query) {
-                $query->withPivot('order_id');
-            }
-        ])->get()->toArray();
-
-        // $orderId = $orders[0]['id'];
-
-        // if ($order->id != $orderId) {
-        //     abort(401);
-        // }
-
-
-        $order = Order::where('id', $order->id)->with([
-            'dishes' => function ($query) {
-                $query->withPivot('quantity');
-            }
-        ])->firstOrFail();
-
-        return view('admin.orders.show', compact('order'));
+    public function show(Order $order)
+{
+    // First, check if the logged-in user owns the restaurant associated with the order
+    $restaurantUserId = $order->dishes->first()->restaurant->user_id;
+    
+    if (Auth::id() != $restaurantUserId) {
+        abort(403, 'You do not have permission to view this order.');
     }
+
+    // Load the dishes with pivot data
+    $order->load([
+        'dishes' => function ($query) {
+            $query->withPivot('quantity');
+        }
+    ]);
+
+
+    // Return the view with the order
+    return view('admin.orders.show', compact('order'));
+}
 
 
 }
+
+
+
 
