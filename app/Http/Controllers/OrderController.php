@@ -44,16 +44,16 @@ class OrderController extends Controller
         $orders = Order::whereHas('dishes.restaurant', function ($query) use ($restaurantUserId) {
             $query->where('user_id', $restaurantUserId);
         })->with([
-                    'dishes' => function ($query) {
-                        $query->withPivot('order_id');
-                    }
-                ])->get()->toArray();
+            'dishes' => function ($query) {
+                $query->withPivot('order_id');
+            }
+        ])->get()->toArray();
 
-        $orderId = $orders[0]['id'];
+        // $orderId = $orders[0]['id'];
 
-        if ($order->id != $orderId) {
-            abort(401);
-        }
+        // if ($order->id != $orderId) {
+        //     abort(401);
+        // }
 
 
         $order = Order::where('id', $order->id)->with([
