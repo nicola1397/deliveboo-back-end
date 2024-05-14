@@ -4,14 +4,16 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Orders\OrderRequest as PaymentRequest;
+use App\Mail\NewsOrders;
 use App\Models\Dish;
 use App\Models\Order;
+use App\Models\Restaurant;
 use Braintree\Gateway;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\DB;
-
-
+use Illuminate\Support\Facades\Mail;
 
 class OrderController extends Controller
 {
@@ -39,6 +41,7 @@ class OrderController extends Controller
         $amount = $request->input('amount');
         $orderData = json_decode($request->input('orderData'), true);
         $token = $request->input('token');
+
         $newOrder = $request->validate([
             'customer_name' => 'required|max:200',
             'email' => 'required|email|max:200',
@@ -74,15 +77,20 @@ class OrderController extends Controller
                 'success' => true,
                 'message' => 'Transazione eseguita con successo!'
             ];
+
+            $email_restaurant = Restaurant::select('email')->where('id', $email)->get();
+            Mail::to($email)->send(new NewsOrders($newOrder, $orderData));
+            // Mail::to($email_restaurant)->send(new NewsOrders());
+
             return response()->json($data, 200);
         } else {
             $data = [
                 'success' => false,
                 'message' => 'Transazione fallita!'
             ];
+
             return response()->json($data, 401);
         }
-
     }
 
     public function newOrder(Request $request)

@@ -13,14 +13,18 @@ class NewsOrders extends Mailable
 {
     use Queueable, SerializesModels;
 
+    public $newOrder;
+    public $orderData;
+
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct()
+    public function __construct($_newOrder, $_orderData)
     {
-        //
+        $this->newOrder = $_newOrder;
+        $this->orderData = $_orderData;
     }
 
     /**
