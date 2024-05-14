@@ -17,7 +17,6 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Mail;
 use App\Mail\OrderMailable;
 
 
@@ -53,14 +52,14 @@ class OrderController extends Controller
         $token = $request->input('token');
 
 
-$newOrder = $request->validate([
-    'customer_name' => 'required|max:200',
-    'email' => 'required|email|max:200',
-    'phone' => 'required|max:20',
-    'address' => 'required|max:250',
-    'date_time' => 'required',
-    'price' => 'required',
-]);
+        $newOrder = $request->validate([
+            'customer_name' => 'required|max:200',
+            'email' => 'required|email|max:200',
+            'phone' => 'required|max:20',
+            'address' => 'required|max:250',
+            'date_time' => 'required',
+            'price' => 'required',
+        ]);
 
 
         $result = $gateway->transaction()->sale([
