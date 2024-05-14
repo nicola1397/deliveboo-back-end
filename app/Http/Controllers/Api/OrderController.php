@@ -30,6 +30,9 @@ class OrderController extends Controller
     public function makePayment(PaymentRequest $request, Gateway $gateway)
     {
 
+        $request->validated();
+        $data = $request->all();
+
         $customer_name = $request->input('customer_name');
         $email = $request->input('email');
         $phone = $request->input('phone');
@@ -39,14 +42,7 @@ class OrderController extends Controller
         $amount = $request->input('amount');
         $orderData = json_decode($request->input('orderData'), true);
         $token = $request->input('token');
-        $newOrder = $request->validate([
-            'customer_name' => 'required|max:200',
-            'email' => 'required|email|max:200',
-            'phone' => 'required|max:20',
-            'address' => 'required|max:250',
-            'date_time' => 'required',
-            'price' => 'required',
-        ]);
+        $newOrder = $data;
 
 
 
