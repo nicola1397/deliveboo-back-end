@@ -27,7 +27,7 @@ class DashboardController extends Controller
 
             $orders = Order::whereHas('dishes.restaurant', function ($query) use ($restaurantUserId) {
                 $query->where('user_id', $restaurantUserId);
-            })->with('dishes')->get();
+            })->with('dishes')->orderBy('date_time', 'DESC')->get();
 
 
     return view('admin.dashboard', compact('restaurants', 'orders'));
