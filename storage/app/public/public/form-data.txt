@@ -1,0 +1,18 @@
+POST /api/order/make/payment HTTP/1.1
+Accept:                    text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8
+Accept-Encoding:           gzip, deflate, br
+Accept-Language:           it-IT,it;q=0.8,en-US;q=0.5,en;q=0.3
+Connection:                keep-alive
+Content-Length:            2886
+Content-Type:              application/x-www-form-urlencoded
+Host:                      127.0.0.1:8000
+Origin:                    http://localhost:5174
+Referer:                   http://localhost:5174/
+Sec-Fetch-Dest:            document
+Sec-Fetch-Mode:            navigate
+Sec-Fetch-Site:            cross-site
+Sec-Fetch-User:            ?1
+Upgrade-Insecure-Requests: 1
+User-Agent:                Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:125.0) Gecko/20100101 Firefox/125.0
+
+customer_name=dfgdfsfgfgsfgsfg&email=fdgsdfgs%40fd.io&phone=4334344343&address=fdgsfdfdsffgfgfg&date_time=2024-05-14+10%3A14%3A33&price=2250.00&orderData=%5B%7B%22id%22%3A21%2C%22restaurant_id%22%3A5%2C%22name%22%3A%22Tagliere+di+formaggi%22%2C%22description%22%3A%22Selezione+di+pecorini+sardi+e+casumarzu+con+carasau+di+accompagnamento%22%2C%22price%22%3A%2215.00%22%2C%22availability%22%3A1%2C%22image%22%3A%22http%3A%2F%2F127.0.0.1%3A8000%2Fstorage%2Fuploads%2Fdishes%2Ftagliere+sardo.jpeg%22%2C%22slug%22%3A%22tagliere-di-formaggi-21%22%2C%22quantity%22%3A%22150%22%7D%5D&amount=2250.00&token=eyJ2ZXJzaW9uIjoyLCJhdXRob3JpemF0aW9uRmluZ2VycHJpbnQiOiJleUowZVhBaU9pSktWMVFpTENKaGJHY2lPaUpGVXpJMU5pSXNJbXRwWkNJNklqSXdNVGd3TkRJMk1UWXRjMkZ1WkdKdmVDSXNJbWx6Y3lJNkltaDBkSEJ6T2k4dllYQnBMbk5oYm1SaWIzZ3VZbkpoYVc1MGNtVmxaMkYwWlhkaGVTNWpiMjBpZlEuZXlKbGVIQWlPakUzTVRVM05qQTROek1zSW1wMGFTSTZJbVl4TnpBME9UTTFMV1V3Tm1RdE5HWTRZaTFpTmpobExUQTBaRFV4TkdObE1EQTFPU0lzSW5OMVlpSTZJalZ4WTNKdE9YSm5Zamh0YW0wM016Y2lMQ0pwYzNNaU9pSm9kSFJ3Y3pvdkwyRndhUzV6WVc1a1ltOTRMbUp5WVdsdWRISmxaV2RoZEdWM1lYa3VZMjl0SWl3aWJXVnlZMmhoYm5RaU9uc2ljSFZpYkdsalgybGtJam9pTlhGamNtMDVjbWRpT0cxcWJUY3pOeUlzSW5abGNtbG1lVjlqWVhKa1gySjVYMlJsWm1GMWJIUWlPbVpoYkhObGZTd2ljbWxuYUhSeklqcGJJbTFoYm1GblpWOTJZWFZzZENKZExDSnpZMjl3WlNJNld5SkNjbUZwYm5SeVpXVTZWbUYxYkhRaVhTd2liM0IwYVc5dWN5STZlMzE5LjVycEF3NzZqazlVTVNjR3RWbGhKRHVCbkFiQ1hRZmdZQWZoY2J2bUZNVVVzTjhqQzJRTXFGbnNUbEFQVUlPaVN1SGFTcVNiTlBPNW1aMm9GVVhQeG5nIiwiY29uZmlnVXJsIjoiaHR0cHM6Ly9hcGkuc2FuZGJveC5icmFpbnRyZWVnYXRld2F5LmNvbTo0NDMvbWVyY2hhbnRzLzVxY3JtOXJnYjhtam03MzcvY2xpZW50X2FwaS92MS9jb25maWd1cmF0aW9uIiwiZ3JhcGhRTCI6eyJ1cmwiOiJodHRwczovL3BheW1lbnRzLnNhbmRib3guYnJhaW50cmVlLWFwaS5jb20vZ3JhcGhxbCIsImRhdGUiOiIyMDE4LTA1LTA4IiwiZmVhdHVyZXMiOlsidG9rZW5pemVfY3JlZGl0X2NhcmRzIl19LCJjbGllbnRBcGlVcmwiOiJodHRwczovL2FwaS5zYW5kYm94LmJyYWludHJlZWdhdGV3YXkuY29tOjQ0My9tZXJjaGFudHMvNXFjcm05cmdiOG1qbTczNy9jbGllbnRfYXBpIiwiZW52aXJvbm1lbnQiOiJzYW5kYm94IiwibWVyY2hhbnRJZCI6IjVxY3JtOXJnYjhtam03MzciLCJhc3NldHNVcmwiOiJodHRwczovL2Fzc2V0cy5icmFpbnRyZWVnYXRld2F5LmNvbSIsImF1dGhVcmwiOiJodHRwczovL2F1dGgudmVubW8uc2FuZGJveC5icmFpbnRyZWVnYXRld2F5LmNvbSIsInZlbm1vIjoib2ZmIiwiY2hhbGxlbmdlcyI6W10sInRocmVlRFNlY3VyZUVuYWJsZWQiOnRydWUsImFuYWx5dGljcyI6eyJ1cmwiOiJodHRwczovL29yaWdpbi1hbmFseXRpY3Mtc2FuZC5zYW5kYm94LmJyYWludHJlZS1hcGkuY29tLzVxY3JtOXJnYjhtam03MzcifSwicGF5cGFsRW5hYmxlZCI6dHJ1ZSwicGF5cGFsIjp7ImJpbGxpbmdBZ3JlZW1lbnRzRW5hYmxlZCI6dHJ1ZSwiZW52aXJvbm1lbnROb05ldHdvcmsiOnRydWUsInVudmV0dGVkTWVyY2hhbnQiOmZhbHNlLCJhbGxvd0h0dHAiOnRydWUsImRpc3BsYXlOYW1lIjoiTmljb2xhIFBpbyBHYWxsbyIsImNsaWVudElkIjpudWxsLCJiYXNlVXJsIjoiaHR0cHM6Ly9hc3NldHMuYnJhaW50cmVlZ2F0ZXdheS5jb20iLCJhc3NldHNVcmwiOiJodHRwczovL2NoZWNrb3V0LnBheXBhbC5jb20iLCJkaXJlY3RCYXNlVXJsIjpudWxsLCJlbnZpcm9ubWVudCI6Im9mZmxpbmUiLCJicmFpbnRyZWVDbGllbnRJZCI6Im1hc3RlcmNsaWVudDMiLCJtZXJjaGFudEFjY291bnRJZCI6Im5pY29sYXBpb2dhbGxvIiwiY3VycmVuY3lJc29Db2RlIjoiRVVSIn19
