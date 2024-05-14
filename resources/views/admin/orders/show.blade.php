@@ -18,18 +18,16 @@
             <table class="table">
                 <thead>
                     <tr>
-                        <th scope="col">ID</th>
-                        <th scope="col">Nome_cliente</th>
+                        <th scope="col">Nome cliente</th>
                         <th scope="col">Email</th>
                         <th scope="col">Telefono</th>
                         <th scope="col">Indirizzo</th>
-                        <th scope="col">Data_ordine</th>
+                        <th scope="col">Data ordine</th>
                         <th scope="col">Prezzo</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
-                        <td>{{ $order->id }}</td>
                         <td>{{ $order->customer_name }}</td>
                         <td>{{ $order->email }}</td>
                         <td>{{ $order->phone }}</td>
@@ -44,7 +42,6 @@
             <table class="table">
                 <thead>
                     <tr>
-                        <th scope="col">ID</th>
                         <th scope="col">Piatto</th>
                         <th scope="col">Quantità</th>
                     </tr>
@@ -52,7 +49,6 @@
                 <tbody>
                     @foreach ($order->dishes as $dish)
                         <tr>
-                            <td>{{ $dish->id }}</td>
                             <td>{{ $dish->name }}</td>
                             <td>{{ $dish->pivot->quantity }}</td>
 
@@ -61,6 +57,9 @@
                 </tbody>
             </table>
 
+            <a href="{{ route('admin.dashboard') }}" class="my-4 btn btn-primary">
+                <i class="fa-solid fa-circle-left fa-beat"></i>
+                Torna alla Lista</a>
 
 
         </div>
