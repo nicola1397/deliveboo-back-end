@@ -103,13 +103,13 @@ class RestaurantController extends Controller
         // Permission user-restaurant
 
         if (Auth::user()->id != $restaurant->user_id)
-            abort(403);
+            abort(401);
 
 
         $user = User::where('user_id', $restaurant->user_id);
-        $dishes = Dish::where("restaurant_id", $restaurant->id)->get();
+        $dishes = Dish::where("restaurant_id", $restaurant->id)->orderBy('name')->get();
 
-        $types = Type::all();
+        $types = Type::orderBy('label')->get();
         return view('admin.restaurants.show', compact('restaurant', 'user', 'types', 'dishes'));
     }
 

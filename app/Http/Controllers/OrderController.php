@@ -26,11 +26,13 @@ class OrderController extends Controller
         $restaurant = Restaurant::find(1)->where('user_id', Auth::id())->first()->toArray();
         $restaurantUserId = $restaurant['user_id'];
         if (Auth::user()->id != $restaurantUserId)
-            abort(403);
+            abort(401);
 
         $orders = Order::whereHas('dishes.restaurant', function ($query) use ($restaurantUserId) {
             $query->where('user_id', $restaurantUserId);
+
         })->with('dishes')->orderBy('date_time', 'desc')->paginate(10);
+
 
         return view('admin.orders.index', compact('orders'));
     }
@@ -52,31 +54,14 @@ class OrderController extends Controller
         }
     ]);
 
+
     // Return the view with the order
     return view('admin.orders.show', compact('order'));
 }
 
+
 }
 
 
-// ###VARIE PROVE-------------------------------------------------------
-
-// $dishes = Auth::user()->restaurant->dishes->toArray();
-// $dishesId = [];
-
-// foreach ($dishes as $dish)
-//     array_push($dishesId, $dish['id']);
 
 
-// $dishes = Dish::where('restaurant_id', Auth::user()->restaurant->id)
-//     ->with('orders')
-//     ->get();
-
-// $ordersId = Order::all()->pluck('id')->toArray();
-// $ordersCount = $orders->count();
-
-// foreach ($allOrders as $order)
-//     if (!empty($order->dishes()))
-//         array_push($orders, $order);
-
-// ###FINE PROVE----------------------------------------------------------

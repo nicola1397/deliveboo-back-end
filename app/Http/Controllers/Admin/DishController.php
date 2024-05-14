@@ -7,11 +7,13 @@ use App\Http\Controllers\Controller;
 
 use App\Http\Requests\DishStoreRequest;
 use App\Http\Requests\DishUpdateRequest;
+use App\Mail\OrderUserMail;
 use App\Models\Dish;
 use App\Models\Restaurant;
 use Illuminate\Http\Request;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 
@@ -24,10 +26,11 @@ class DishController extends Controller
      */
 
     public function index(Dish $dish)
-    {   
-        if(empty(Auth::user()->restaurant->id)) return view('admin.dishes.form', compact('dish'));
+    {
+        if (empty(Auth::user()->restaurant->id))
+            return view('admin.dishes.form', compact('dish'));
 
-    // Permission user-restaurant-dishes for index
+        // Permission user-restaurant-dishes for index
         $restaurantId = Auth::user()->restaurant->id;
         $restaurant = Auth::user()->restaurant;
         $dishes = Dish::where('restaurant_id', $restaurantId)->orderBy('name')->paginate(10);
@@ -74,6 +77,7 @@ class DishController extends Controller
 
         $dish->save();
 
+
         // Redirect to dish show & success output
         return redirect()->route('admin.dishes.show', compact('dish'))->with('message-class', 'alert-success')->with('message', 'New Dish Added.');
 
@@ -88,7 +92,7 @@ class DishController extends Controller
     public function show(Dish $dish)
     {
         if (Auth::user()->id != $dish->restaurant->user_id)
-            abort(403);
+            abort(401);
 
         $restaurant = Auth::user()->restaurant;
 
@@ -105,7 +109,7 @@ class DishController extends Controller
     {
 
         if ($dish->restaurant->user_id != Auth::id())
-            abort(403);
+            abort(401);
         return view('admin.dishes.form', compact('dish'));
     }
 

@@ -23,8 +23,7 @@
                         <th scope="col">Email</th>
                         <th scope="col">Telefono</th>
                         <th scope="col">Indirizzo</th>
-                        <th scope="col">Data_ordine</th>
-                        {{-- <th scope="col">Piatto</th> --}}
+                        <th scope="col">Data ordine</th>
                         <th scope="col">Prezzo</th>
                         <th scope="col">Dettagli</th>
                     </tr>
@@ -33,8 +32,7 @@
                     @forelse($orders as $order)
                         @if (!empty($order))
                             <tr>
-
-                                <td>{{ $order->customer_name }}</td>
+                <td>{{ $order->customer_name }}</td>
                                 <td>{{ $order->email }}</td>
                                 <td>{{ $order->phone }}</td>
                                 <td>{{ $order->address }}</td>
