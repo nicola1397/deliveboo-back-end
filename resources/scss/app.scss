@@ -516,3 +516,6 @@ $transition: all #{$speed} cubic-bezier(0.31, -0.105, 0.43, 1.4);
 .detailCap {
     text-transform: capitalize;
 }
+.pageControls p {
+    color: white !important;
+}

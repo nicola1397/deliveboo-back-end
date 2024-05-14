@@ -6,10 +6,14 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Orders\OrderRequest as PaymentRequest;
 use App\Models\Dish;
 use App\Models\Order;
+use App\Models\Restaurant;
 use Braintree\Gateway;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\OrderMailable;
+
 
 
 
@@ -39,6 +43,7 @@ class OrderController extends Controller
         $amount = $request->input('amount');
         $orderData = json_decode($request->input('orderData'), true);
         $token = $request->input('token');
+
 $newOrder = $request->validate([
     'customer_name' => 'required|max:200',
     'email' => 'required|email|max:200',
@@ -48,29 +53,9 @@ $newOrder = $request->validate([
     'price' => 'required',
 ]);
 
-
-
-// Order::create($newOrder);
-DB::transaction(function () use ($orderData, $newOrder) {
-
-    $order = Order::create($newOrder);
-    // dd($orderData);
-       foreach ($orderData as $dish) {
-        // You can use the attach method if you have defined a many-to-many relationship in your Order model.
-        $order->dishes()->attach($dish['id'], ['quantity' => $dish['quantity']]);
-    }
-});
-
-
-
-        $fileName = 'form-data.txt';
-        $filePath = 'public/' . $fileName;
-        Storage::put($filePath, $request);
-        return redirect()->back()->with('success', 'Data has been saved to a text file.');
-
         $result = $gateway->transaction()->sale([
-            'amount' => $request->amount,
-            'paymentMethodNonce' => $request->token,
+            'amount' => $amount,
+            'paymentMethodNonce' => "fake-valid-nonce",
             'options' => [
                 'submitForSettlement' => true
             ]
@@ -81,6 +66,23 @@ DB::transaction(function () use ($orderData, $newOrder) {
                 'success' => true,
                 'message' => 'Transazione eseguita con successo!'
             ];
+       
+            $restaurant_id =  $orderData[0]['restaurant_id'];
+            $restaurant = Restaurant::with('user')->find($restaurant_id);
+            $userEmail = $restaurant->user->email;
+            Mail::to($userEmail)->send(new OrderMailable());
+            Mail::to($email)->send(new OrderMailable());
+                        
+            DB::transaction(function () use ($orderData, $newOrder) {
+            
+                  $order = Order::create($newOrder);
+                            
+                          
+                   foreach ($orderData as $dish) {
+                     $order->dishes()->attach($dish['id'], ['quantity' => $dish['quantity']]);
+                            }
+                        });
+
             return response()->json($data, 200);
         } else {
             $data = [
@@ -90,9 +92,5 @@ DB::transaction(function () use ($orderData, $newOrder) {
             return response()->json($data, 401);
         }
     }
-
-    public function newOrder(Request $request)
-    {
-        // todo logica nuovo ordine
-    }
 }
+
