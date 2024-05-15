@@ -98,12 +98,12 @@
             {{-- <div class="card ">
                 <div class="card-body"> --}}
             {{-- <h5 class="card-title">{{ Auth::user()->name }}</h5> --}}
-            <div class="coverImage"><a href="{{ route('admin.restaurants.index') }}" class="card-link">
-                    @foreach ($restaurant as $restaurant)
+            <div class="coverImage">
+                <a href="{{ route('admin.restaurants.index') }}" class="card-link">
                     <img class="card-img-bottom" src="{{ !empty($restaurant->image)
                                 ? asset('storage/' . $restaurant->image)
                                 : asset('storage/uploads/placeholder.png') }}">
-                    @endforeach
+
                 </a>
             </div>
             {{-- </div>
