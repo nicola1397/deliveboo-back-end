@@ -24,7 +24,7 @@
                         <th scope="col">Telefono</th>
                         <th scope="col">Indirizzo</th>
                         <th scope="col">Data ordine</th>
-                        <th scope="col">Prezzo</th>
+                        <th scope="col">Prezzo (€)</th>
                         <th scope="col">Dettagli</th>
                     </tr>
                 </thead>
@@ -32,12 +32,12 @@
                     @forelse($orders as $order)
                         @if (!empty($order))
                             <tr>
-                <td>{{ $order->customer_name }}</td>
+                                <td>{{ $order->customer_name }}</td>
                                 <td>{{ $order->email }}</td>
                                 <td>{{ $order->phone }}</td>
-                                <td>{{ $order->address }}</td>
-                                <td>{{ $order->date_time }}</td>
-                                <td>€ {{ $order->price }}</td>
+                                <td>{{ substr($order->address, 0, 10) . '...' }}</td>
+                                <td>{{ date('d/m/Y', strtotime($order->date_time)) }}</td>
+                                <td>{{ str_replace('.', ',', $order->price) }}</td>
                                 <td><a href="{{ route('admin.orders.show', $order) }}"><i
                                             class="fa-solid fa-table-list"></i></a></td>
                             </tr>
