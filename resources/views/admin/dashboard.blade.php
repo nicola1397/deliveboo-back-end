@@ -64,9 +64,9 @@
                                         <td>{{ $order->customer_name }}</td>
                                         <td>{{ $order->email }}</td>
                                         <td>{{ $order->phone }}</td>
-                                        <td>{{ $order->address }}</td>
-                                        <td>{{ $order->date_time }}</td>
-                                        <td>{{ $order->price }}</td>
+                                        <td>{{ substr($order->address, 0, 10) . '...' }}</td>
+                                        <td>{{ date('d/m/Y', strtotime($order->date_time)) }}</td>
+                                        <td>{{ str_replace('.', ',', $order->price) }}</td>
                                         <td><a href="{{ route('admin.orders.show', $order) }}"><i
                                                     class="fa-solid fa-table-list"></i></a></td>
                                     </tr>
