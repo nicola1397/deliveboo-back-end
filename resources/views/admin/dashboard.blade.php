@@ -13,14 +13,13 @@
 
 
 @section('content')
-<div class="container">
-    <div class="card-body mt-3">
-        @if (session('status'))
-        <div class="alert alert-success" role="alert">
-            {{ session('status') }}
-        </div>
-        @endif
-
+    <div class="container">
+        <div class="card-body mt-3">
+            @if (session('status'))
+                <div class="alert alert-success" role="alert">
+                    {{ session('status') }}
+                </div>
+            @endif
 
 
         </div>
@@ -34,11 +33,11 @@
 
         <div class="row">
             <div class="col-9">
-                <div><select id="yearSelect">
-                        <option value="2023">2023</option>
-                        <option value="2024">2024</option>
-                    </select>
-                    <canvas id="myChart" width="500" height="300"></canvas>
+                <div class="chartContainer">
+                    <button class="btn orders" id="toggleData">Ordini</button>
+
+
+                    <canvas id="ordersChart" width="500" height="300"></canvas>
 
 
 
@@ -53,33 +52,43 @@
                                 <th scope="col">Email</th>
                                 <th scope="col">Telefono</th>
                                 <th scope="col">Indirizzo</th>
+
                                 <th scope="col">Data ordine</th>
                                 <th scope="col">Prezzo(€)</th>
+
                                 <th scope="col">Dettagli</th>
                             </tr>
                         </thead>
                         <tbody>
+                            @php $counter = 0; @endphp
                             @forelse($orders as $order)
-                                @if (!empty($order))
-                                    <tr>
-                                        <td>{{ $order->customer_name }}</td>
-                                        <td>{{ $order->email }}</td>
-                                        <td>{{ $order->phone }}</td>
-                                        <td>{{ substr($order->address, 0, 10) . '...' }}</td>
-                                        <td>{{ date('d/m/Y', strtotime($order->date_time)) }}</td>
-                                        <td>{{ str_replace('.', ',', $order->price) }}</td>
-                                        <td><a href="{{ route('admin.orders.show', $order) }}"><i
-                                                    class="fa-solid fa-table-list"></i></a></td>
-                                    </tr>
-                                @endif
-                            @empty
+                                @if ($counter >= 5)
+                                @break
+                            @endif
+
+                            @if (!empty($order))
                                 <tr>
-                                    <p>Nessun ordine</p>
+                                    <td>{{ $order->customer_name }}</td>
+                                    <td>{{ $order->email }}</td>
+                                    <td>{{ $order->phone }}</td>
+                                    <td>{{ substr($order->address, 0, 10) . '...' }}</td>
+                                    <td>{{ date('d/m/Y', strtotime($order->date_time)) }}</td>
+                                    <td>{{ str_replace('.', ',', $order->price) }}</td>
+                                    <td><a href="{{ route('admin.orders.show', $order) }}"><i
+                                                class="fa-solid fa-table-list"></i></a></td>
                                 </tr>
-                            @endforelse
-                        </tbody>
-                    </table>
-                </div>
+                            @endif
+                            @php $counter++; @endphp
+                        @empty
+                            <tr>
+                                <p>Nessun ordine</p>
+                            </tr>
+                        @endforelse
+                    </tbody>
+                </table>
+
+            </div>
+
 
         </div>
         {{-- --}}
@@ -90,9 +99,10 @@
             {{-- <h5 class="card-title">{{ Auth::user()->name }}</h5> --}}
             <div class="coverImage">
                 <a href="{{ route('admin.restaurants.index') }}" class="card-link">
-                    <img class="card-img-bottom" src="{{ !empty($restaurant->image)
-                                ? asset('storage/' . $restaurant->image)
-                                : asset('storage/uploads/placeholder.png') }}">
+                    <img class="card-img-bottom"
+                        src="{{ !empty($restaurant->image)
+                            ? asset('storage/' . $restaurant->image)
+                            : asset('storage/uploads/placeholder.png') }}">
 
                 </a>
             </div>
@@ -108,19 +118,20 @@
         </div>
     </div>
     @vite('resources/js/charts.js')
-    @endsection
+@endsection
 
-    {{-- ! CSS --}}
-    @section('script')
+{{-- ! CSS --}}
+@section('script')
     @vite('resources/js/charts.js')
     <script>
         window.orders = @json($orders);
-
     </script>
-    @endsection
+@endsection
 
-    {{-- ! CSS --}}
-    @section('css')
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+{{-- ! CSS --}}
+@section('css')
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+        integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
     @vite('resources/scss/indexs.scss')
-    @endsection
+@endsection
