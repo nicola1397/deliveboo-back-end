@@ -30,61 +30,38 @@ class OrderController extends Controller
 
         $orders = Order::whereHas('dishes.restaurant', function ($query) use ($restaurantUserId) {
             $query->where('user_id', $restaurantUserId);
-        })->with('dishes')->orderBy('date_time', 'DESC')->get();
+
+        })->with('dishes')->orderBy('date_time', 'desc')->paginate(10);
+
 
         return view('admin.orders.index', compact('orders'));
     }
 
 
-    public function show(Order $order, Dish $dish)
+    public function show(Order $order)
     {
-        // Controllo dei permessi per vedere gli ordini inerenti al ristorante
-        $restaurant = Restaurant::find(1)->where('user_id', Auth::id())->first()->toArray();
-        $restaurantUserId = $restaurant['user_id'];
-        $orders = Order::whereHas('dishes.restaurant', function ($query) use ($restaurantUserId) {
-            $query->where('user_id', $restaurantUserId);
-        })->with([
-            'dishes' => function ($query) {
-                $query->withPivot('order_id');
-            }
-        ])->get()->toArray();
+        // First, check if the logged-in user owns the restaurant associated with the order
+        $restaurantUserId = $order->dishes->first()->restaurant->user_id;
 
-        // $orderId = $orders[0]['id'];
+        if (Auth::id() != $restaurantUserId) {
+            abort(403, 'You do not have permission to view this order.');
+        }
 
-        // if ($order->id != $orderId) {
-        //     abort(401);
-        // }
-
-
-        $order = Order::where('id', $order->id)->with([
+        // Load the dishes with pivot data
+        $order->load([
             'dishes' => function ($query) {
                 $query->withPivot('quantity');
             }
-        ])->firstOrFail();
+        ]);
 
+
+        // Return the view with the order
         return view('admin.orders.show', compact('order'));
     }
+
+
 }
 
 
-// ###VARIE PROVE-------------------------------------------------------
-
-// $dishes = Auth::user()->restaurant->dishes->toArray();
-// $dishesId = [];
-
-// foreach ($dishes as $dish)
-//     array_push($dishesId, $dish['id']);
 
 
-// $dishes = Dish::where('restaurant_id', Auth::user()->restaurant->id)
-//     ->with('orders')
-//     ->get();
-
-// $ordersId = Order::all()->pluck('id')->toArray();
-// $ordersCount = $orders->count();
-
-// foreach ($allOrders as $order)
-//     if (!empty($order->dishes()))
-//         array_push($orders, $order);
-
-// ###FINE PROVE----------------------------------------------------------

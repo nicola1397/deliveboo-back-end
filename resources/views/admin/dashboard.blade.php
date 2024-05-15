@@ -13,13 +13,14 @@
 
 
 @section('content')
-    <div class="container">
-        <div class="card-body mt-3">
-            @if (session('status'))
-                <div class="alert alert-success" role="alert">
-                    {{ session('status') }}
-                </div>
-            @endif
+<div class="container">
+    <div class="card-body mt-3">
+        @if (session('status'))
+        <div class="alert alert-success" role="alert">
+            {{ session('status') }}
+        </div>
+        @endif
+
 
 
         </div>
@@ -80,49 +81,46 @@
                     </table>
                 </div>
 
-
-            </div>
-            {{--  --}}
-            <div class="col-3 myCard">
-                {{-- qua andremo a mostrare l'index del ristorante --}}
-                {{-- <div class="card ">
-                <div class="card-body"> --}}
-                {{-- <h5 class="card-title">{{ Auth::user()->name }}</h5> --}}
-                <div class="coverImage"><a href="{{ route('admin.restaurants.index') }}" class="card-link">
-                        @foreach ($restaurants as $restaurant)
-                            <img class="card-img-bottom"
-                                src="{{ !empty($restaurant->image)
-                                    ? asset('storage/' . $restaurant->image)
-                                    : asset('storage/uploads/placeholder.png') }}">
-                        @endforeach
-                    </a>
-                </div>
-                {{-- </div>
-                </div> --}}
-                <div class="card mt-4">
-                    <button class="btn btn-warning"><a href="{{ route('admin.dishes.index') }}"> Ecco i tuoi piatti
-                            🍝</a>
-                        </a>
-                    </button>
-                </div>
-
-            </div>
         </div>
-        @vite('resources/js/charts.js')
+        {{-- --}}
+        <div class="col-3 myCard">
+            {{-- qua andremo a mostrare l'index del ristorante --}}
+            {{-- <div class="card ">
+                <div class="card-body"> --}}
+            {{-- <h5 class="card-title">{{ Auth::user()->name }}</h5> --}}
+            <div class="coverImage">
+                <a href="{{ route('admin.restaurants.index') }}" class="card-link">
+                    <img class="card-img-bottom" src="{{ !empty($restaurant->image)
+                                ? asset('storage/' . $restaurant->image)
+                                : asset('storage/uploads/placeholder.png') }}">
+
+                </a>
+            </div>
+            {{-- </div>
+                </div> --}}
+            <div class="card mt-4">
+                <button class="btn btn-warning"><a href="{{ route('admin.dishes.index') }}"> Ecco i tuoi piatti
+                        🍝</a>
+                    </a>
+                </button>
+            </div>
+
+        </div>
+    </div>
+    @vite('resources/js/charts.js')
     @endsection
 
     {{-- ! CSS --}}
     @section('script')
-        @vite('resources/js/charts.js')
-        <script>
-            window.orders = @json($orders);
-        </script>
+    @vite('resources/js/charts.js')
+    <script>
+        window.orders = @json($orders);
+
+    </script>
     @endsection
 
     {{-- ! CSS --}}
     @section('css')
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
-            integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
-            crossorigin="anonymous" referrerpolicy="no-referrer" />
-        @vite('resources/scss/indexs.scss')
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    @vite('resources/scss/indexs.scss')
     @endsection

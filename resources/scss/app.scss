@@ -516,3 +516,37 @@ $transition: all #{$speed} cubic-bezier(0.31, -0.105, 0.43, 1.4);
 .detailCap {
     text-transform: capitalize;
 }
+.pageControls p {
+    color: white !important;
+}
+
+.chartContainer {
+    background-color: white;
+    padding: 30px 30px;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    position: relative;
+    padding-top: 20px;
+    canvas {
+        margin-top: 50px;
+    }
+    button {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        margin-top: 10px;
+        border-radius: 0;
+        border: 2px solid;
+        transition: all 0.2s ease 0.2s;
+    }
+
+    .orders {
+        background-color: rgba(3, 169, 244, 0.2);
+        border-color: rgba(3, 169, 244);
+    }
+
+    .revenue {
+        background-color: rgba(76, 175, 80, 0.2);
+        border-color: rgba(76, 175, 80);
+    }
+}

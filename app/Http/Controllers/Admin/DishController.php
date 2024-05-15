@@ -7,11 +7,13 @@ use App\Http\Controllers\Controller;
 
 use App\Http\Requests\DishStoreRequest;
 use App\Http\Requests\DishUpdateRequest;
+use App\Mail\OrderUserMail;
 use App\Models\Dish;
 use App\Models\Restaurant;
 use Illuminate\Http\Request;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 
@@ -74,6 +76,7 @@ class DishController extends Controller
         }
 
         $dish->save();
+
 
         // Redirect to dish show & success output
         return redirect()->route('admin.dishes.show', compact('dish'))->with('message-class', 'alert-success')->with('message', 'New Dish Added.');
