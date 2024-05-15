@@ -39,25 +39,25 @@ class OrderController extends Controller
 
 
     public function show(Order $order)
-{
-    // First, check if the logged-in user owns the restaurant associated with the order
-    $restaurantUserId = $order->dishes->first()->restaurant->user_id;
-    
-    if (Auth::id() != $restaurantUserId) {
-        abort(403, 'You do not have permission to view this order.');
-    }
+    {
+        // First, check if the logged-in user owns the restaurant associated with the order
+        $restaurantUserId = $order->dishes->first()->restaurant->user_id;
 
-    // Load the dishes with pivot data
-    $order->load([
-        'dishes' => function ($query) {
-            $query->withPivot('quantity');
+        if (Auth::id() != $restaurantUserId) {
+            abort(403, 'You do not have permission to view this order.');
         }
-    ]);
+
+        // Load the dishes with pivot data
+        $order->load([
+            'dishes' => function ($query) {
+                $query->withPivot('quantity');
+            }
+        ]);
 
 
-    // Return the view with the order
-    return view('admin.orders.show', compact('order'));
-}
+        // Return the view with the order
+        return view('admin.orders.show', compact('order'));
+    }
 
 
 }
