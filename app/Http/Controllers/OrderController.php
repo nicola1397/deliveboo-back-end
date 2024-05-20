@@ -22,6 +22,8 @@ class OrderController extends Controller
     public function index()
     {
 
+        if (empty(Auth::user()->restaurant->id))
+        return redirect()->route('admin.restaurants.create')->with('error' , 'Non hai ancora un ristorante!');
         // controllo se l'utente loggato corrisponde a chi fa la richiesta
         $restaurant = Restaurant::find(1)->where('user_id', Auth::id())->first()->toArray();
         $restaurantUserId = $restaurant['user_id'];

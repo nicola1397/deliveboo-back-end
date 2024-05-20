@@ -6,7 +6,7 @@
 {{-- !! Main-Content --}}
 @section('content')
     <section>
-        <div class="container mt-4 mb-4">
+        <div class="container table-responsive mt-4 mb-4">
 
             {{-- * Main title page --}}
             <h1 class="text-center mb-5">I tuoi ordini</h1>

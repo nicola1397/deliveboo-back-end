@@ -19,6 +19,14 @@ a:hover {
   color: white;
 } */
 
+.navbar-toggler {
+    color: white;
+    border-color: white;
+    span {
+        filter: invert(100);
+    }
+}
+
 button {
     background-color: transparent;
     border: 0;

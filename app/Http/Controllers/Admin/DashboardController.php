@@ -7,6 +7,8 @@ use App\Models\Restaurant;
 use App\Models\Dish;
 use App\Models\Order;
 use App\Models\User;
+use App\Http\Controllers\RestaurantController;
+
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -17,14 +19,11 @@ class DashboardController extends Controller
 
     // GET RESTAURANT
 
-
-
-
     $restaurant = Restaurant::where('user_id', Auth::id())->first();
 
     if (!$restaurant) {
-      // Handle the case where the restaurant doesn't exist
-      abort(404, 'Restaurant not found.');
+
+      return redirect()->route('admin.restaurants.create')->with('error' , 'Non hai ancora un ristorante!');
     }
 
     $restaurantUserId = $restaurant->user_id;

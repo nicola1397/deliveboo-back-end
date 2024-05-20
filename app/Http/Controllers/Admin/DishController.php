@@ -28,7 +28,7 @@ class DishController extends Controller
     public function index(Dish $dish)
     {
         if (empty(Auth::user()->restaurant->id))
-            return view('admin.dishes.form', compact('dish'));
+        return redirect()->route('admin.restaurants.create')->with('error' , 'Non hai ancora un ristorante!');
 
         // Permission user-restaurant-dishes for index
         $restaurantId = Auth::user()->restaurant->id;

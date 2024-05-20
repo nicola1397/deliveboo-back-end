@@ -20,8 +20,6 @@
                     {{ session('status') }}
                 </div>
             @endif
-
-
         </div>
         <h2 class="fs-4 text-white my-4">
 
@@ -31,20 +29,15 @@
             {{ __('Bentornato') . ', ' . Auth::user()->name . '!' }}
         </h2>
 
-        <div class="row">
-            <div class="col-9">
+        <div class="row flex-row mb-4">
+            <div class="col-12 col-md-8 mb-4">
                 <div class="chartContainer">
                     <button class="btn orders" id="toggleData">Ordini</button>
-
-
-                    <canvas id="ordersChart" width="500" height="300"></canvas>
-
-
-
+                    <canvas id="ordersChart"></canvas>
                 </div>
 
                 {{-- TABLE --}}
-                <div>
+                <div class="table-responsive p-3 bg-white rounded-bottom">
                     <table class="table">
                         <thead>
                             <tr>
@@ -86,17 +79,14 @@
                         @endforelse
                     </tbody>
                 </table>
-
             </div>
-
-
         </div>
-        {{-- --}}
-        <div class="col-3 myCard">
-            {{-- qua andremo a mostrare l'index del ristorante --}}
-            {{-- <div class="card ">
-                <div class="card-body"> --}}
-            {{-- <h5 class="card-title">{{ Auth::user()->name }}</h5> --}}
+
+
+
+
+        <div class="col-12 col-md-3 mb-4 myCard mb-auto">
+
             <div class="coverImage">
                 <a href="{{ route('admin.restaurants.index') }}" class="card-link">
                     <img class="card-img-bottom"
@@ -106,32 +96,31 @@
 
                 </a>
             </div>
-            {{-- </div>
-                </div> --}}
+
             <div class="card mt-4">
                 <button class="btn btn-warning"><a href="{{ route('admin.dishes.index') }}"> Ecco i tuoi piatti
                         🍝</a>
                     </a>
                 </button>
             </div>
-
         </div>
     </div>
-    @vite('resources/js/charts.js')
+</div>
+@vite('resources/js/charts.js')
 @endsection
 
 {{-- ! CSS --}}
 @section('script')
-    @vite('resources/js/charts.js')
-    <script>
-        window.orders = @json($orders);
-    </script>
+@vite('resources/js/charts.js')
+<script>
+    window.orders = @json($orders);
+</script>
 @endsection
 
 {{-- ! CSS --}}
 @section('css')
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
-        integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
-    @vite('resources/scss/indexs.scss')
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+@vite('resources/scss/indexs.scss')
 @endsection
